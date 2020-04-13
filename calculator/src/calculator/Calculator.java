@@ -25,7 +25,7 @@ public class Calculator extends JFrame implements ActionListener {
     public Calculator() {
         // TODO Auto-generated constructor stub
         init();
-        this.setTitle("只能计算加减乘除的..额东西");
+        this.setTitle("基础计算器");
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
