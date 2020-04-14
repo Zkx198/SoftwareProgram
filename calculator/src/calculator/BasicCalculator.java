@@ -1,10 +1,12 @@
 package calculator;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import java.awt.Window.Type;
-//未完成品！！！！！！！！！！！！！！！
+
 public class BasicCalculator extends WindowAdapter implements ActionListener {
 	private Frame cal_Frame;
 	private Panel command_Panel, key_Panel, m_Panel, intergration_Panel, displayOutput_Panel, displayM_Panel;
@@ -20,6 +22,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 	private double memory = 0.0;
 	private int numOfDecimal = 0; // 小数位数
 	private int operator = 1; // 运算符类型
+	private int combi = 0;
 	private int numOfBit = 0; // 总共输入的位数
 	private boolean alreadyHaveDot = false;
 	private boolean keyAvailable = true;
@@ -48,7 +51,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		displayOutput_Panel = new Panel(new FlowLayout());
 		displayM_Panel = new Panel(new FlowLayout());
 		intergration_Panel.add(command_Panel, BorderLayout.NORTH);
-		intergration_Panel.add(key_Panel,BorderLayout.SOUTH);
+		intergration_Panel.add(key_Panel, BorderLayout.SOUTH);
 		displayOutput_Panel.setPreferredSize(new Dimension(280, 60));
 		m_Panel.setPreferredSize(new Dimension(80, 300));
 		key_Panel.setPreferredSize(new Dimension(310, 290));
@@ -219,7 +222,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 
 		displayM_Panel.add(m_Textfield);
 		displayM_Panel.setPreferredSize(new Dimension(80, 50));
-		m_Panel.add(displayM_Panel,BorderLayout.NORTH);
+		m_Panel.add(displayM_Panel, BorderLayout.NORTH);
 		MC_Button.setBounds(50, 50, 10, 20);
 		m_Panel.add(MC_Button);
 		m_Panel.add(MR_Button);
@@ -260,24 +263,38 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 				this.numOfDecimal = -1;
 			}
 		}
-		if (this.keyAvailable &&  e.getActionCommand() == "c" ) {
+		if (this.keyAvailable && e.getActionCommand() == "c") {
 			if (this.alreadyClickedEqual) {
-				display_Textfield.setText("请重新输入正整数！");
-				this.keyAvailable = false;
+				this.inputContent = this.result;
+				this.isTempNowInput = true;
+			} else {
+				if (this.inputContent < 0 || this.result < 0 || this.inputContent != (int) this.inputContent
+						|| this.result != (int) this.result) {
+					display_Textfield.setText("请输入正整数！");
+					this.keyAvailable = false;
+				} else {
+					if (this.inputContent > 65) {
+						display_Textfield.setText("整数过大无法计算！");
+						this.keyAvailable = false;
+					} else {
+						if (this.keyAvailable) {
+							this.result = this.inputContent;
+							display_Textfield.setText(Double.toString(this.result));
+						}
+						this.inputContent = 0;
+						this.numOfBit = 0;
+						this.combi = 1;
+						this.operator = 5;
+						this.alreadyClickedEqual = false;
+					}
+
 				}
-			else {
-				this.result = this.inputContent;
-				this.operator = 5;
-				if (this.keyAvailable)
-					display_Textfield.setText(Double.toString(this.result));
-				this.inputContent = 0;
-				this.numOfBit = 0;
-				this.alreadyClickedEqual = false;
+
 			}
 		}
 		// key "+","-","*","/"
 		if (this.keyAvailable && e.getActionCommand() == "+" || e.getActionCommand() == "-"
-				|| e.getActionCommand() == "*" || e.getActionCommand() == "/" ) {
+				|| e.getActionCommand() == "*" || e.getActionCommand() == "/") {
 			if (this.alreadyClickedEqual) {
 				this.inputContent = this.result;
 				this.isTempNowInput = true;
@@ -357,7 +374,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		// key "ln"
 		if (this.keyAvailable && e.getActionCommand() == "ln") {
 			if (this.inputContent == 0) {
-				display_Textfield.setText("请输入正整数！");
+				display_Textfield.setText("请先输入正整数！");
 				this.keyAvailable = false;
 			} else {
 				this.inputContent = Math.log(this.inputContent);
@@ -369,6 +386,16 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 			this.inputContent = Math.exp(this.inputContent);
 			display_Textfield.setText(Double.toString(this.inputContent));
 		}
+		// key "sin"
+		if (this.keyAvailable && e.getActionCommand() == "sin") {
+			this.inputContent = Math.sin(this.inputContent);
+			display_Textfield.setText(Double.toString(this.inputContent));
+		}
+		// key "cos"
+		if (this.keyAvailable && e.getActionCommand() == "cos") {
+			this.inputContent = Math.cos(this.inputContent);
+			display_Textfield.setText(Double.toString(this.inputContent));
+		}
 		// key "^2"
 		if (this.keyAvailable && e.getActionCommand() == "^2") {
 			this.inputContent = this.inputContent * this.inputContent;
@@ -377,8 +404,15 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		// key "n！"
 		if (this.keyAvailable && e.getActionCommand() == "n!") {
 			if (this.inputContent >= 0 && this.inputContent == (int) this.inputContent) {
-				this.inputContent = doFactorial((int) this.inputContent);
-				display_Textfield.setText(Double.toString(this.inputContent));
+				if (this.inputContent >= 300) {
+					display_Textfield.setText("数字过大无法计算！");
+					this.keyAvailable = false;
+				} else {
+					BigInteger number_temp;
+					number_temp = bigNumber((int) this.inputContent);
+					this.inputContent = number_temp.doubleValue();
+					display_Textfield.setText(Double.toString(this.inputContent));
+				}
 			} else {
 				display_Textfield.setText("请输入正整数！");
 				this.keyAvailable = false;
@@ -389,6 +423,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 			this.inputContent = (this.result * this.inputContent) / 100;
 			display_Textfield.setText(Double.toString(this.inputContent));
 		}
+
 		// key "="
 		if (this.keyAvailable && e.getActionCommand() == "=") {
 			this.alreadyClickedEqual = true;
@@ -409,15 +444,24 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 				} else
 					this.result = this.result / this.inputContent;
 			}
-/*			case 5: {
+			default:
+				display_Textfield.setText("default跳转调试1");
+				/*
+				 * case 5: { if (this.inputContent <= 0 || this.result <= 0 || this.inputContent
+				 * != (int) this.inputContent || this.result != (int) this.result) {
+				 * display_Textfield.setText("=case5中调试！"); this.keyAvailable = false; } else {
+				 * this.result = Combinatorial((int) this.result, (int) this.inputContent); } }
+				 */
+			}
+			if (this.combi == 1) {
+				this.combi = 0;
 				if (this.inputContent <= 0 || this.result <= 0 || this.inputContent != (int) this.inputContent
 						|| this.result != (int) this.result) {
-					display_Textfield.setText("=case5中调试！");
+					display_Textfield.setText("请输入正整数！");
 					this.keyAvailable = false;
 				} else {
 					this.result = Combinatorial((int) this.result, (int) this.inputContent);
 				}
-			}*/
 			}
 			if (this.keyAvailable)
 				display_Textfield.setText(Double.toString(this.result));
@@ -514,10 +558,53 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		}
 	}
 
-	public int Combinatorial(int n, int m) {
-		int result = 0;
-		result = doFactorial(n) / doFactorial(m) / doFactorial(n - m);
+	public double Combinatorial(int n, int m) {
+		BigInteger result1;
+		BigInteger result2;
+		BigInteger result3;
+		int another = n;
+		if (n < m) {
+			n = m;
+			m = another;
+		} // BigInteger multiply(BigInteger val) BigInteger divide(BigInteger val)
+			// 返回两个大整数的商
+		result1 = bigNumber(n);
+		result2 = bigNumber(m).multiply(bigNumber(n - m));
+		result3 = result1.divide(result2);
+		double result = result3.doubleValue();
 		return result;
+	}
+
+	private static double comb_log(int m, int n) {
+		int i;
+		int another = n;
+		if (n > m) {
+			n = m;
+			m = another;
+		}
+		if (n > m - n)
+			n = m - n;
+		double s1 = 0.0;
+		double s2 = 0.0;
+		for (int j = m - n + 1; j <= m; j++) {
+			s1 += Math.log(j);
+		}
+		for (int j = 1; j <= n; j++) {
+			s2 += Math.log(j);
+		}
+		return (int) Math.exp(s1 - s2);
+	}
+
+	public static synchronized BigInteger bigNumber(int num) {// 利用BigInteger类计算阶乘
+		ArrayList list = new ArrayList();// 创建集合数组
+		list.add(BigInteger.valueOf(1));// 往数组里添加一个数值
+		for (int i = list.size(); i <= num; i++) {
+			BigInteger lastfact = (BigInteger) list.get(i - 1);// 获得第一个元素
+			BigInteger nextfact = lastfact.multiply(BigInteger.valueOf(i));// 获得下一个数组
+			list.add(nextfact);
+		}
+		return (BigInteger) list.get(num);// 返回数组中的下标为num的值
+
 	}
 
 	public static void main(String[] args) {
