@@ -41,8 +41,8 @@ public class SecondaryPageOne extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Calculator newWindow=new Calculator();
-				newWindow.setVisible(true);
+				BasicCalculator newWindow=new BasicCalculator();
+				newWindow.cal();
 			}
 		});
 		contentPane.add(btnNewButton);
