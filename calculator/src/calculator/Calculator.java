@@ -22,10 +22,17 @@ public class Calculator extends JFrame implements ActionListener {
     private double result=0.0;//结果
     private String operator = "=";//默认操作为"="
     private boolean operateValidFlag = true;//操作是否合法
+    
+    
+    
     public Calculator() {
         // TODO Auto-generated constructor stub
         init();
         this.setTitle("基础计算器");
+        this.setSize(214,146);
+  	    this.setLocation(200,200);
+  	    this.setBackground(Color.LIGHT_GRAY);
+  	    this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
