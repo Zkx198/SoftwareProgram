@@ -31,7 +31,7 @@ public class SecondaryPageOne extends JFrame {
 	public SecondaryPageOne() {
 		setTitle("科学计算器");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 420, 480);
 		JPanel contentPane = new JPanel();
 		
         contentPane.setLayout(new GridLayout(2,3,3,3));
@@ -60,6 +60,13 @@ public class SecondaryPageOne extends JFrame {
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("进制换算");
+		btnNewButton_5.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+			  dispose();
+			  new HexadecimalConversion();
+		    }
+	    });
 		contentPane.add(btnNewButton_5);
+		
 	}
 }

@@ -37,7 +37,7 @@ public class MainPage extends JFrame {
 	public MainPage() {
 		setTitle("ÌðÍ²ºì²è");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 420, 480);
 		JPanel contentPane = new JPanel();
 		
         contentPane.setLayout(new GridLayout(2,1,3,3));
