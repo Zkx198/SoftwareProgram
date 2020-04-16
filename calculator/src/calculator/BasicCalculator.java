@@ -1,4 +1,5 @@
 package calculator;
+//  Àî›éÑþ 2017111147
 import java.awt.*;
 
 import java.awt.event.*;
@@ -71,6 +72,9 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		cal_Frame.add(m_Panel, BorderLayout.CENTER);
 
 		JButton back_Button = new JButton("BACK");
+		back_Button.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		back_Button.setForeground(new Color(0, 0, 0));
+		back_Button.setBackground(new Color(219, 112, 147));
 		
 		number1_Button = new Button("1");
 		number2_Button = new Button("2");
