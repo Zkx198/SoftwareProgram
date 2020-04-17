@@ -51,13 +51,18 @@ public class SecondaryPageOne extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				EquationCalculator new_Window=new EquationCalculator();
-				new_Window.cal();
+				new EquationCalculator();
 			}
 		});
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("解不等式");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new InequalitiesCalculator();
+			}
+		});
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("矩阵计算");
