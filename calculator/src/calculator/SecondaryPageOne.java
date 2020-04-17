@@ -69,6 +69,13 @@ public class SecondaryPageOne extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("复数计算");
+		btnNewButton_4.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+			  dispose();
+			  PluralComputing newWindow=new PluralComputing();
+				newWindow.plural();
+		    }
+	    });
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("进制换算");
