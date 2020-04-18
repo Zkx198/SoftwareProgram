@@ -1,4 +1,5 @@
 package calculator;
+//ÕÅ¿­öÎ 2017111478
 import java.awt.*;
 
 import java.awt.event.*;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import java.awt.Window.Type;
-import java.awt.BorderLayout;
+
 import javax.swing.JLabel;
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		plu_Frame.setLocation(200, 200);
 		plu_Frame.setBackground(Color.LIGHT_GRAY);
 		plu_Frame.setResizable(true);
-		plu_Frame.setLayout(new BorderLayout(3, 3));
+		plu_Frame.setLayout(new BorderLayout(3, 1));
 
 		command_Panel = new Panel(new GridLayout(1, 2, 9, 10));
 		key_Panel = new Panel(new GridLayout(4, 5, 4, 10));
@@ -103,6 +104,8 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		negative_Button = new Button("+/-");
 		i_Button = new Button("i");
 		back_Button = new Button("·µ»Ø");
+		back_Button.setForeground(new Color(0, 0, 0));
+		back_Button.setBackground(new Color(219, 112, 147));
 		div_Button.setForeground(Color.red);
 		multi_Button.setForeground(Color.red);
 		minus_Button.setForeground(Color.red);
@@ -433,7 +436,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 			plural.clear();
 		}	
 	}
-	class Listener18 implements ActionListener{	//Çå¿Õ¼ü 
+	class Listener18 implements ActionListener{	//·µ»Ø¼ü 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub

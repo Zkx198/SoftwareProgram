@@ -1,89 +1,195 @@
 package calculator;
-
+//张凯鑫 2017111478
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.awt.Window.Type;
 public class HexadecimalConversion {
-	JFrame f;
-	JPanel [] p=new JPanel[4];
-	JButton [] c=new JButton[15];
-	JButton [] d=new JButton[8];
-	JLabel [] t=new JLabel[4];
-	JTextField [] tf=new JTextField[2];
-	String [] bt_0 = {"2进制","8进制","10进制","16进制","2进制","8进制","10进制","16进制"};
-	String [] bt={"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E"};
-	int temp;//判断输入为几进制
+	private JFrame Hex_frame;
+	private Panel input_output_Panel,Hex_Panel, key_Panel, word_Panel,i_o_H_Panel;
+	private Button number1_Button, number2_Button, number3_Button, number4_Button, number5_Button, number6_Button, 
+	               number7_Button, number8_Button, number9_Button, number0_Button, numberA_Button, numberB_Button, 
+	               numberC_Button, numberD_Button, numberE_Button;
+    private Button in_Binary_Button, out_Binary_Button,in_Octal_Button, out_Octal_Button,
+                   in_Decimalism_Button, out_Decimalism_Button, in_Hexadecimal_Button, out_Hexadecimal_Button;
+    private Button Del_Button, C_Button, Back_Button;
+    private JLabel input_1,output_1,input_2,output_2;
+    private TextField display_Textfield_input,display_Textfield_output;
+	private int temp;//判断输入为几进制
+	
+	Font fontOfNumber = new Font("华文行楷", Font.PLAIN, 26);
+	Font fontOfWord = new Font("黑体", Font.PLAIN, 28);
+	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);
+	
 	public  HexadecimalConversion(){
-		f=new JFrame("进制转换计算器");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setBounds(100,100,420,480);
-		f.setLayout(new GridLayout(4,1));
-		p[0]=new JPanel(new GridLayout(1,2));
-		p[1]=new JPanel(new GridLayout(1,2));
-		p[2]=new JPanel(new GridLayout(2,5));
-		p[3]=new JPanel(new GridLayout(3,5));
-		for(int i=0;i<8;i++)
-		{
-			d[i]=new JButton(bt_0[i]);
-		}
+		Hex_frame=new JFrame("进制转换计算器");
+		Hex_frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+		Hex_frame.getContentPane().setForeground(SystemColor.desktop);
 		
-		for(int i=0;i<15;i++)
-		{
-			c[i]=new JButton(bt[i]);
-		}
-		d[0].addActionListener(new Listener1());
-		d[1].addActionListener(new Listener2());
-		d[2].addActionListener(new Listener3());
-		d[3].addActionListener(new Listener4());
-		d[4].addActionListener(new Listener5());
-		d[5].addActionListener(new Listener6());
-		d[6].addActionListener(new Listener7());
-		d[7].addActionListener(new Listener8());
-		c[0].addActionListener(new Listener9());
-		c[1].addActionListener(new Listener10());
-		c[2].addActionListener(new Listener11());
-		c[3].addActionListener(new Listener12());
-		c[4].addActionListener(new Listener13());
-		c[5].addActionListener(new Listener14());
-		c[6].addActionListener(new Listener15());
-		c[7].addActionListener(new Listener16());
-		c[8].addActionListener(new Listener17());
-		c[9].addActionListener(new Listener18());
-		c[10].addActionListener(new Listener19());
-		c[11].addActionListener(new Listener20());
-		c[12].addActionListener(new Listener21());
-		c[13].addActionListener(new Listener22());
-		c[14].addActionListener(new Listener23());
-		t[0]=new JLabel("输入");
-		t[1]=new JLabel("输出");
-		t[2]=new JLabel("输入");
-		t[3]=new JLabel("输出");
-		tf[0]=new JTextField();
-		tf[1]=new JTextField();
-		for(int i=0;i<2;i++)
-		{
-			p[i].add(t[i]);
-			p[i].add(tf[i]);
-		}
-		p[2].add(t[2]);
-		for(int i=0;i<4;i++)
-		{
-			p[2].add(d[i]);
-		}
-		p[2].add(t[3]);
-		for(int i=4;i<8;i++)
-		{
-			p[2].add(d[i]);
-		}
-		for(int i=0;i<15;i++)
-		{
-			p[3].add(c[i]);
-		}
-		for(int i=0;i<4;i++)
-		{
-			f.add(p[i]);
-		}
-		f.setVisible(true);
+		Hex_frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		Hex_frame.setType(Type.UTILITY);
+		Hex_frame.setForeground(SystemColor.desktop);
+		Hex_frame.setSize(420, 480);
+		Hex_frame.setLocation(200, 200);
+		Hex_frame.setBackground(Color.LIGHT_GRAY);
+		Hex_frame.setResizable(true);
+		Hex_frame.getContentPane().setLayout(new BorderLayout(3, 1));
+		word_Panel = new Panel(new GridLayout(4,1,4,2));
+		word_Panel.setPreferredSize(new Dimension(70, 80));
+		input_output_Panel=new Panel(new GridLayout(2,2,2,4));
+		input_output_Panel.setPreferredSize(new Dimension(380, 80));
+		Hex_Panel=new Panel(new GridLayout(2,4,2,8));
+		Hex_Panel.setPreferredSize(new Dimension(380, 80));
+		i_o_H_Panel=new Panel(new GridLayout(2,1,2,2));
+		i_o_H_Panel.setPreferredSize(new Dimension(300, 80));
+		key_Panel=new Panel(new GridLayout(3,5,3,10));
+		key_Panel.setPreferredSize(new Dimension(380, 280));
+		
+		input_1 =new JLabel(" \u8F93\u5165");
+		input_1.setVerticalAlignment(SwingConstants.BOTTOM);
+		input_1.setFont(fontOfWord);
+		output_1=new JLabel(" \u8F93\u51FA");
+		output_1.setFont(fontOfWord);
+		display_Textfield_input=new TextField();
+		display_Textfield_input.setFont(new Font("Times New Roman", Font.PLAIN, 33));
+		display_Textfield_input.setEditable(true);
+		display_Textfield_output=new TextField();
+		display_Textfield_output.setFont(new Font("Times New Roman",  Font.PLAIN, 33));
+		display_Textfield_output.setEditable(true);
+		word_Panel.add(input_1);
+		input_output_Panel.add(display_Textfield_input);
+		word_Panel.add(output_1);
+		input_output_Panel.add(display_Textfield_output);
+		
+		input_2=new JLabel(" \u8F93\u5165");
+		input_2.setFont(fontOfWord);
+		output_2=new JLabel(" \u8F93\u51FA");
+		output_2.setFont(fontOfWord);
+		in_Binary_Button = new Button("2进制");
+		out_Binary_Button = new Button("2进制");
+		in_Octal_Button = new Button("8进制");
+		out_Octal_Button = new Button("8进制");
+        in_Decimalism_Button = new Button("10进制");
+        out_Decimalism_Button = new Button("10进制");
+        in_Hexadecimal_Button = new Button("16进制");
+        out_Hexadecimal_Button = new Button("16进制");
+        in_Binary_Button.setFont(fontOfKey);
+        out_Binary_Button.setFont(fontOfKey);
+        in_Octal_Button.setFont(fontOfKey);
+        out_Octal_Button.setFont(fontOfKey);
+        in_Decimalism_Button.setFont(fontOfKey);
+        out_Decimalism_Button.setFont(fontOfKey);
+        in_Hexadecimal_Button.setFont(fontOfKey);
+        out_Hexadecimal_Button.setFont(fontOfKey);
+        word_Panel.add(input_2);
+        Hex_Panel.add(in_Binary_Button);
+        Hex_Panel.add(in_Octal_Button);
+        Hex_Panel.add(in_Decimalism_Button);
+        Hex_Panel.add(in_Hexadecimal_Button);
+        word_Panel.add(output_2);
+        Hex_Panel.add(out_Binary_Button);
+        Hex_Panel.add(out_Octal_Button);
+        Hex_Panel.add(out_Decimalism_Button);
+        Hex_Panel.add(out_Hexadecimal_Button);
+		
+		number0_Button = new Button("0");
+		number1_Button = new Button("1");
+		number2_Button = new Button("2");
+		number3_Button = new Button("3");
+		number4_Button = new Button("4");
+		number5_Button = new Button("5");
+		number6_Button = new Button("6");
+		number7_Button = new Button("7");
+		number8_Button = new Button("8");
+		number9_Button = new Button("9");
+		numberA_Button = new Button("A");
+		numberB_Button = new Button("B");
+		numberC_Button = new Button("C");
+		numberD_Button = new Button("D");
+		numberE_Button = new Button("E");
+		Del_Button = new Button("Del");
+		C_Button = new Button("C");
+		Back_Button = new Button("返回");
+		Back_Button.setForeground(new Color(0, 0, 0));
+		Back_Button.setBackground(new Color(219, 112, 147));
+		number0_Button.setFont(fontOfKey);
+		number1_Button.setFont(fontOfKey);
+		number2_Button.setFont(fontOfKey);
+		number3_Button.setFont(fontOfKey);
+		number4_Button.setFont(fontOfKey);
+		number5_Button.setFont(fontOfKey);
+		number6_Button.setFont(fontOfKey);
+		number7_Button.setFont(fontOfKey);
+		number8_Button.setFont(fontOfKey);
+		number9_Button.setFont(fontOfKey);
+		numberA_Button.setFont(fontOfKey);
+		numberB_Button.setFont(fontOfKey);
+		numberC_Button.setFont(fontOfKey);
+		numberD_Button.setFont(fontOfKey);
+		numberE_Button.setFont(fontOfKey);
+		Del_Button.setFont(fontOfKey);
+		C_Button.setFont(fontOfKey);
+		
+		key_Panel.add(number0_Button);
+		key_Panel.add(number1_Button);
+		key_Panel.add(number2_Button);
+		key_Panel.add(number3_Button);
+		key_Panel.add(number4_Button);
+		key_Panel.add(number5_Button);
+		key_Panel.add(number6_Button);
+		key_Panel.add(number7_Button);
+		key_Panel.add(number8_Button);
+		key_Panel.add(number9_Button);
+		key_Panel.add(numberA_Button);
+		key_Panel.add(numberB_Button);
+		key_Panel.add(numberC_Button);
+		key_Panel.add(numberD_Button);
+		key_Panel.add(numberE_Button);
+		key_Panel.add(Del_Button);
+		key_Panel.add(C_Button);
+		key_Panel.add(Back_Button);
+		
+		in_Binary_Button.addActionListener(new Listener1());
+		in_Octal_Button.addActionListener(new Listener2());
+		in_Decimalism_Button.addActionListener(new Listener3());
+		in_Hexadecimal_Button.addActionListener(new Listener4());
+		out_Binary_Button.addActionListener(new Listener5());
+		out_Octal_Button.addActionListener(new Listener6());
+		out_Decimalism_Button.addActionListener(new Listener7());
+		out_Hexadecimal_Button.addActionListener(new Listener8());
+		number0_Button.addActionListener(new Listener9());
+		number1_Button.addActionListener(new Listener10());
+		number2_Button.addActionListener(new Listener11());
+		number3_Button.addActionListener(new Listener12());
+		number4_Button.addActionListener(new Listener13());
+		number5_Button.addActionListener(new Listener14());
+		number6_Button.addActionListener(new Listener15());
+		number7_Button.addActionListener(new Listener16());
+		number8_Button.addActionListener(new Listener17());
+		number9_Button.addActionListener(new Listener18());
+		numberA_Button.addActionListener(new Listener19());
+		numberB_Button.addActionListener(new Listener20());
+		numberC_Button.addActionListener(new Listener21());
+		numberD_Button.addActionListener(new Listener22());
+		numberE_Button.addActionListener(new Listener23());
+		Del_Button.addActionListener(new Listener24());
+		C_Button.addActionListener(new Listener25());
+		Back_Button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hex_frame.setVisible(false);
+				SecondaryPageOne newWindow=new SecondaryPageOne();
+				newWindow.setVisible(true);
+			}
+		});	
+		
+		i_o_H_Panel.add(input_output_Panel);
+		i_o_H_Panel.add(Hex_Panel);
+		
+		Hex_frame.getContentPane().add(word_Panel,BorderLayout.WEST);
+		//Hex_frame.getContentPane().add(input_output_Panel,BorderLayout.NORTH);
+		Hex_frame.getContentPane().add(i_o_H_Panel,BorderLayout.CENTER);
+		Hex_frame.getContentPane().add(key_Panel,BorderLayout.SOUTH);
+		Hex_frame.setVisible(true);
 		
 	}
 	
@@ -397,11 +503,11 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			String num1 = tf[0].getText().trim();
-			if(temp == 2) {tf[1].setText(binary_to_binary(num1));temp = 0;}
-			if(temp == 8) {tf[1].setText(octal_to_binary(num1));temp = 0;}
-			if(temp == 10) {tf[1].setText(decimalism_to_binary(num1));temp = 0;}
-			if(temp == 16) {tf[1].setText(hexadecimal_to_binary(num1));temp = 0;}
+			String num1 = display_Textfield_input.getText().trim();
+			if(temp == 2) {display_Textfield_output.setText(binary_to_binary(num1));temp = 0;}
+			if(temp == 8) {display_Textfield_output.setText(octal_to_binary(num1));temp = 0;}
+			if(temp == 10) {display_Textfield_output.setText(decimalism_to_binary(num1));temp = 0;}
+			if(temp == 16) {display_Textfield_output.setText(hexadecimal_to_binary(num1));temp = 0;}
 		}
 		
 	}
@@ -410,11 +516,11 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			String num1 = tf[0].getText().trim();
-			if(temp == 2) {tf[1].setText(binary_to_octal(num1));temp = 0;}
-			if(temp == 8) {tf[1].setText(octal_to_octal(num1));temp = 0;}
-			if(temp == 10) {tf[1].setText(decimalism_to_octal(num1));temp = 0;}
-			if(temp == 16) {tf[1].setText(hexadecimal_to_octal(num1));temp = 0;}
+			String num1 = display_Textfield_input.getText().trim();
+			if(temp == 2) {display_Textfield_output.setText(binary_to_octal(num1));temp = 0;}
+			if(temp == 8) {display_Textfield_output.setText(octal_to_octal(num1));temp = 0;}
+			if(temp == 10) {display_Textfield_output.setText(decimalism_to_octal(num1));temp = 0;}
+			if(temp == 16) {display_Textfield_output.setText(hexadecimal_to_octal(num1));temp = 0;}
 		}
 		
 	}
@@ -424,11 +530,11 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			String num1 = tf[0].getText().trim();
-			if(temp == 2) {tf[1].setText(binary_to_decimalism(num1));temp = 0;}
-			if(temp == 8) {tf[1].setText(octal_to_decimalism(num1));temp = 0;}
-			if(temp == 10) {tf[1].setText(decimalism_to_decimalism(num1));temp = 0;}
-			if(temp == 16) {tf[1].setText(hexadecimal_to_decimalism(num1));temp = 0;}
+			String num1 = display_Textfield_input.getText().trim();
+			if(temp == 2) {display_Textfield_output.setText(binary_to_decimalism(num1));temp = 0;}
+			if(temp == 8) {display_Textfield_output.setText(octal_to_decimalism(num1));temp = 0;}
+			if(temp == 10) {display_Textfield_output.setText(decimalism_to_decimalism(num1));temp = 0;}
+			if(temp == 16) {display_Textfield_output.setText(hexadecimal_to_decimalism(num1));temp = 0;}
 		}
 		
 	}
@@ -437,20 +543,21 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			String num1 = tf[0].getText().trim();
-			if(temp == 2) {tf[1].setText(binary_to_hexadecimal(num1));temp = 0;}
-			if(temp == 8) {tf[1].setText(octal_to_hexadecimal(num1));temp = 0;}
-			if(temp == 10) {tf[1].setText(decimalism_to_hexadecimal(num1));temp = 0;}
-			if(temp == 16) {tf[1].setText(hexadecimal_to_hexadecimal(num1));temp = 0;}
+			String num1 =display_Textfield_input.getText().trim();
+			if(temp == 2) {display_Textfield_output.setText(binary_to_hexadecimal(num1));temp = 0;}
+			if(temp == 8) {display_Textfield_output.setText(octal_to_hexadecimal(num1));temp = 0;}
+			if(temp == 10) {display_Textfield_output.setText(decimalism_to_hexadecimal(num1));temp = 0;}
+			if(temp == 16) {display_Textfield_output.setText(hexadecimal_to_hexadecimal(num1));temp = 0;}
 		}
 		
 	}
+	//0-E按键
 	class Listener9 implements ActionListener{
  
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[0]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"0");
 		}
 		
 	}
@@ -460,7 +567,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[1]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"1");
 		}
 	}
 	class Listener11 implements ActionListener{
@@ -468,7 +575,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[2]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"2");
 		}
 		
 	}
@@ -478,7 +585,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[3]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"3");
 		}
 		
 	}
@@ -487,7 +594,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[4]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"4");
 		}
 		
 	}
@@ -496,7 +603,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[5]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"5");
 		}
 		
 	}
@@ -505,7 +612,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[6]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"6");
 		}
 		
 	}
@@ -514,7 +621,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[7]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"7");
 		}
 		
 	}
@@ -523,7 +630,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[8]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"8");
 		}
 		
 	}
@@ -532,7 +639,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[9]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"9");
 		}
 		
 	}
@@ -541,7 +648,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[10]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"A");
 		}
 		
 	}
@@ -550,7 +657,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[11]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"B");
 		}
 		
 	}
@@ -559,7 +666,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[12]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"C");
 		}
 		
 	}
@@ -568,7 +675,7 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[13]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"D");
 		}
 		
 	}
@@ -577,9 +684,31 @@ public class HexadecimalConversion {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			tf[0].setText(tf[0].getText()+bt[14]);
+			display_Textfield_input.setText(display_Textfield_input.getText()+"E");
 		}
 		
 	}
+	class Listener24 implements ActionListener{
+		 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			String s = display_Textfield_input.getText();
+			s = s.substring(0,s.length()-1);
+			display_Textfield_input.setText(s);
+		}
 		
+	}
+	class Listener25 implements ActionListener{
+		 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			display_Textfield_input.setText("");
+			display_Textfield_output.setText("");
+			temp=0;
+			
+		}
+		
+	}
 }

@@ -1,5 +1,5 @@
 package calculator;
-
+//ÕÅ¿­öÎ 2017111478
 public class PluralComputingDetail{
 
     public  double real;
