@@ -66,6 +66,13 @@ public class SecondaryPageOne extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("æÿ’Ûº∆À„");
+		btnNewButton_3.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+			  dispose();
+			  MatrixCalculator newWindow=new MatrixCalculator();
+				newWindow.Matrix();
+		    }
+	    });
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("∏¥ ˝º∆À„");

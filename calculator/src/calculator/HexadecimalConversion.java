@@ -17,15 +17,14 @@ public class HexadecimalConversion {
     private TextField display_Textfield_input,display_Textfield_output;
 	private int temp;//判断输入为几进制
 	
-	Font fontOfNumber = new Font("华文行楷", Font.PLAIN, 26);
-	Font fontOfWord = new Font("黑体", Font.PLAIN, 28);
+	Font fontOfNumber = new Font("华文行楷", Font.PLAIN, 27);
+	Font fontOfWord = new Font("黑体", Font.PLAIN, 26);
 	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);
 	
 	public  HexadecimalConversion(){
 		Hex_frame=new JFrame("进制转换计算器");
 		Hex_frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		Hex_frame.getContentPane().setForeground(SystemColor.desktop);
-		
 		Hex_frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Hex_frame.setType(Type.UTILITY);
 		Hex_frame.setForeground(SystemColor.desktop);
@@ -34,6 +33,7 @@ public class HexadecimalConversion {
 		Hex_frame.setBackground(Color.LIGHT_GRAY);
 		Hex_frame.setResizable(true);
 		Hex_frame.getContentPane().setLayout(new BorderLayout(3, 1));
+		
 		word_Panel = new Panel(new GridLayout(4,1,4,2));
 		word_Panel.setPreferredSize(new Dimension(70, 80));
 		input_output_Panel=new Panel(new GridLayout(2,2,2,4));
@@ -107,9 +107,12 @@ public class HexadecimalConversion {
 		numberC_Button = new Button("C");
 		numberD_Button = new Button("D");
 		numberE_Button = new Button("E");
-		Del_Button = new Button("Del");
-		C_Button = new Button("C");
-		Back_Button = new Button("返回");
+		Del_Button = new Button("DEL");
+		Del_Button.setForeground(Color.RED);
+		C_Button = new Button("Clean");
+		C_Button.setForeground(Color.RED);
+		Back_Button = new Button("Back");
+		Back_Button.setFont(new Font("Dialog", Font.PLAIN, 18));
 		Back_Button.setForeground(new Color(0, 0, 0));
 		Back_Button.setBackground(new Color(219, 112, 147));
 		number0_Button.setFont(fontOfKey);
@@ -135,18 +138,18 @@ public class HexadecimalConversion {
 		key_Panel.add(number2_Button);
 		key_Panel.add(number3_Button);
 		key_Panel.add(number4_Button);
+		key_Panel.add(Del_Button);
 		key_Panel.add(number5_Button);
 		key_Panel.add(number6_Button);
 		key_Panel.add(number7_Button);
 		key_Panel.add(number8_Button);
 		key_Panel.add(number9_Button);
+		key_Panel.add(C_Button);
 		key_Panel.add(numberA_Button);
 		key_Panel.add(numberB_Button);
 		key_Panel.add(numberC_Button);
 		key_Panel.add(numberD_Button);
 		key_Panel.add(numberE_Button);
-		key_Panel.add(Del_Button);
-		key_Panel.add(C_Button);
 		key_Panel.add(Back_Button);
 		
 		in_Binary_Button.addActionListener(new Listener1());
@@ -186,7 +189,6 @@ public class HexadecimalConversion {
 		i_o_H_Panel.add(Hex_Panel);
 		
 		Hex_frame.getContentPane().add(word_Panel,BorderLayout.WEST);
-		//Hex_frame.getContentPane().add(input_output_Panel,BorderLayout.NORTH);
 		Hex_frame.getContentPane().add(i_o_H_Panel,BorderLayout.CENTER);
 		Hex_frame.getContentPane().add(key_Panel,BorderLayout.SOUTH);
 		Hex_frame.setVisible(true);
