@@ -272,9 +272,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 			}else {
 				advise1_Textfield.setText("请正确输入身高、体重、年龄、性别！");
 				bmr_Textfield.setText("每次文本框输入后请按回车键!!!");
-			}
-			
-			
+			}			
 		}
 		
 		// key "CE"
@@ -303,32 +301,6 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		System.exit(0);
 	}
 
-	public double Combinatorial(int n, int m) {
-		BigInteger result1;
-		BigInteger result2;
-		BigInteger result3;
-		int another = n;
-		if (n < m) {
-			n = m;
-			m = another;
-		}
-		result1 = bigNumberFactorial(n);
-		result2 = bigNumberFactorial(m).multiply(bigNumberFactorial(n - m));
-		result3 = result1.divide(result2);
-		double result = result3.doubleValue();
-		return result;
-	}
-
-	public static synchronized BigInteger bigNumberFactorial(int num) {// 利用BigInteger类计算阶乘
-		ArrayList list = new ArrayList();// 创建集合数组
-		list.add(BigInteger.valueOf(1));// 往数组里添加一个数值
-		for (int i = list.size(); i <= num; i++) {
-			BigInteger lastfact = (BigInteger) list.get(i - 1);// 获得第一个元素
-			BigInteger nextfact = lastfact.multiply(BigInteger.valueOf(i));// 获得下一个数组
-			list.add(nextfact);
-		}
-		return (BigInteger) list.get(num);// 返回数组中的下标为num的值
-	}
 
 	public static void main(String[] args) {
 		HealthIndexCalculator new_cal = new HealthIndexCalculator();
