@@ -47,8 +47,8 @@ public class SecondaryPageTwo extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TertiaryPageOne newWindow=new TertiaryPageOne();
-				newWindow.setVisible(true);
+				HealthLifePage newWindow=new HealthLifePage();
+				newWindow.cal();
 			}
 		});
 		contentPane.add(btnNewButton);

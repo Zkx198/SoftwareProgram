@@ -51,7 +51,8 @@ public class SecondaryPageOne extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new EquationCalculator();
+				EquationCalculator newWindow=new EquationCalculator();
+				newWindow.cal();
 			}
 		});
 		contentPane.add(btnNewButton_1);
@@ -60,7 +61,8 @@ public class SecondaryPageOne extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new InequalitiesCalculator();
+				InequalitiesCalculator newWindow=new InequalitiesCalculator();
+				newWindow.cal();
 			}
 		});
 		contentPane.add(btnNewButton_2);

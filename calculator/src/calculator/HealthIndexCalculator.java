@@ -141,8 +141,8 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		Back_Button.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			cal_Frame.setVisible(false);
-			SecondaryPageTwo newWindow=new SecondaryPageTwo();
-			newWindow.setVisible(true);
+			HealthLifePage newWindow=new HealthLifePage();
+			newWindow.cal();
 		}
 	});		
 		next_Button =new Button("Calorie Calculation");
