@@ -1,11 +1,9 @@
 package calculator;
-//å¼ å‡¯é‘« 2017111478
-import javax.swing.border.EmptyBorder;
+//ÕÅ¿­öÎ 2017111478
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.awt.Window.Type;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 public class MatrixCalculator extends WindowAdapter {
 
@@ -15,15 +13,15 @@ public class MatrixCalculator extends WindowAdapter {
 	private Button number0_Button,number1_Button,number2_Button,number3_Button,number4_Button,
 	               number5_Button,number6_Button,number7_Button,number8_Button,number9_Button,
 	               dot_Button,equal_Button,DEL_Button,C_Button,back_Button;
-	private Button comma_Button;//é€—å·åˆ†éš”è¾“å…¥çš„æ•°å­—
+	private Button comma_Button;//¶ººÅ·Ö¸ôÊäÈëµÄÊı×Ö
 	private Button inverse_Button,transpose_Button,deteminant_Button,adjoint_Button,rank_Button,
-	               trace_Button,plus_Button,mins_Button,multiply_Button;//åŠŸèƒ½æŒ‰é”®
-	private Button choice_Button;//é€‰æ‹©m*nçŸ©é˜µ
-	private int a,b;//è¾“å…¥çŸ©é˜µçš„è¡Œåˆ—æ•°
-	private int a_1;//*æ—¶å­˜å‚¨ç»“æœçš„è¡Œæ•°
-	private String matrix_string,output_string,matrix_string_1;//å­˜å‚¨è¾“å…¥AçŸ©é˜µã€ç»“æœã€BçŸ©é˜µçš„å­—ç¬¦ä¸²
+	               trace_Button,plus_Button,mins_Button,multiply_Button;//¹¦ÄÜ°´¼ü
+	private Button choice_Button;//Ñ¡Ôñm*n¾ØÕó
+	private int a,b;//ÊäÈë¾ØÕóµÄĞĞÁĞÊı
+	private int a_1;//*Ê±´æ´¢½á¹ûµÄĞĞÊı
+	private String matrix_string,output_string,matrix_string_1;//´æ´¢ÊäÈëA¾ØÕó¡¢½á¹û¡¢B¾ØÕóµÄ×Ö·û´®
 	private int up=0,down=0;
-	private int symbol=0;//è®°å½•+-*
+	private int symbol=0;//¼ÇÂ¼+-*
 	private double [][]matrix_A={{0,0,0,0,0},
 			                    {0,0,0,0,0},
 			                    {0,0,0,0,0},
@@ -44,16 +42,12 @@ public class MatrixCalculator extends WindowAdapter {
 	                    	   {0,0,0,0,0,0,0,0,0,0},
 			                   {0,0,0,0,0,0,0,0,0,0},
 	                    	   {0,0,0,0,0,0,0,0,0,0}};
-
-	Font fontOfNumber = new Font("åæ–‡è¡Œæ¥·", Font.PLAIN, 10);
-	Font fontOfWord = new Font("é»‘ä½“", Font.PLAIN, 26);
-	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);
 	private JLabel label;
 	/**
 	 * Create the frame.
 	 */
 	public void Matrix() {
-		Matr_Frame=new Frame("çŸ©é˜µè®¡ç®—å™¨");
+		Matr_Frame=new Frame("¾ØÕó¼ÆËãÆ÷");
 		Matr_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Matr_Frame.setType(Type.UTILITY);
 		Matr_Frame.setForeground(SystemColor.desktop);
@@ -65,9 +59,9 @@ public class MatrixCalculator extends WindowAdapter {
 		
 		display_Panel= new Panel(new GridLayout(1,2,1,4));
 		display_Panel.setPreferredSize(new Dimension(70, 120));
-		display_input_TextField=new TextArea("è¯·é€‰æ‹©çŸ©é˜µé˜¶æ•°\nå¹¶åœ¨ä¸‹æ–¹è¾“å…¥çŸ©é˜µï¼Œ\nç”¨é€—å·åˆ†éš”å¼€");
+		display_input_TextField=new TextArea("ÇëÑ¡Ôñ¾ØÕó½×Êı\n²¢ÔÚÏÂ·½ÊäÈë¾ØÕó£¬\nÓÃ¶ººÅ·Ö¸ô¿ª");
 		display_input_TextField.setEditable(false);
-		display_output_TextField=new TextArea("ç»“æœ");
+		display_output_TextField=new TextArea("½á¹û");
 		display_output_TextField.setEditable(false);
 		display_Panel.add(display_input_TextField);
 		display_Panel.add(display_output_TextField);
@@ -102,9 +96,9 @@ public class MatrixCalculator extends WindowAdapter {
 		dot_Button= new Button(".");
 		equal_Button= new Button("=");
 		equal_Button.setForeground(Color.RED);
-		inverse_Button= new Button("AË‰Â¹");
+		inverse_Button= new Button("A-1");
 		inverse_Button.setForeground(Color.RED);
-		transpose_Button= new Button("AÑ‚");
+		transpose_Button= new Button("A§ä");
 		transpose_Button.setForeground(Color.RED);
 		deteminant_Button= new Button("|A|");
 		deteminant_Button.setForeground(Color.RED);
@@ -203,11 +197,11 @@ public class MatrixCalculator extends WindowAdapter {
         int num = temp.length;
         if(num!=a*b)
         {
-        	display_input_TextField.setText("è¯·é‡æ–°è¾“å…¥å®Œæ•´çš„çŸ©é˜µï¼Œ\nç”¨é€—å·åˆ†éš”å¼€");
+        	display_input_TextField.setText("ÇëÖØĞÂÊäÈëÍêÕûµÄ¾ØÕó£¬\nÓÃ¶ººÅ·Ö¸ô¿ª");
         }
         else
         {
-        	matrix_string="çŸ©é˜µA\n";
+        	matrix_string="¾ØÕóA\n";
         	for(int i=0; i<a; i++)
     		{
     			for(int j=0; j<b; j++)
@@ -231,11 +225,11 @@ public class MatrixCalculator extends WindowAdapter {
         int num = temp.length;
         if(num!=a*b)
         {
-        	display_input_TextField.setText("è¯·é‡æ–°è¾“å…¥å®Œæ•´çš„çŸ©é˜µï¼Œ\nç”¨é€—å·åˆ†éš”å¼€");
+        	display_input_TextField.setText("ÇëÖØĞÂÊäÈëÍêÕûµÄ¾ØÕó£¬\nÓÃ¶ººÅ·Ö¸ô¿ª");
         }
         else
         {
-        	matrix_string_1=matrix_string+"çŸ©é˜µB\n";
+        	matrix_string_1=matrix_string+"¾ØÕóB\n";
         	for(int i=0; i<a; i++)
     		{
     			for(int j=0; j<b; j++)
@@ -291,7 +285,7 @@ public class MatrixCalculator extends WindowAdapter {
 					}
 				}
 			if((int)Asum==0){
-				display_input_TextField.setText("|A|çš„å€¼ç­‰äº0ï¼Œ\nä¸èƒ½æ±‚AË‰Â¹ï¼");
+				display_input_TextField.setText("|A|µÄÖµµÈÓÚ0£¬\n²»ÄÜÇóA-1£¡");
 			}
 			else{
 				for(int i=0;i<a;i++){
@@ -425,9 +419,9 @@ public class MatrixCalculator extends WindowAdapter {
 				}
 			fracktion(Asum);
 			if(down!=0){
-				display_output_TextField.setText("æ–¹é˜µAçš„è¡Œåˆ—å¼\n|A|="+String.valueOf(up)+"/"+String.valueOf(down));
+				display_output_TextField.setText("·½ÕóAµÄĞĞÁĞÊ½\n|A|="+String.valueOf(up)+"/"+String.valueOf(down));
 			}else{
-				display_output_TextField.setText("æ–¹é˜µAçš„è¡Œåˆ—å¼\n|A|="+String.valueOf(up));
+				display_output_TextField.setText("·½ÕóAµÄĞĞÁĞÊ½\n|A|="+String.valueOf(up));
 			}
 		}
 	}
@@ -470,7 +464,7 @@ public class MatrixCalculator extends WindowAdapter {
 					}
 				}
 			if((int)Asum==0){
-				display_input_TextField.setText("|A|çš„å€¼ç­‰äº0ï¼Œ\nä¸èƒ½æ±‚A*ï¼");
+				display_input_TextField.setText("|A|µÄÖµµÈÓÚ0£¬\n²»ÄÜÇóA*£¡");
 			}
 			else{
 				for(int i=0;i<a;i++){
@@ -518,7 +512,7 @@ public class MatrixCalculator extends WindowAdapter {
 							}
 							break;
 						}
-						//jtf.setText("    Açš„ç§©R(A)="+String.valueOf(i));
+						//jtf.setText("    AµÄÖÈR(A)="+String.valueOf(i));
 					}
 				}
 				output_string = "";
@@ -576,7 +570,7 @@ public class MatrixCalculator extends WindowAdapter {
 					}
 				}
 			if((int)Asum==0){
-				display_input_TextField.setText("|A|çš„å€¼ç­‰äº0ï¼Œ\nä¸èƒ½æ±‚Arï¼");
+				display_input_TextField.setText("|A|µÄÖµµÈÓÚ0£¬\n²»ÄÜÇóAr£¡");
 			}
 			else{
 				for(int i=0;i<a;i++){
@@ -624,7 +618,7 @@ public class MatrixCalculator extends WindowAdapter {
 							}
 							break;
 						}
-						display_output_TextField.setText("Açš„ç§©\nR(A)="+String.valueOf(i));
+						display_output_TextField.setText("AµÄÖÈ\nR(A)="+String.valueOf(i));
 					}
 				}
 			}
@@ -644,7 +638,7 @@ public class MatrixCalculator extends WindowAdapter {
 		}else{
 			output_string=output_string+String.valueOf(up)+" ";
 		}
- 		display_output_TextField.setText("Açš„è¿¹\ntr(A)="+output_string);
+ 		display_output_TextField.setText("AµÄ¼£\ntr(A)="+output_string);
  	}
 	public void Add()
 	{
@@ -884,7 +878,7 @@ public class MatrixCalculator extends WindowAdapter {
 			// TODO Auto-generated method stub
 			if(a!=b)
 			{
-				display_output_TextField.setText("æ­¤çŸ©é˜µä¸æ˜¯æ–¹é˜µï¼Œ\nä¸èƒ½æ±‚AË‰Â¹ï¼");
+				display_output_TextField.setText("´Ë¾ØÕó²»ÊÇ·½Õó£¬\n²»ÄÜÇóA-1£¡");
 			}
 			else {
 				for(int i=0;i<5;i++)
@@ -924,7 +918,7 @@ public class MatrixCalculator extends WindowAdapter {
 			// TODO Auto-generated method stub
 			if(a!=b)
 			{
-				display_output_TextField.setText("æ­¤çŸ©é˜µä¸æ˜¯æ–¹é˜µï¼Œ\nä¸èƒ½æ±‚|A|ï¼");
+				display_output_TextField.setText("´Ë¾ØÕó²»ÊÇ·½Õó£¬\n²»ÄÜÇó|A|£¡");
 			}
 			else {
 				for(int i=0;i<5;i++)
@@ -948,7 +942,7 @@ public class MatrixCalculator extends WindowAdapter {
 			// TODO Auto-generated method stub
 			if(a!=b)
 			{
-				display_output_TextField.setText("æ­¤çŸ©é˜µä¸æ˜¯æ–¹é˜µï¼Œ\nä¸èƒ½æ±‚A*ï¼");
+				display_output_TextField.setText("´Ë¾ØÕó²»ÊÇ·½Õó£¬\n²»ÄÜÇóA*£¡");
 			}
 			else {
 				for(int i=0;i<5;i++)
@@ -988,7 +982,7 @@ public class MatrixCalculator extends WindowAdapter {
 			// TODO Auto-generated method stub
 			if(a!=b)
 			{
-				display_output_TextField.setText("æ­¤çŸ©é˜µä¸æ˜¯æ–¹é˜µï¼Œ\nä¸èƒ½æ±‚tr(A)ï¼");
+				display_output_TextField.setText("´Ë¾ØÕó²»ÊÇ·½Õó£¬\n²»ÄÜÇótr(A)£¡");
 			}
 			else {
 			
@@ -1031,7 +1025,7 @@ public class MatrixCalculator extends WindowAdapter {
 			symbol=3;
 			a_1=a;
 			Object[] possibleValues={"2","3","4","5"};
-			Object selectedValues=JOptionPane.showInputDialog(null, "çŸ©é˜µB :  "+String.valueOf(b)+"*", "çŸ©é˜µBåˆ—æ•°é€‰æ‹©", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+			Object selectedValues=JOptionPane.showInputDialog(null, "¾ØÕóB :  "+String.valueOf(b)+"*", "¾ØÕóBÁĞÊıÑ¡Ôñ", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
 			
 			String result=(String)selectedValues;
 			a=b;
@@ -1046,7 +1040,7 @@ public class MatrixCalculator extends WindowAdapter {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Object[] possibleValues={"2*2","2*3","2*4","2*5","3*2","3*3","3*4","3*5","4*2","4*3","4*4","4*5","5*2","5*3","5*4","5*5"};
-			Object selectedValues=JOptionPane.showInputDialog(null, "è¯·é€‰æ‹©è¦è®¡ç®—çš„çŸ©é˜µï¼š", "çŸ©é˜µé˜¶æ•°é€‰æ‹©", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
+			Object selectedValues=JOptionPane.showInputDialog(null, "ÇëÑ¡ÔñÒª¼ÆËãµÄ¾ØÕó£º", "¾ØÕó½×ÊıÑ¡Ôñ", JOptionPane.INFORMATION_MESSAGE, null, possibleValues, possibleValues[0]);
 			
 			String result=(String)selectedValues;
 			if(result=="2*2"){a=2;b=2;}
@@ -1067,7 +1061,7 @@ public class MatrixCalculator extends WindowAdapter {
 			else if(result=="5*5"){a=5;b=5;}
 		}	
 	}
-	class Listener_back implements ActionListener{	//è¿”å›é”® 
+	class Listener_back implements ActionListener{	//·µ»Ø¼ü 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
