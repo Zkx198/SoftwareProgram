@@ -71,6 +71,7 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		input_Panel.add(in1_Panel);
 
 		class1_Label_2 = new JLabel("\u8C37\u7C7B ");
+		class1_Label_2.setForeground(new Color(0, 0, 0));
 		class1_Label_2.setFont(new Font("¡• È", Font.BOLD, 24));
 		in1_Panel.add(class1_Label_2);
 		cmb1 = new JComboBox();
