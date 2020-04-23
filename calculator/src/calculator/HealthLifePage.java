@@ -38,7 +38,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 	private JLabel label_1;
 	
 	public void cal() {
-		cal_Frame = new Frame("健康指数计算器");
+		cal_Frame = new Frame("\u5065\u5EB7\u751F\u6D3B\u8BA1\u7B97\u5668");
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setType(Type.UTILITY);
 		cal_Frame.setForeground(SystemColor.desktop);
@@ -100,6 +100,13 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 		food_Button = new Button("\u98DF\u7269\u6444\u5165\u70ED\u91CF\u8BA1\u7B97");
 		food_Button.setBackground(UIManager.getColor("Button.background"));
 		food_Button.setFont(new Font("隶书", Font.BOLD, 24));
+		food_Button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cal_Frame.setVisible(false);
+				FoodCaloriesCalculator newWindow=new FoodCaloriesCalculator();
+				newWindow.cal();
+			}
+		});	
 		in2_Panel.add(food_Button);
 		input_Panel.add(in3_Panel);
 		
