@@ -72,7 +72,7 @@ public class SecondaryPageOne extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 			  dispose();
 			  MatrixCalculator newWindow=new MatrixCalculator();
-				newWindow.Matrix();
+			  newWindow.Matrix();
 		    }
 	    });
 		contentPane.add(btnNewButton_3);
