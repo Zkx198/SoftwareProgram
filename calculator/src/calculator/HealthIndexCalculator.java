@@ -35,7 +35,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		cal_Frame.setLocation(200, 200);
 		cal_Frame.setBackground(Color.LIGHT_GRAY);
 		cal_Frame.setResizable(true);
-		cal_Frame.setLayout(new BorderLayout(3, 3));
+		cal_Frame.setLayout(new BorderLayout(3, 0));
 		blank2 = new Label("             ");
 		blank3 = new Label("  ");
 		blank4 = new Label("                                                                                        ");
@@ -171,7 +171,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		bmr_Textfield.setEditable(false);
 		advise1_Textfield= new TextArea(2,28);
 		advise1_Textfield.setFont(new Font("隶书", Font.BOLD, 23));
-		advise1_Textfield.setText(" ");
+		advise1_Textfield.setText("每格输入完成后请按回车键！");
 		advise1_Textfield.setEditable(false);
 		
 		bmi_standard = new Button(" BMI_Standard ");
