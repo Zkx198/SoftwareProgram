@@ -30,7 +30,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		cal_Frame = new Frame("½¡¿µÖ¸Êý¼ÆËãÆ÷");
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setType(Type.UTILITY);
-		cal_Frame.setForeground(SystemColor.desktop);
+		cal_Frame.setForeground(new Color(0, 0, 0));
 		cal_Frame.setSize(780, 480);
 		cal_Frame.setLocation(200, 200);
 		cal_Frame.setBackground(Color.LIGHT_GRAY);

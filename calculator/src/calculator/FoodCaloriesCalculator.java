@@ -898,6 +898,5 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 	public static void main(String[] args) {
 		FoodCaloriesCalculator new_cal = new FoodCaloriesCalculator();
 		new_cal.cal();
-
 	}
 }
