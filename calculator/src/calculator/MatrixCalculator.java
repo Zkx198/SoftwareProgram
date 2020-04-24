@@ -74,7 +74,7 @@ public class MatrixCalculator extends WindowAdapter {
 		common_Panel.setPreferredSize(new Dimension(380, 40));
 		DEL_Button= new Button("DEL");
 		C_Button= new Button("C");
-		choice_Button= new Button("Order");
+		choice_Button= new Button("½×Êý");
 		choice_Button.setForeground(new Color(0, 0, 0));
 		choice_Button.setBackground(new Color(219, 112, 147));
 		common_Panel.add(DEL_Button);

@@ -3,15 +3,16 @@ package calculator;
 import java.awt.event.*;
 import java.awt.*;
 import java.awt.Window.Type;
+import javax.swing.JPanel;
 
 public class RelationshipCalculator extends WindowAdapter{
 
 	private Frame Relation_Frame;
-	private Panel title_Panel,input_key_Panel,output_Panel,key_Panel;
+	private Panel title_Panel,input_Panel,output_Panel,key_Panel,input_output_Panel;
 	private Panel relation_Panel,common_Panel;//放置亲属关系按键和=、del、C按键
 	private TextArea input_TextField;//输入框
 	private TextField output_TextField;//输出框
-	private Label Label_1,Label_2,Label_3,Label_4;//提示文字
+	private Label Label_1,Label_2,Label_3,Label_4,Label_5;//提示文字
     private Button baba_Button,mama_Button,erzi_Button,nver_Button,gege_Button,didi_Button,jiejie_Button,meimei_Button,zhangfu_Button,qizi_Button;//亲属关系按键
     private Button equal_Button,del_Button,C_Button,back_Button;//等于、删除、清空、返回按键
     
@@ -189,6 +190,7 @@ public class RelationshipCalculator extends WindowAdapter{
     		 {"姨曾祖母", "", "", "", "", "", "", "", "", "", "", ""},
     		 {"未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚"}
     		 };
+    private JPanel panel;
 	/**
 	 * Create the frame.
 	 */
@@ -204,14 +206,14 @@ public class RelationshipCalculator extends WindowAdapter{
 		Relation_Frame.setLayout(new BorderLayout(3,1));
 		
 		title_Panel=new Panel(new GridLayout(2,1));
-		title_Panel.setPreferredSize(new Dimension(780, 60));
-		Label_1=new Label("我的性别为 男");
-		Label_2=new Label("我对对方的称呼");
+		title_Panel.setPreferredSize(new Dimension(390, 80));
+		Label_1=new Label("\u5047\u5B9A\u6211\u7684\u6027\u522B\u4E3A:\u7537");
+		Label_2=new Label("\u7ED3\u679C\u4E3A\u6211\u5BF9\u5BF9\u65B9\u7684\u79F0\u547C");
 	    title_Panel.add(Label_1);
 	    title_Panel.add(Label_2);
 		
-		relation_Panel=new Panel(new GridLayout(1,10));
-		relation_Panel.setPreferredSize(new Dimension(760, 65));
+		relation_Panel=new Panel(new GridLayout(3,4,3,3));
+		relation_Panel.setPreferredSize(new Dimension(340, 250));
 		baba_Button=new Button("爸爸");
 		mama_Button=new Button("妈妈");
 		erzi_Button=new Button("儿子");
@@ -233,8 +235,8 @@ public class RelationshipCalculator extends WindowAdapter{
 		relation_Panel.add(zhangfu_Button);
 		relation_Panel.add(qizi_Button);
 		
-		common_Panel=new Panel(new GridLayout(1,5));
-		common_Panel.setPreferredSize(new Dimension(750, 55));
+		common_Panel=new Panel(new GridLayout(1,4,3,3));
+		common_Panel.setPreferredSize(new Dimension(340, 90));
 		equal_Button=new Button("计算");
 		equal_Button.setForeground(Color.RED);
 		del_Button=new Button("删除");
@@ -249,30 +251,45 @@ public class RelationshipCalculator extends WindowAdapter{
 		common_Panel.add(C_Button);
 		common_Panel.add(back_Button);
 		
-		key_Panel=new Panel(new BorderLayout(2,1));
-		key_Panel.setPreferredSize(new Dimension(760, 135));
-		key_Panel.add(relation_Panel,BorderLayout.NORTH);
+		Label_5=new Label("关系按键");
+		Label_5.setPreferredSize(new Dimension(360, 50));
+		
+		key_Panel=new Panel(new FlowLayout());
+		key_Panel.setPreferredSize(new Dimension(360, 135));
+		key_Panel.add(Label_5,BorderLayout.NORTH);
+		key_Panel.add(relation_Panel,BorderLayout.CENTER);
+		
+		panel =  new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setForeground(Color.LIGHT_GRAY);
+		panel.setPreferredSize(new Dimension(360, 10));
+		key_Panel.add(panel);
 		key_Panel.add(common_Panel,BorderLayout.SOUTH);
 		
-		input_key_Panel=new Panel(new FlowLayout());
-		input_key_Panel.setPreferredSize(new Dimension(780, 100));
+		input_Panel=new Panel(new FlowLayout());
+		input_Panel.setPreferredSize(new Dimension(390, 200));
 		Label_3=new Label("关系：");
-		Label_3.setPreferredSize(new Dimension(760, 20));
+		Label_3.setPreferredSize(new Dimension(380, 20));
 		input_TextField=new TextArea();
 		input_TextField.setText("我");
-		input_TextField.setPreferredSize(new Dimension(700, 90));
-		input_key_Panel.add(Label_3,BorderLayout.NORTH);
-		input_key_Panel.add(input_TextField,BorderLayout.CENTER);
-		input_key_Panel.add(key_Panel,BorderLayout.SOUTH);
+		input_TextField.setPreferredSize(new Dimension(375, 140));
+		input_Panel.add(Label_3,BorderLayout.NORTH);
+		input_Panel.add(input_TextField,BorderLayout.SOUTH);
 		
 		output_Panel=new Panel(new FlowLayout());
-		output_Panel.setPreferredSize(new Dimension(780, 120));
+		output_Panel.setPreferredSize(new Dimension(390, 120));
 		Label_4=new Label("结果：");
-		Label_4.setPreferredSize(new Dimension(760, 20));
+		Label_4.setPreferredSize(new Dimension(380, 20));
 		output_TextField=new TextField();
-		output_TextField.setPreferredSize(new Dimension(700, 80));
+		output_TextField.setPreferredSize(new Dimension(375, 80));
 		output_Panel.add(Label_4,BorderLayout.NORTH);
 		output_Panel.add(output_TextField,BorderLayout.SOUTH);
+		
+		input_output_Panel=new Panel(new FlowLayout());
+		input_output_Panel.setPreferredSize(new Dimension(400, 100));
+		input_output_Panel.add(title_Panel,BorderLayout.NORTH);
+		input_output_Panel.add(input_Panel,BorderLayout.CENTER);
+		input_output_Panel.add(output_Panel,BorderLayout.SOUTH);
 		
 		baba_Button.addActionListener(new Listener_baba());
 		mama_Button.addActionListener(new Listener_mama());
@@ -289,9 +306,8 @@ public class RelationshipCalculator extends WindowAdapter{
 	    C_Button.addActionListener(new Listener_C());
 	    back_Button.addActionListener(new Listener_back());
 		
-		Relation_Frame.add(title_Panel,BorderLayout.NORTH);
-		Relation_Frame.add(input_key_Panel,BorderLayout.CENTER);
-		Relation_Frame.add(output_Panel,BorderLayout.SOUTH);
+		Relation_Frame.add(input_output_Panel,BorderLayout.WEST);
+		Relation_Frame.add(key_Panel,BorderLayout.EAST);
 		Relation_Frame.setVisible(true);
 		Relation_Frame.addWindowListener(this);
 	}
@@ -519,7 +535,9 @@ public class RelationshipCalculator extends WindowAdapter{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			
+			Relation_Frame.setVisible(false);
+			TertiaryPageTwo newWindow=new TertiaryPageTwo();
+			newWindow.setVisible(true);
 		}	
 	}
 	public void windowClosing(WindowEvent e) {
