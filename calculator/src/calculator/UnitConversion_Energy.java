@@ -68,7 +68,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		textField1.setColumns(19);
 		blank1 = new JLabel(" ");
 		in1_Panel.add(blank1);
-		conversion1 = new Button("½¹¶ú>");
+		conversion1 = new Button("      ½¹¶ú>      ");
 		conversion1.setFont(new Font("¿¬Ìå", Font.PLAIN, 20));
 		conversion1.setBackground(UIManager.getColor("Button.light"));
 		conversion1.addActionListener(this);
@@ -85,7 +85,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		textField2.setColumns(19);
 		blank2 = new JLabel(" ");
 		in2_Panel.add(blank2);
-		conversion2 = new Button("¹«½ï*Ã×>");
+		conversion2 = new Button("    ¹«½ï*Ã×>   ");
 		conversion2.setFont(new Font("¿¬Ìå", Font.PLAIN, 20));
 		conversion2.setBackground(UIManager.getColor("Button.light"));
 		conversion2.addActionListener(this);
@@ -136,7 +136,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		textField5.setColumns(19);
 		blank5 = new JLabel(" ");
 		in5_Panel.add(blank5);
-		conversion5 = new Button("Ç§Íß*Ê±>");
+		conversion5 = new Button("   Ç§Íß*Ê±>    ");
 		conversion5.setFont(new Font("¿¬Ìå", Font.PLAIN, 20));
 		conversion5.setBackground(UIManager.getColor("Button.light"));
 		in5_Panel.add(conversion5);
@@ -153,7 +153,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		textField6.setColumns(19);
 		blank6 = new JLabel(" ");
 		in6_Panel.add(blank6);
-		conversion6 = new Button("Ç§¿¨>");
+		conversion6 = new Button("      Ç§¿¨>     ");
 		conversion6.setFont(new Font("¿¬Ìå", Font.PLAIN, 20));
 		conversion6.setBackground(UIManager.getColor("Button.light"));
 		conversion6.addActionListener(this);
@@ -170,7 +170,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		textField7.setColumns(19);
 		blank7 = new JLabel(" ");
 		in7_Panel.add(blank7);
-		conversion7 = new Button("Ó¢ÈÈµ¥Î»>");
+		conversion7 = new Button("   Ó¢ÈÈµ¥Î»>  ");
 		conversion7.setFont(new Font("¿¬Ìå", Font.PLAIN, 20));
 		conversion7.setBackground(UIManager.getColor("Button.light"));
 		conversion7.addActionListener(this);
@@ -187,7 +187,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		textField8.setColumns(19);
 		blank8 = new JLabel(" ");
 		in8_Panel.add(blank8);
-		conversion8 = new Button("Ó¢³ß*°õ>");
+		conversion8 = new Button("   Ó¢³ß*°õ>   ");
 		conversion8.setFont(new Font("¿¬Ìå", Font.PLAIN, 20));
 		conversion8.setBackground(UIManager.getColor("Button.light"));
 		conversion8.addActionListener(this);
@@ -226,7 +226,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 
 	public void actionPerformed(ActionEvent e) {
 		// ½¹¶ú
-		if (e.getActionCommand() == "½¹¶ú>") {
+		if (e.getActionCommand() == "      ½¹¶ú>      ") {
 			double result = Double.parseDouble(textField1.getText());
 			this.result0 = result * 1;
 			this.result1 = result * 0.102;
@@ -246,7 +246,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField8.setText(Double.toString(result7));
 		}
 		// "×ª»»£º¹«½ï*Ã×>"
-		if (e.getActionCommand() == "¹«½ï*Ã×>") {
+		if (e.getActionCommand() == "    ¹«½ï*Ã×>   ") {
 			double result = Double.parseDouble(textField2.getText());
 			this.result0 = result * 9.80392175;
 			this.result1 = result * 1;
@@ -306,7 +306,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField8.setText(Double.toString(result7));
 		}
 		// "Ç§Íß*Ê±>"
-		if (e.getActionCommand() =="Ç§Íß*Ê±>") {
+		if (e.getActionCommand() =="   Ç§Íß*Ê±>    ") {
 			double result = Double.parseDouble(textField5.getText());
 			this.result0 = result * 3599712.0230382;
 			this.result1 = result * 367170.62629849;
@@ -326,7 +326,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField8.setText(Double.toString(result7));
 		}
 		// "Ç§¿¨>"
-		if (e.getActionCommand() == "Ç§¿¨>") {
+		if (e.getActionCommand() == "      Ç§¿¨>     ") {
 			double result = Double.parseDouble(textField6.getText());
 			this.result0 = result * 4185.85182085;
 			this.result1 = result * 426.95688567;
@@ -346,7 +346,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField8.setText(Double.toString(result7));
 		}
 		// "Ó¢ÈÈµ¥Î»>"
-		if (e.getActionCommand() == "Ó¢ÈÈµ¥Î»>") {
+		if (e.getActionCommand() == "   Ó¢ÈÈµ¥Î»>  ") {
 			double result = Double.parseDouble(textField7.getText());
 			this.result0 = result * 1055.0749103;
 			this.result1 = result * 107.61764084;
@@ -366,7 +366,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField8.setText(Double.toString(result7));
 		}
 		//"Ó¢³ß*°õ>"
-		if (e.getActionCommand() == "Ó¢³ß*°õ>") {
+		if (e.getActionCommand() == "   Ó¢³ß*°õ>   ") {
 			double result = Double.parseDouble(textField8.getText());
 			this.result0 = result * 1.35574837;
 			this.result1 = result * 0.13828633;
