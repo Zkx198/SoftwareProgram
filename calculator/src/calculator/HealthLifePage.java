@@ -34,7 +34,6 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 	private JLabel lblNewLabel;
 	private JLabel illustration5_Label;
 	private JLabel label;
-	private JLabel blank_Label;
 	private JLabel label_1;
 	
 	public void cal() {
@@ -128,17 +127,15 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 		input_Panel.add(in4_Panel);
 		input_Panel.add(in5_Panel);
 		
-		blank3_Label = new JLabel("                                       ");
+		blank3_Label = new JLabel("                                                                                                                                                   ");
+		blank3_Label.setFont(new Font("ËÎÌו", Font.PLAIN, 16));
 		in4_Panel.add(blank3_Label);
 		
-		blank_Label = new JLabel("      ");
-		in4_Panel.add(blank_Label);
-		
-		back_button = new Button("    BACK    ");
+		back_button = new Button("     \u8FD4\u56DE     ");
 		in4_Panel.add(back_button);
 		back_button.setForeground(Color.BLACK);
-		back_button.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		back_button.setBackground(new Color(219, 112, 147));
+		back_button.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		back_button.setBackground(new Color(255, 160, 122));
 		back_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);

@@ -210,19 +210,19 @@ public class CaloriesConsumptionCalculator extends WindowAdapter implements Acti
 		result2_Panel.setPreferredSize(new Dimension(100, 118));
 		result_Panel.add(result2_Panel, BorderLayout.CENTER);
 
-		cal_Button = new Button("  CAL  ");
+		cal_Button = new Button("   \u8BA1\u7B97   ");
 		cal_Button.addActionListener(this);
 		cal_Button.setBackground(UIManager.getColor("Button.light"));
 		cal_Button.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		result2_Panel.add(cal_Button);
 
-		ce_Button = new Button("   CE   ");
+		ce_Button = new Button("   \u6E05\u7A7A   ");
 		ce_Button.setBackground(UIManager.getColor("Button.light"));
 		ce_Button.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		ce_Button.addActionListener(this);
 		result2_Panel.add(ce_Button);
 
-		back_Button = new Button("  BACK  ");
+		back_Button = new Button("   \u8FD4\u56DE   ");
 		back_Button.setBackground(new Color(255, 160, 122));
 		back_Button.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		back_Button.addActionListener(new ActionListener() {
@@ -374,12 +374,12 @@ public class CaloriesConsumptionCalculator extends WindowAdapter implements Acti
 		
 	
 		// cal
-		if (e.getActionCommand() == "  CAL  ") {
+		if (e.getActionCommand() == "   \u8BA1\u7B97   ") {
 			this.textField
 					.setText(Double.toString(total_result) + "kCal = " + Double.toString(total_result * 4.186) + "kJ");
 		}
 		// ce
-		if (e.getActionCommand() == "   CE   ") {
+		if (e.getActionCommand() == "   \u6E05\u7A7A   ") {
 			this.textField.setText(" ");
 			this.textArea.setText(" ");
 			this.total_result = 0.0;

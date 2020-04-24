@@ -18,13 +18,14 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 	private TextArea advise1_Textfield;
 	private Button cal_Button, bmi_standard, bmr_standard;
 	private Button Back_Button, C_Button, next_Button;
-	private Label bmi_Label,bmr_Label,age_Label, weight_Label, height_Label, gender_Label, input_Label, blank2, blank3, blank4, blank5, blank6, blank7, blank8;
+	private Label bmi_Label,bmr_Label,age_Label, weight_Label, height_Label, gender_Label, input_Label, blank2, blank3, blank5, blank6, blank7, blank8;
 	private JRadioButton female_Radio, male_Radio;
 	private ButtonGroup btg;
 	private double bmi_result = 0.0, bmr_result = 0.0;
 	private double weight_inputContent = 0.0, height_inputContent = 0.0, age_inputContent = 0.0;
 	private int gender=0;
 	private boolean w_inputstate = false, h_inputstate = false, a_inputstate = false;
+	private JLabel lblNewLabel;
 	
 	public void cal() {
 		cal_Frame = new Frame("健康指数计算器");
@@ -38,12 +39,10 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		cal_Frame.setLayout(new BorderLayout(3, 0));
 		blank2 = new Label("             ");
 		blank3 = new Label("  ");
-		blank4 = new Label("                                                                                        ");
-		blank4.setFont(new Font("Dialog", Font.PLAIN, 5));
 		blank5 = new Label("                                                                                                                                                                                                                                                                                 ");
 		blank5.setFont(new Font("Dialog", Font.PLAIN, 5));
-		blank6 = new Label("                                                                                                                                                                                                                                                               ");
-		blank6.setFont(new Font("Dialog", Font.PLAIN, 5));
+		blank6 = new Label("                                                                                                                                                                                                                                                                                                                                             ");
+		blank6.setFont(new Font("Dialog", Font.PLAIN, 7));
 		blank7 = new Label("  ");
 		blank8 = new Label("                                                                                                                                           ");
 		blank8.setFont(new Font("Dialog", Font.PLAIN, 6));
@@ -127,12 +126,12 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		height_Textfield.addActionListener(this);
 		age_Textfield.addActionListener(this);
 
-		C_Button = new Button("     CE     ");
+		C_Button = new Button("    \u6E05\u7A7A    ");
 		C_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
-		cal_Button = new Button("   CAL    ");
+		cal_Button = new Button("   \u8BA1\u7B97   ");
 		cal_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
-		Back_Button = new Button("BACK");
-		Back_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
+		Back_Button = new Button("  \u8FD4\u56DE  ");
+		Back_Button.setFont(new Font("隶书", Font.BOLD, 23));
 		Back_Button.setForeground(new Color(0, 0, 0));
 		Back_Button.setBackground(new Color(255, 160, 122));
 		
@@ -145,8 +144,8 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 			newWindow.cal();
 		}
 	});		
-		next_Button =new Button("Calories_Consumption");
-		next_Button.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		next_Button =new Button("  \u5361\u8DEF\u91CC\u8BA1\u7B97  ");
+		next_Button.setFont(new Font("隶书", Font.BOLD, 23));
 		next_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
@@ -176,8 +175,8 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		advise1_Textfield.setText("每格输入完成后请按回车键！");
 		advise1_Textfield.setEditable(false);
 		
-		bmi_standard = new Button(" BMI_Standard ");
-		bmi_standard.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		bmi_standard = new Button("\u4F53\u8D28\u6307\u6570\u4E9A\u6D32\u6807\u51C6");
+		bmi_standard.setFont(new Font("楷体", Font.BOLD, 22));
 		bmi_standard.addActionListener(this);
 		
 		result1_Panel.add(blank5);
@@ -186,7 +185,10 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		result1_Panel.add(bmi_Textfield);
 		result1_Panel.add(blank3);
 		result1_Panel.add(bmi_standard);
-		result1_Panel.add(blank4);
+		
+		lblNewLabel = new JLabel("                              ");
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 5));
+		result1_Panel.add(lblNewLabel);
 		result1_Panel.add(advise1_Textfield);
 		result2_Panel.add(blank8);
 		result2_Panel.add(bmr_Label);
@@ -202,7 +204,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == " BMI_Standard ") {
+		if (e.getActionCommand() == "\u4F53\u8D28\u6307\u6570\u4E9A\u6D32\u6807\u51C6") {
 			ImageIcon image = new ImageIcon("./src/image/a1.jpg");
 			JOptionPane.showConfirmDialog(null, image, "BMI指数中国标准", JOptionPane.INFORMATION_MESSAGE); 
 				}
@@ -235,7 +237,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		}
 		
 		// key "CAL"
-		if (e.getActionCommand() == "   CAL    ") {
+		if (e.getActionCommand() == "   \u8BA1\u7B97   ") {
 			if(this.w_inputstate==true && this.h_inputstate==true && this.gender!=0 && this.a_inputstate==true) {
 				if(male_Radio.isSelected()) {
 					this.bmr_result = 66+(13.7*this.weight_inputContent)+(5*this.height_inputContent)-(6.8*this.age_inputContent);
@@ -278,7 +280,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		}
 		
 		// key "CE"
-		if (e.getActionCommand() == "     CE     ") {
+		if (e.getActionCommand() == "    \u6E05\u7A7A    ") {
 			this.w_inputstate=false;
 			this.h_inputstate=false;
 			this.a_inputstate=false;

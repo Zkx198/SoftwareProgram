@@ -193,7 +193,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		conversion8.addActionListener(this);
 		in8_Panel.add(conversion8);
 
-		ce_Button = new Button("    CE    ");
+		ce_Button = new Button("     \u6E05\u7A7A     ");
 		ce_Button.setBackground(UIManager.getColor("Button.background"));
 		ce_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		ce_Button.addActionListener(this);
@@ -204,7 +204,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		result_Panel.add(blank9);
 		result_Panel.add(ce_Button);
 
-		back_Button = new Button("   BACK   ");
+		back_Button = new Button("    \u8FD4\u56DE    ");
 		back_Button.setBackground(new Color(255, 160, 122));
 		back_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		back_Button.addActionListener(new ActionListener() {
@@ -387,7 +387,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		}
 
 		// ce
-		if (e.getActionCommand() == "    CE    ") {
+		if (e.getActionCommand() == "     \u6E05\u7A7A     ") {
 			this.textField1.setText(" ");
 			this.result0 = 0.0;
 			this.textField2.setText(" ");
