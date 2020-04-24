@@ -41,7 +41,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 		cal_Frame = new Frame("\u5065\u5EB7\u751F\u6D3B\u8BA1\u7B97\u5668");
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setType(Type.UTILITY);
-		cal_Frame.setForeground(SystemColor.desktop);
+		cal_Frame.setForeground(Color.BLACK);
 		cal_Frame.setSize(780, 480);
 		cal_Frame.setLocation(200, 200);
 		cal_Frame.setBackground(Color.LIGHT_GRAY);
