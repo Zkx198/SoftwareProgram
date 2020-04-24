@@ -33,7 +33,7 @@ public class UnitConversion_Power extends WindowAdapter implements ActionListene
 	private JLabel lblNewLabel;
 
 	public void cal() {
-		cal_Frame = new Frame("\u9762\u79EF\u5355\u4F4D\u6362\u7B97\u5668");
+		cal_Frame = new Frame("\u529F\u7387\u5355\u4F4D\u6362\u7B97\u5668");
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setType(Type.UTILITY);
 		cal_Frame.setForeground(new Color(0, 0, 0));
