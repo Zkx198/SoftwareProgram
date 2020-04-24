@@ -134,7 +134,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		Back_Button = new Button("BACK");
 		Back_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		Back_Button.setForeground(new Color(0, 0, 0));
-		Back_Button.setBackground(new Color(219, 112, 147));
+		Back_Button.setBackground(new Color(255, 160, 122));
 		
 		C_Button.addActionListener(this);
 		cal_Button.addActionListener(this);
@@ -145,11 +145,13 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 			newWindow.cal();
 		}
 	});		
-		next_Button =new Button("Calorie Calculation");
-		next_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
+		next_Button =new Button("Calories_Consumption");
+		next_Button.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		next_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				cal_Frame.setVisible(false);
+				CaloriesConsumptionCalculator newWindow=new CaloriesConsumptionCalculator();
+				newWindow.cal();
 			}
 		});		
 	
