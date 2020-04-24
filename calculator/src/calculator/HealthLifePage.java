@@ -114,6 +114,13 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 		in3_Panel.add(blank4_Label);
 		
 		sport_Button = new Button("\u4F53\u529B\u6D3B\u52A8\u70ED\u91CF\u6D88\u8017");
+		sport_Button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cal_Frame.setVisible(false);
+				CaloriesConsumptionCalculator newWindow=new CaloriesConsumptionCalculator();
+				newWindow.cal();
+			}
+		});
 		sport_Button.setBackground(UIManager.getColor("Button.background"));
 		in3_Panel.add(sport_Button);
 		sport_Button.setFont(new Font("¡• È", Font.BOLD, 24));

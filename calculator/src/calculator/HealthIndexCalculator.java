@@ -163,7 +163,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 		bmi_Textfield= new TextField(12);
 		bmi_Textfield.setBounds(50, 30, 50, 30);
 		bmi_Textfield.setFont(new Font("¡• È", Font.BOLD, 23));
-		bmr_Textfield= new TextField(21);
+		bmr_Textfield= new TextField(24);
 		bmr_Textfield.setFont(new Font("¡• È", Font.BOLD, 23));
 		bmi_Textfield.setText(" ");
 		bmr_Textfield.setText(" ");
@@ -243,7 +243,7 @@ public class HealthIndexCalculator extends WindowAdapter implements ActionListen
 				}
 	            if(female_Radio.isSelected()) {
 	            	this.bmr_result = 655+(9.6*this.weight_inputContent)+(1.8*this.height_inputContent)-(4.7*this.age_inputContent);
-	            	bmr_Textfield.setText("   "+Double.toString(this.bmr_result)+"  KJ/m2/h");
+	            	bmr_Textfield.setText(" "+Double.toString(this.bmr_result)+" KJ/m2/h");
 	            	this.bmi_result = this.weight_inputContent/(this.height_inputContent*this.height_inputContent/10000);
 					bmi_Textfield.setText(Double.toString(this.bmi_result));
 				}

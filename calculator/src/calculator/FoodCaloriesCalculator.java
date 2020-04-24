@@ -333,12 +333,12 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 
 		add8 = new Button("ÃÌº”–°≥‘");
 		add8.setFont(new Font("¡• È", Font.BOLD, 18));
-		add8.setBackground(SystemColor.controlHighlight);
+		add8.setBackground(UIManager.getColor("Button.light"));
 		add8.addActionListener(this);
 		in8_Panel.add(add8);
 
 		result1_Panel = new Panel();
-		result1_Panel.setPreferredSize(new Dimension(316, 126));
+		result1_Panel.setPreferredSize(new Dimension(326, 126));
 		result_Panel.add(result1_Panel, BorderLayout.WEST);
 
 		choose_Label = new JLabel("\u60A8\u9009\u62E9\u7684\u98DF\u7269\uFF1A          ");
@@ -352,7 +352,7 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		textArea.setColumns(27);
 		result1_Panel.add(textArea);
 		result2_Panel = new Panel();
-		result2_Panel.setPreferredSize(new Dimension(105, 118));
+		result2_Panel.setPreferredSize(new Dimension(100, 118));
 		result_Panel.add(result2_Panel, BorderLayout.CENTER);
 
 		cal_Button = new Button("  CAL  ");
@@ -379,7 +379,7 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		});		
 		result2_Panel.add(back_Button);
 		result3_Panel = new Panel();
-		result3_Panel.setPreferredSize(new Dimension(315, 105));
+		result3_Panel.setPreferredSize(new Dimension(317, 105));
 		result_Panel.add(result3_Panel, BorderLayout.EAST);
 
 		cal_Label_1 = new JLabel("\u60A8\u7684\u70ED\u91CF\u6444\u53D6\u91CF\u4E3A\uFF1A");
