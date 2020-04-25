@@ -214,7 +214,7 @@ public class RelationshipCalculator extends WindowAdapter{
 	    title_Panel.add(Label_1);
 	    title_Panel.add(Label_2);
 		
-		relation_Panel=new Panel(new GridLayout(3,4,3,3));
+		relation_Panel=new Panel(new GridLayout(3,4,5,10));
 		relation_Panel.setPreferredSize(new Dimension(340, 250));
 		baba_Button=new Button("爸爸");
 		baba_Button.setFont(new Font("隶书", Font.BOLD, 22));
@@ -247,7 +247,7 @@ public class RelationshipCalculator extends WindowAdapter{
 		relation_Panel.add(zhangfu_Button);
 		relation_Panel.add(qizi_Button);
 		
-		common_Panel=new Panel(new GridLayout(1,4,3,3));
+		common_Panel=new Panel(new GridLayout(1,4,5,3));
 		common_Panel.setPreferredSize(new Dimension(340, 90));
 		equal_Button=new Button("计算");
 		equal_Button.setFont(new Font("隶书", Font.BOLD, 22));
@@ -269,7 +269,7 @@ public class RelationshipCalculator extends WindowAdapter{
 		
 		Label_5=new Label("关系按键");
 		Label_5.setFont(new Font("隶书", Font.BOLD, 22));
-		Label_5.setPreferredSize(new Dimension(360, 50));
+		Label_5.setPreferredSize(new Dimension(360, 40));
 		
 		key_Panel=new Panel(new FlowLayout());
 		key_Panel.setPreferredSize(new Dimension(360, 135));
