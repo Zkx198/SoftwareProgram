@@ -56,9 +56,7 @@ public class SecondaryPageTwo extends JFrame {
 		JButton btnNewButton_1 = new JButton("Çé¸Ð¼ÆËãÆ÷");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				TertiaryPageTwo newWindow=new TertiaryPageTwo();
-				newWindow.setVisible(true);
+				
 			}
 		});
 		contentPane.add(btnNewButton_1);

@@ -50,7 +50,7 @@ public class MatrixCalculator extends WindowAdapter {
 		Matr_Frame=new Frame("æÿ’Ûº∆À„∆˜");
 		Matr_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Matr_Frame.setType(Type.UTILITY);
-		Matr_Frame.setForeground(SystemColor.desktop);
+		Matr_Frame.setForeground(Color.BLACK);
 		Matr_Frame.setSize(420, 480);
 		Matr_Frame.setLocation(200, 200);
 		Matr_Frame.setBackground(Color.LIGHT_GRAY);
