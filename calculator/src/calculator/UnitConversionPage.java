@@ -46,6 +46,7 @@ public class UnitConversionPage extends WindowAdapter implements ActionListener 
 	
 	
 	public void cal() {
+		ImageIcon image = new ImageIcon("./src/image/UnitConversion.jpg");
 		cal_Frame = new Frame("\u5355\u4F4D\u6362\u7B97\u5668");
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setType(Type.UTILITY);
