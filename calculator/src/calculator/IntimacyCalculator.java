@@ -107,7 +107,7 @@ public class IntimacyCalculator extends WindowAdapter {
 		input_Panel.add(name_Panel,BorderLayout.NORTH);
 		input_Panel.add(sex_Panel,BorderLayout.CENTER);
 		
-		lblNewLabel = new Label("\u5E74\u6708\u65E5\u4E4B\u95F4\u8BF7\u7528/\u5206\u9694\uFF0C\u4F8B\u59822020-01-01");
+		lblNewLabel = new Label("\u5E74\u6708\u65E5\u4E4B\u95F4\u8BF7\u7528-\u5206\u9694\uFF0C\u4F8B\u59822020-01-01");
 		lblNewLabel.setFont(new Font("¡• È", Font.PLAIN, 20));
 		lblNewLabel.setPreferredSize(new Dimension(420, 80));
 		input_Panel.add(lblNewLabel);

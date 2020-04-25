@@ -74,7 +74,7 @@ public class UnitConversionPage extends WindowAdapter implements ActionListener 
 		cvs1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
-				UnitConversionPage newWindow=new UnitConversionPage();
+				UnitConversion_Length newWindow=new UnitConversion_Length();
 				newWindow.cal();
 			}
 		});		
@@ -100,7 +100,7 @@ public class UnitConversionPage extends WindowAdapter implements ActionListener 
 		cvs3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
-				UnitConversionPage newWindow=new UnitConversionPage();
+				UnitConversion_Volume newWindow=new UnitConversion_Volume();
 				newWindow.cal();
 			}
 		});	
@@ -111,7 +111,7 @@ public class UnitConversionPage extends WindowAdapter implements ActionListener 
 		cvs4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
-				UnitConversionPage newWindow=new UnitConversionPage();
+				UnitConversion_Quality newWindow=new UnitConversion_Quality();
 				newWindow.cal();
 			}
 		});
@@ -128,7 +128,7 @@ public class UnitConversionPage extends WindowAdapter implements ActionListener 
 		cvs6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
-				UnitConversionPage newWindow=new UnitConversionPage();
+				UnitConversion_Tempetature newWindow=new UnitConversion_Tempetature();
 				newWindow.cal();
 			}
 		});
