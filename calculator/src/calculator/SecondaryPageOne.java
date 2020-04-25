@@ -50,9 +50,7 @@ public class SecondaryPageOne extends JFrame implements ActionListener {
 		ImageIcon img = new ImageIcon("./src/image/science5.jpg");
 		JLabel imgL=new JLabel(img);
 		imgL.setBounds(0, 10, 780, 480);
-  ///      imgL.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
         this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
-	//	Container contain = this.getContentPanel();
         Container contain = this.getContentPane();
 		((JPanel) contain).setOpaque(false);
 		
