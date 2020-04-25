@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
-
+//2017111147Àî›éÑþ
 public class SecondaryPageOne extends JFrame implements ActionListener {
 	
 	public static void main(String[] args) {

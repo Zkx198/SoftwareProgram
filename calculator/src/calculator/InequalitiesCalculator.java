@@ -11,6 +11,7 @@ import javax.swing.JRadioButton;
 import calculator.SecondaryPageOne;
 
 import java.awt.Window.Type;
+import javax.swing.JLabel;
 
 public class InequalitiesCalculator extends WindowAdapter implements ActionListener {
 	private Frame cal_Frame;
@@ -34,6 +35,9 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 	Font fontOfOutput = new Font("华文行楷", Font.PLAIN, 32);
 	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);
 	Font fontOfCommand = new Font("Times New Roman", Font.ITALIC, 18);
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	// 界面开始！！！
 	public void cal() {
@@ -49,24 +53,26 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 
 		input_integration_Panel = new Panel(new FlowLayout());
 		input_left_Panel = new Panel(new FlowLayout());
-		input_left_Panel.setPreferredSize(new Dimension(220, 124));
-		input_left_Panel.setBackground(Color.LIGHT_GRAY);
+		input_left_Panel.setForeground(Color.DARK_GRAY);
+		input_left_Panel.setPreferredSize(new Dimension(220, 128));
+		input_left_Panel.setBackground(new Color(0, 51, 51));
 		input_center_Panel = new Panel(new GridLayout(4, 1, 2, 2));
 		input_center_Panel.setPreferredSize(new Dimension(80, 128));
-		input_center_Panel.setBackground(new Color(220, 220, 220));
+		input_center_Panel.setBackground(new Color(0, 51, 51));
 		input_right_Panel = new Panel(new GridLayout(4, 1, 2, 2));
 		input_right_Panel.setPreferredSize(new Dimension(70, 128));
-		input_right_Panel.setBackground(Color.LIGHT_GRAY);
-		input_integration_Panel.setBackground(Color.LIGHT_GRAY);
+		input_right_Panel.setBackground(new Color(0, 51, 51));
+		input_integration_Panel.setBackground(Color.BLACK);
 		input_integration_Panel.add(input_left_Panel, BorderLayout.WEST);
 		input_integration_Panel.add(input_center_Panel, BorderLayout.CENTER);
 		input_integration_Panel.add(input_right_Panel, BorderLayout.EAST);
 		output_Panel = new Panel(new GridLayout(1, 1, 1, 1));
 		output_Panel.setBackground(Color.LIGHT_GRAY);
 		x1_Panel = new Panel(new FlowLayout());
+		x1_Panel.setBackground(Color.BLACK);
 		output_Panel.add(x1_Panel, BorderLayout.WEST);
 		intergration_Panel = new Panel(new FlowLayout());
-		intergration_Panel.setBackground(Color.LIGHT_GRAY);
+		intergration_Panel.setBackground(Color.BLACK);
 		keyNum_Panel = new Panel(new GridLayout(4, 3, 7, 8));
 		keyOrder_Panel = new Panel(new GridLayout(4, 1, 3, 3));
 		intergration_Panel.add(keyNum_Panel, BorderLayout.WEST);
@@ -82,25 +88,37 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 		cal_Frame.add(intergration_Panel, BorderLayout.SOUTH);
 
 		a_Textfield = new TextField(6);
-		a_Textfield.setBackground(Color.WHITE);
-		a_Textfield.setForeground(Color.BLACK);
+		a_Textfield.setBackground(Color.DARK_GRAY);
+		a_Textfield.setForeground(Color.WHITE);
 		b_Textfield = new TextField(6);
+		b_Textfield.setBackground(Color.DARK_GRAY);
+		b_Textfield.setForeground(Color.WHITE);
 		c_Textfield = new TextField(6);
+		c_Textfield.setForeground(Color.WHITE);
+		c_Textfield.setBackground(Color.DARK_GRAY);
 		relation_Textfield = new TextField(2);
+		relation_Textfield.setForeground(Color.WHITE);
+		relation_Textfield.setBackground(Color.DARK_GRAY);
 		a_Label = new Label(" *(X^2)  + ");
+		a_Label.setForeground(Color.WHITE);
 		a_Label.setFont(new Font("Times New Roman", Font.PLAIN, 21));
-		a_Label.setBackground(Color.LIGHT_GRAY);
+		a_Label.setBackground(new Color(0, 51, 51));
 		b_Label = new Label("  * X");
+		b_Label.setForeground(Color.WHITE);
 		b_Label.setFont(new Font("Times New Roman", Font.PLAIN, 21));
-		b_Label.setBackground(Color.LIGHT_GRAY);
+		b_Label.setBackground(new Color(0, 51, 51));
 		c_Label = new Label(" + ");
+		c_Label.setForeground(Color.WHITE);
 		c_Label.setFont(new Font("Times New Roman", Font.PLAIN, 22));
-		c_Label.setBackground(Color.LIGHT_GRAY);
+		c_Label.setBackground(new Color(0, 51, 51));
 		d_Label = new Label("  0");
+		d_Label.setForeground(Color.WHITE);
 		d_Label.setFont(new Font("Times New Roman", Font.PLAIN, 21));
-		d_Label.setBackground(Color.LIGHT_GRAY);
+		d_Label.setBackground(new Color(0, 51, 51));
 		position_Label = new Label(" Position:");
-		position_Label.setFont(new Font("Times New Roman", Font.ITALIC, 17));
+		position_Label.setBackground(new Color(0, 51, 51));
+		position_Label.setForeground(Color.WHITE);
+		position_Label.setFont(new Font("Times New Roman", Font.PLAIN, 17));
 		a_Textfield.setText("0.");
 		a_Textfield.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
 		a_Textfield.setEditable(true);
@@ -115,26 +133,52 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 		relation_Textfield.setEditable(true);
 		a_Textfield.setBounds(50, 50, 2, 2);
 		a_Radio = new JRadioButton(" A", true);
+		a_Radio.setBackground(new Color(0, 51, 51));
+		a_Radio.setForeground(Color.WHITE);
 		a_Radio.setFont(new Font("宋体", Font.PLAIN, 20));
 		b_Radio = new JRadioButton(" B");
+		b_Radio.setForeground(Color.WHITE);
+		b_Radio.setBackground(new Color(0, 51, 51));
 		b_Radio.setFont(new Font("宋体", Font.PLAIN, 20));
 		c_Radio = new JRadioButton(" C");
+		c_Radio.setBackground(new Color(0, 51, 51));
+		c_Radio.setForeground(Color.WHITE);
 		c_Radio.setFont(new Font("宋体", Font.PLAIN, 20));
 		smaller1_Radio = new JRadioButton(" < ");
+		smaller1_Radio.setBackground(new Color(0, 51, 51));
+		smaller1_Radio.setForeground(Color.WHITE);
 		smaller1_Radio.setFont(new Font("华文隶书", Font.BOLD, 20));
 		smaller2_Radio = new JRadioButton(" <=");
+		smaller2_Radio.setBackground(new Color(0, 51, 51));
+		smaller2_Radio.setForeground(Color.WHITE);
 		smaller2_Radio.setFont(new Font("华文隶书", Font.BOLD, 20));
 		bigger1_Radio = new JRadioButton(" > ");
+		bigger1_Radio.setForeground(Color.WHITE);
+		bigger1_Radio.setBackground(new Color(0, 51, 51));
 		bigger1_Radio.setFont(new Font("华文隶书", Font.BOLD, 20));
 		bigger2_Radio = new JRadioButton(" >=");
+		bigger2_Radio.setForeground(Color.WHITE);
+		bigger2_Radio.setBackground(new Color(0, 51, 51));
 		bigger2_Radio.setFont(new Font("华文隶书", Font.BOLD, 20));
 		input_left_Panel.add(a_Textfield);
 		input_left_Panel.add(a_Label);
 		input_left_Panel.add(b_Textfield);
+		
+		lblNewLabel = new JLabel(" ");
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 5));
+		input_left_Panel.add(lblNewLabel);
 		input_left_Panel.add(b_Label);
 		input_left_Panel.add(c_Label);
 		input_left_Panel.add(c_Textfield);
+		
+		lblNewLabel_1 = new JLabel(" ");
+		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 5));
+		input_left_Panel.add(lblNewLabel_1);
 		input_left_Panel.add(relation_Textfield);
+		
+		lblNewLabel_2 = new JLabel(" ");
+		lblNewLabel_2.setFont(new Font("宋体", Font.PLAIN, 5));
+		input_left_Panel.add(lblNewLabel_2);
 		input_left_Panel.add(d_Label);
 		input_center_Panel.add(position_Label);
 		input_center_Panel.add(a_Radio);
@@ -147,6 +191,8 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 		input_left_Panel.setVisible(true);
 
 		result1_Textarea = new TextArea(2,30);
+		result1_Textarea.setForeground(Color.WHITE);
+		result1_Textarea.setBackground(Color.DARK_GRAY);
 		result1_Textarea.setText("");
 		result1_Textarea.setFont(new Font("华文新魏", Font.BOLD | Font.ITALIC, 21));
 		result1_Textarea.setEditable(true);
@@ -156,17 +202,41 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 		x1_Panel.add(result1_Textarea);
 
 		number1_Button = new Button("1");
+		number1_Button.setForeground(Color.WHITE);
+		number1_Button.setBackground(Color.DARK_GRAY);
 		number2_Button = new Button("2");
+		number2_Button.setForeground(Color.WHITE);
+		number2_Button.setBackground(Color.DARK_GRAY);
 		number3_Button = new Button("3");
+		number3_Button.setBackground(Color.DARK_GRAY);
+		number3_Button.setForeground(Color.WHITE);
 		number4_Button = new Button("4");
+		number4_Button.setForeground(Color.WHITE);
+		number4_Button.setBackground(Color.DARK_GRAY);
 		number5_Button = new Button("5");
+		number5_Button.setForeground(Color.WHITE);
+		number5_Button.setBackground(Color.DARK_GRAY);
 		number6_Button = new Button("6");
+		number6_Button.setForeground(Color.WHITE);
+		number6_Button.setBackground(Color.DARK_GRAY);
 		number7_Button = new Button("7");
+		number7_Button.setForeground(Color.WHITE);
+		number7_Button.setBackground(Color.DARK_GRAY);
 		number8_Button = new Button("8");
+		number8_Button.setForeground(Color.WHITE);
+		number8_Button.setBackground(Color.DARK_GRAY);
 		number9_Button = new Button("9");
+		number9_Button.setBackground(Color.DARK_GRAY);
+		number9_Button.setForeground(Color.WHITE);
 		number0_Button = new Button("0");
+		number0_Button.setForeground(Color.WHITE);
+		number0_Button.setBackground(Color.DARK_GRAY);
 		negative_Button = new Button("+/-");
+		negative_Button.setForeground(Color.WHITE);
+		negative_Button.setBackground(new Color(0, 0, 102));
 		dot_Button = new Button(".");
+		dot_Button.setForeground(Color.WHITE);
+		dot_Button.setBackground(new Color(0, 0, 102));
 		number0_Button.setFont(fontOfNumber);
 		number1_Button.setFont(fontOfNumber);
 		number2_Button.setFont(fontOfNumber);
@@ -205,10 +275,17 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 		keyNum_Panel.add(dot_Button);
 
 		Backspace_Button = new Button("DEL");
+		Backspace_Button.setBackground(new Color(0, 51, 102));
+		Backspace_Button.setForeground(Color.WHITE);
 		Back_Button = new Button("BACK");
-		Back_Button.setBackground(new Color(219, 112, 147));
+		Back_Button.setForeground(Color.WHITE);
+		Back_Button.setBackground(new Color(160, 82, 45));
 		C_Button = new Button("C");
+		C_Button.setForeground(Color.WHITE);
+		C_Button.setBackground(new Color(0, 51, 102));
 		Cal_Button = new Button("CAL");
+		Cal_Button.setBackground(new Color(0, 51, 102));
+		Cal_Button.setForeground(Color.WHITE);
 		Backspace_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 		Back_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 		Cal_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
