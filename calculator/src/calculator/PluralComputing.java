@@ -28,6 +28,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);
 	Font fontOfCommand = new Font("Times New Roman", Font.ITALIC, 18);
 	private JLabel lblNewLabel;
+	private JLabel label;
 
 	/**
 	 * @wbp.parser.entryPoint
@@ -36,7 +37,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		plu_Frame = new Frame("复数计算器");
 		plu_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		plu_Frame.setType(Type.UTILITY);
-		plu_Frame.setForeground(SystemColor.desktop);
+		plu_Frame.setForeground(new Color(0, 0, 0));
 		plu_Frame.setSize(420, 480);
 		plu_Frame.setLocation(200, 200);
 		plu_Frame.setBackground(Color.LIGHT_GRAY);
@@ -50,16 +51,21 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		displayOutput_Panel_input = new Panel(new FlowLayout());
 		intergration_Panel.add(command_Panel, BorderLayout.NORTH);
 		intergration_Panel.add(key_Panel, BorderLayout.SOUTH);
-		displayOutput_Panel_input.setPreferredSize(new Dimension(280, 60));
-		key_Panel.setPreferredSize(new Dimension(380, 295));
-		command_Panel.setPreferredSize(new Dimension(380, 60));
-		intergration_Panel.setPreferredSize(new Dimension(380, 370));
+		displayOutput_Panel_input.setPreferredSize(new Dimension(260, 90));
+		key_Panel.setPreferredSize(new Dimension(380, 270));
+		command_Panel.setPreferredSize(new Dimension(380, 55));
+		intergration_Panel.setPreferredSize(new Dimension(380, 345));
+		
+		label = new JLabel("\u590D\u6570\u5185\u7684\u6B63\u8D1F\u53F7\u8BF7\u6309+/-\u6309\u952E\uFF0C\u6309\u4E00\u6B21\u4E3A-\uFF0C\u4E24\u6B21\u4E3A+");
+		label.setForeground(new Color(0, 0, 0));
+		label.setFont(new Font("华文宋体", Font.BOLD, 16));
+		label.setPreferredSize(new Dimension(400, 35));
+		displayOutput_Panel_input.add(label);
 
-		display_Textfield_input = new TextField(20);
+		display_Textfield_input = new TextField();
+		display_Textfield_input.setPreferredSize(new Dimension(380, 40));
 		display_Textfield_input.setText("请输入复数,如1+1i");
 		display_Textfield_input.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 33));
-		display_Textfield_input.setEditable(true);
-		display_Textfield_input.setBounds(50, 30, 50, 30);
 		displayOutput_Panel_input.add(display_Textfield_input);
 		plu_Frame.add(displayOutput_Panel_input, BorderLayout.NORTH);
 		plu_Frame.add(intergration_Panel, BorderLayout.SOUTH);

@@ -198,7 +198,7 @@ public class RelationshipCalculator extends WindowAdapter{
 		Relation_Frame=new Frame("亲戚关系计算器");
 		Relation_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Relation_Frame.setType(Type.UTILITY);
-		Relation_Frame.setForeground(SystemColor.desktop);
+		Relation_Frame.setForeground(Color.BLACK);
 		Relation_Frame.setSize(780, 480);
 		Relation_Frame.setLocationRelativeTo(null);
 		Relation_Frame.setBackground(Color.LIGHT_GRAY);
@@ -208,22 +208,34 @@ public class RelationshipCalculator extends WindowAdapter{
 		title_Panel=new Panel(new GridLayout(2,1));
 		title_Panel.setPreferredSize(new Dimension(390, 80));
 		Label_1=new Label("\u5047\u5B9A\u6211\u7684\u6027\u522B\u4E3A:\u7537");
+		Label_1.setFont(new Font("隶书", Font.BOLD, 22));
 		Label_2=new Label("\u7ED3\u679C\u4E3A\u6211\u5BF9\u5BF9\u65B9\u7684\u79F0\u547C");
+		Label_2.setFont(new Font("隶书", Font.BOLD, 22));
 	    title_Panel.add(Label_1);
 	    title_Panel.add(Label_2);
 		
 		relation_Panel=new Panel(new GridLayout(3,4,3,3));
 		relation_Panel.setPreferredSize(new Dimension(340, 250));
 		baba_Button=new Button("爸爸");
+		baba_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		mama_Button=new Button("妈妈");
+		mama_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		erzi_Button=new Button("儿子");
+		erzi_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		nver_Button=new Button("女儿");
+		nver_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		gege_Button=new Button("哥哥");
+		gege_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		didi_Button=new Button("弟弟");
+		didi_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		jiejie_Button=new Button("姐姐");
+		jiejie_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		meimei_Button=new Button("妹妹");
+		meimei_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		zhangfu_Button=new Button("丈夫");
+		zhangfu_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		qizi_Button=new Button("妻子");
+		qizi_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		relation_Panel.add(baba_Button);
 		relation_Panel.add(mama_Button);
 		relation_Panel.add(erzi_Button);
@@ -238,20 +250,25 @@ public class RelationshipCalculator extends WindowAdapter{
 		common_Panel=new Panel(new GridLayout(1,4,3,3));
 		common_Panel.setPreferredSize(new Dimension(340, 90));
 		equal_Button=new Button("计算");
+		equal_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		equal_Button.setForeground(Color.RED);
 		del_Button=new Button("删除");
+		del_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		del_Button.setForeground(Color.RED);
 		C_Button=new Button("清空");
+		C_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		C_Button.setForeground(Color.RED);
 		back_Button=new Button("返回");
+		back_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		back_Button.setForeground(new Color(0, 0, 0));
-		back_Button.setBackground(new Color(219, 112, 147));
+		back_Button.setBackground(new Color(255, 160, 122));
 		common_Panel.add(equal_Button);
 		common_Panel.add(del_Button);
 		common_Panel.add(C_Button);
 		common_Panel.add(back_Button);
 		
 		Label_5=new Label("关系按键");
+		Label_5.setFont(new Font("隶书", Font.BOLD, 22));
 		Label_5.setPreferredSize(new Dimension(360, 50));
 		
 		key_Panel=new Panel(new FlowLayout());
@@ -269,8 +286,10 @@ public class RelationshipCalculator extends WindowAdapter{
 		input_Panel=new Panel(new FlowLayout());
 		input_Panel.setPreferredSize(new Dimension(390, 200));
 		Label_3=new Label("关系：");
+		Label_3.setFont(new Font("隶书", Font.BOLD, 20));
 		Label_3.setPreferredSize(new Dimension(380, 20));
 		input_TextField=new TextArea();
+		input_TextField.setFont(new Font("隶书", Font.BOLD, 22));
 		input_TextField.setText("我");
 		input_TextField.setPreferredSize(new Dimension(375, 140));
 		input_Panel.add(Label_3,BorderLayout.NORTH);
@@ -279,6 +298,7 @@ public class RelationshipCalculator extends WindowAdapter{
 		output_Panel=new Panel(new FlowLayout());
 		output_Panel.setPreferredSize(new Dimension(390, 120));
 		Label_4=new Label("结果：");
+		Label_4.setFont(new Font("隶书", Font.BOLD, 20));
 		Label_4.setPreferredSize(new Dimension(380, 20));
 		output_TextField=new TextField();
 		output_TextField.setPreferredSize(new Dimension(375, 80));
@@ -536,8 +556,8 @@ public class RelationshipCalculator extends WindowAdapter{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			Relation_Frame.setVisible(false);
-			TertiaryPageTwo newWindow=new TertiaryPageTwo();
-			newWindow.setVisible(true);
+			EmotionalLifePage newWindow=new EmotionalLifePage();
+			newWindow.emotional();
 		}	
 	}
 	public void windowClosing(WindowEvent e) {
