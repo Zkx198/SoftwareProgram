@@ -879,7 +879,7 @@ public class IntimacyCalculator extends WindowAdapter {
 			// TODO Auto-generated method stub
 			Intimacy_Frame.setVisible(false);
 			EmotionalLifePage newWindow=new EmotionalLifePage();
-			newWindow.emotional();
+			newWindow.setVisible(true);
 		}	
 	}
     /**

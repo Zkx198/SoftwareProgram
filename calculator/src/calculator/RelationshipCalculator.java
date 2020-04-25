@@ -557,7 +557,7 @@ public class RelationshipCalculator extends WindowAdapter{
 			// TODO Auto-generated method stub
 			Relation_Frame.setVisible(false);
 			EmotionalLifePage newWindow=new EmotionalLifePage();
-			newWindow.emotional();
+			newWindow.setVisible(true);
 		}	
 	}
 	public void windowClosing(WindowEvent e) {
