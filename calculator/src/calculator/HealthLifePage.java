@@ -70,7 +70,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
 				HealthIndexCalculator newWindow=new HealthIndexCalculator();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 		in0_Panel.add(bmr_Button);
@@ -86,7 +86,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
 				HealthIndexCalculator newWindow=new HealthIndexCalculator();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 		in1_Panel.add(bmi_Button);

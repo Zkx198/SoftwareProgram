@@ -32,18 +32,19 @@ public class HexadecimalConversion {
 		Hex_frame.setLocation(200, 200);
 		Hex_frame.setBackground(Color.BLACK);
 		Hex_frame.setResizable(true);
+		Hex_frame.getContentPane().setLayout(new BorderLayout(3, 9));
 		Hex_frame.getContentPane().setLayout(new FlowLayout());
 		
 		word_Panel = new Panel(new GridLayout(4,1,4,2));
-		word_Panel.setPreferredSize(new Dimension(80, 160));
-		input_output_Panel=new Panel(new GridLayout(2,2,2,4));
+		word_Panel.setPreferredSize(new Dimension(80, 178));
+		input_output_Panel=new Panel(new GridLayout(2,2,2,6));
 		input_output_Panel.setPreferredSize(new Dimension(380, 80));
-		Hex_Panel=new Panel(new GridLayout(2,4,2,8));
+		Hex_Panel=new Panel(new GridLayout(2,4,2,6));
 		Hex_Panel.setPreferredSize(new Dimension(380, 80));
-		i_o_H_Panel=new Panel(new GridLayout(2,1,2,2));
-		i_o_H_Panel.setPreferredSize(new Dimension(295, 160));
+		i_o_H_Panel=new Panel(new GridLayout(2,1,2,8));
+		i_o_H_Panel.setPreferredSize(new Dimension(295, 178));
 		key_Panel=new Panel(new GridLayout(3,5,6,7));
-		key_Panel.setPreferredSize(new Dimension(385, 260));
+		key_Panel.setPreferredSize(new Dimension(385, 230));
 		
 		input_1 =new JLabel(" \u8F93\u5165");
 		input_1.setForeground(Color.WHITE);
@@ -146,7 +147,7 @@ public class HexadecimalConversion {
 		C_Button.setBackground(new Color(0, 51, 102));
 		C_Button.setForeground(Color.WHITE);
 		Back_Button = new Button("Back");
-		Back_Button.setFont(new Font("Dialog", Font.PLAIN, 18));
+		Back_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
 		Back_Button.setForeground(Color.WHITE);
 		Back_Button.setBackground(new Color(160, 82, 45));
 		number0_Button.setFont(fontOfKey);
@@ -164,8 +165,8 @@ public class HexadecimalConversion {
 		numberC_Button.setFont(fontOfKey);
 		numberD_Button.setFont(fontOfKey);
 		numberE_Button.setFont(fontOfKey);
-		Del_Button.setFont(fontOfKey);
-		C_Button.setFont(fontOfKey);
+		Del_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
+		C_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 23));
 		
 		key_Panel.add(number0_Button);
 		key_Panel.add(number1_Button);
