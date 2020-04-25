@@ -34,7 +34,6 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 	private JLabel lblNewLabel;
 	private JLabel illustration5_Label;
 	private JLabel label;
-	private JLabel label_1;
 	
 	public void cal() {
 		cal_Frame = new Frame("\u5065\u5EB7\u751F\u6D3B\u8BA1\u7B97\u5668");
@@ -127,7 +126,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 		input_Panel.add(in4_Panel);
 		input_Panel.add(in5_Panel);
 		
-		blank3_Label = new JLabel("                                                                                                                                                   ");
+		blank3_Label = new JLabel("                                                                                                                                            ");
 		blank3_Label.setFont(new Font("ËÎÌו", Font.PLAIN, 16));
 		in4_Panel.add(blank3_Label);
 		
@@ -142,10 +141,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 				SecondaryPageTwo newWindow=new SecondaryPageTwo();
 				newWindow.setVisible(true);
 			}
-		});			
-		
-		label_1 = new JLabel("      ");
-		in4_Panel.add(label_1);
+		});
 		intergration_Panel = new Panel(new FlowLayout());
 		result1_Panel = new Panel(new FlowLayout());
 		result2_Panel = new Panel(new FlowLayout());
