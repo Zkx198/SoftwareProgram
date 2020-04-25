@@ -59,6 +59,7 @@ public class MatrixCalculator extends WindowAdapter {
 		display_Panel= new Panel(new FlowLayout());
 		display_Panel.setPreferredSize(new Dimension(70, 120));
 		display_input_TextField=new TextArea("请选择矩阵阶数\n并在下方输入矩阵，\n用逗号分隔开");
+		display_input_TextField.setFont(new Font("楷体", Font.PLAIN, 18));
 		display_input_TextField.setPreferredSize(new Dimension(187, 112));
 		display_input_TextField.setBackground(Color.GRAY);
 		display_input_TextField.setEditable(false);
@@ -76,7 +77,7 @@ public class MatrixCalculator extends WindowAdapter {
 		input_Panel.add(input_TextField);
 		
 		common_Panel=new Panel(new GridLayout(1,3,2,8));
-		common_Panel.setPreferredSize(new Dimension(380, 40));
+		common_Panel.setPreferredSize(new Dimension(380, 37));
 		DEL_Button= new Button("DEL");
 		DEL_Button.setForeground(Color.BLACK);
 		DEL_Button.setBackground(Color.GRAY);
@@ -90,8 +91,8 @@ public class MatrixCalculator extends WindowAdapter {
 		common_Panel.add(C_Button);
 		common_Panel.add(choice_Button);
 		
-		key_Panel= new Panel(new GridLayout(4,6,4,12));
-		key_Panel.setPreferredSize(new Dimension(380, 225));
+		key_Panel= new Panel(new GridLayout(4,6,4,10));
+		key_Panel.setPreferredSize(new Dimension(380, 205));
 		number0_Button= new Button("0");
 		number0_Button.setBackground(Color.DARK_GRAY);
 		number1_Button= new Button("1");
@@ -113,6 +114,7 @@ public class MatrixCalculator extends WindowAdapter {
 		number9_Button= new Button("9");
 		number9_Button.setBackground(Color.DARK_GRAY);
 		dot_Button= new Button(".");
+		dot_Button.setFont(new Font("Dialog", Font.BOLD, 28));
 		dot_Button.setBackground(Color.DARK_GRAY);
 		equal_Button= new Button("=");
 		equal_Button.setBackground(new Color(0, 0, 102));
@@ -168,6 +170,7 @@ public class MatrixCalculator extends WindowAdapter {
 		key_Panel.add(number0_Button);
 		key_Panel.add(dot_Button);
 		comma_Button= new Button(",");
+		comma_Button.setFont(new Font("Dialog", Font.BOLD, 30));
 		comma_Button.setBackground(Color.DARK_GRAY);
 		key_Panel.add(comma_Button);
 		comma_Button.addActionListener(new Listener_comma());
@@ -177,7 +180,7 @@ public class MatrixCalculator extends WindowAdapter {
 		key_Panel.add(back_Button);
 		
 		button_Panel= new Panel(new FlowLayout());
-		button_Panel.setPreferredSize(new Dimension(420, 280));
+		button_Panel.setPreferredSize(new Dimension(420, 258));
 		button_Panel.add(common_Panel,BorderLayout.NORTH);
 		button_Panel.add(key_Panel,BorderLayout.SOUTH);
 		
