@@ -254,11 +254,14 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		key_Panel.add(back_Button);
 
 		Backspace_Button = new Button("DEL");
-		Backspace_Button.setBackground(new Color(128, 128, 128));
+		Backspace_Button.setForeground(Color.WHITE);
+		Backspace_Button.setBackground(new Color(0, 51, 51));
 		CE_Button = new Button("CE");
-		CE_Button.setBackground(new Color(128, 128, 128));
+		CE_Button.setForeground(Color.WHITE);
+		CE_Button.setBackground(new Color(0, 51, 51));
 		C_Button = new Button("C");
-		C_Button.setBackground(new Color(128, 128, 128));
+		C_Button.setForeground(Color.WHITE);
+		C_Button.setBackground(new Color(0, 51, 51));
 		Backspace_Button.setFont(fontOfCommand);
 		CE_Button.setFont(fontOfCommand);
 		C_Button.setFont(fontOfCommand);
