@@ -27,7 +27,7 @@ public class IntimacyCalculator extends JFrame implements ActionListener {
     JPanel left_Panel,right_Panel,input_Panel,key_Panel,name_Panel,sex_Panel,birthday_Panel;
     JLabel title_JLabel,name1_JLabel,name2_JLabel,sex1_JLabel,sex2_JLabel,birthday1_JLabel,birthday2_JLabel,tip_JLabel,result_JLabel;
     TextField name1_TextField,name2_TextField,birthday1_TextField,birthday2_TextField;
-    TextArea result_TextArea;
+    JTextArea result_TextArea;
     JButton back_JButton,equal_JButton,C_JButton;
     ButtonGroup sex1_JButton,sex2_JButton;
     JRadioButton female1_Radio, male1_Radio,female2_Radio, male2_Radio;
@@ -173,12 +173,12 @@ public class IntimacyCalculator extends JFrame implements ActionListener {
 		result_JLabel=new JLabel("亲密度测算结果：");
 		result_JLabel.setFont(new Font("隶书", Font.BOLD, 22));
 		result_JLabel.setPreferredSize(new Dimension(200, 60));
-		result_TextArea=new TextArea();
-		result_TextArea.setFont(new Font("Dialog", Font.PLAIN, 19));
+		result_TextArea=new JTextArea();
+		result_TextArea.setFont(new Font("隶书", Font.PLAIN, 22));
 		result_TextArea.setPreferredSize(new Dimension(280, 240));
 		key_Panel=new JPanel(new GridLayout(1,4,6,12));
 		key_Panel.setOpaque(false);
-		key_Panel.setPreferredSize(new Dimension(290, 60));
+		key_Panel.setPreferredSize(new Dimension(290, 42));
 		equal_JButton=new JButton("测算");
 		equal_JButton.setBackground(Color.LIGHT_GRAY);
 		equal_JButton.setFont(new Font("宋体", Font.BOLD, 21));

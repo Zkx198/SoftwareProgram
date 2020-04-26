@@ -49,7 +49,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 	private JPanel in8_Panel;
 	private JLabel class8_Label;
 	private JComboBox cmb8, cmb1, cmb2, cmb3, cmb4, cmb5, cmb6, cmb7;
-	private JButton add8;
+	private Button button;
 
 	public FoodCaloriesCalculator() {
 		setTitle("\u98DF\u7269\u70ED\u91CF\u8BA1\u7B97\u5668");
@@ -358,16 +358,16 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		cmb8.addItem("吐司面包1片");// 70
 		cmb8.addItem("珍珠奶茶1杯");// 460
 		in8_Panel.add(cmb8);
-
-		add8 = new JButton("添加小吃");
-		add8.setFont(new Font("隶书", Font.BOLD, 18));
-		add8.setBackground(UIManager.getColor("Button.light"));
-		add8.addActionListener(this);
-		in8_Panel.add(add8);
+		
+		button = new Button("\u6DFB\u52A0\u5C0F\u5403");
+		button.setActionCommand("\u6DFB\u52A0\u5C0F\u5403");
+		button.setFont(new Font("隶书", Font.BOLD, 18));
+		button.setBackground(SystemColor.controlHighlight);
+		in8_Panel.add(button);
 
 		result1_Panel = new JPanel();
 		result1_Panel.setOpaque(false);
-		result1_Panel.setPreferredSize(new Dimension(326, 126));
+		result1_Panel.setPreferredSize(new Dimension(318, 126));
 		result_Panel.add(result1_Panel, BorderLayout.WEST);
 
 		choose_Label = new JLabel("\u60A8\u9009\u62E9\u7684\u98DF\u7269\uFF1A            ");
@@ -376,9 +376,9 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 
 		textArea = new JTextArea();
 		textArea.setEditable(false);
-		textArea.setFont(new Font("楷体", Font.PLAIN, 19));
+		textArea.setFont(new Font("楷体", Font.PLAIN, 18));
 		textArea.setRows(2);
-		textArea.setColumns(27);
+		textArea.setColumns(30);
 		result1_Panel.add(textArea);
 		result2_Panel = new JPanel();
 		result2_Panel.setOpaque(false);
@@ -387,19 +387,19 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 
 		cal_Button = new JButton("   \u8BA1\u7B97   ");
 		cal_Button.addActionListener(this);
-		cal_Button.setBackground(UIManager.getColor("Button.light"));
-		cal_Button.setFont(new Font("隶书", Font.BOLD, 20));
+		cal_Button.setBackground(SystemColor.controlHighlight);
+		cal_Button.setFont(new Font("隶书", Font.BOLD, 19));
 		result2_Panel.add(cal_Button);
 
 		ce_Button = new JButton("   \u6E05\u7A7A   ");
-		ce_Button.setBackground(UIManager.getColor("Button.light"));
-		ce_Button.setFont(new Font("隶书", Font.BOLD, 20));
+		ce_Button.setBackground(SystemColor.controlHighlight);
+		ce_Button.setFont(new Font("隶书", Font.BOLD, 19));
 		ce_Button.addActionListener(this);
 		result2_Panel.add(ce_Button);
 
 		back_Button = new JButton("   \u8FD4\u56DE   ");
 		back_Button.setBackground(new Color(255, 160, 122));
-		back_Button.setFont(new Font("隶书", Font.BOLD, 20));
+		back_Button.setFont(new Font("隶书", Font.BOLD, 19));
 		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -854,7 +854,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 			}
 		}
 		//"添加小吃"
-		if (e.getActionCommand() == "添加小吃") {
+		if (e.getActionCommand() == "\u6DFB\u52A0\u5C0F\u5403") {
 			int choose_index = cmb8.getSelectedIndex() + 1;
 			String choose8 = (String) cmb8.getSelectedItem().toString();
 			this.choose_result = this.choose_result + "+" + choose8;

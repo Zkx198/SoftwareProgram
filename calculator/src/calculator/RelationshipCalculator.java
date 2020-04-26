@@ -6,6 +6,8 @@ import java.awt.Window.Type;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -27,8 +29,8 @@ public class RelationshipCalculator extends JFrame implements ActionListener{
 	JPanel Relation_JPanel;
 	JPanel title_JPanel,input_JPanel,output_JPanel,key_JPanel,input_output_JPanel;
 	JPanel relation_JPanel,common_JPanel;//放置亲属关系按键和=、del、C按键
-	TextArea input_TextField;//输入框
-	TextField output_TextField;//输出框
+	JTextArea input_TextField;//输入框
+	JTextField output_TextField;//输出框
 	JLabel Label_1,Label_2,Label_3,Label_4,Label_5;//提示文字
     Button baba_Button,mama_Button,erzi_Button,nver_Button,gege_Button,didi_Button,jiejie_Button,meimei_Button,zhangfu_Button,qizi_Button;//亲属关系按键
     Button equal_Button,del_Button,C_Button,back_Button;//等于、删除、清空、返回按键
@@ -240,10 +242,10 @@ public class RelationshipCalculator extends JFrame implements ActionListener{
 		title_JPanel=new JPanel(new GridLayout(2,1));
 		title_JPanel.setOpaque(false);
 		title_JPanel.setPreferredSize(new Dimension(390, 80));
-		Label_1=new JLabel("\u5047\u5B9A\u6211\u7684\u6027\u522B\u4E3A:\u7537");
+		Label_1=new JLabel("  \u5047\u5B9A\u6211\u7684\u6027\u522B\u4E3A:\u7537");
 		Label_1.setOpaque(false);
 		Label_1.setFont(new Font("隶书", Font.BOLD, 22));
-		Label_2=new JLabel("\u7ED3\u679C\u4E3A\u6211\u5BF9\u5BF9\u65B9\u7684\u79F0\u547C");
+		Label_2=new JLabel("  \u7ED3\u679C\u4E3A\u6211\u5BF9\u5BF9\u65B9\u7684\u79F0\u547C");
 		Label_2.setOpaque(false);
 		Label_2.setFont(new Font("隶书", Font.BOLD, 22));
 	    title_JPanel.add(Label_1);
@@ -251,7 +253,7 @@ public class RelationshipCalculator extends JFrame implements ActionListener{
 		
 		relation_JPanel=new JPanel(new GridLayout(3,4,5,10));
 		relation_JPanel.setOpaque(false);
-		relation_JPanel.setPreferredSize(new Dimension(340, 250));
+		relation_JPanel.setPreferredSize(new Dimension(340, 185));
 		baba_Button=new Button("爸爸");
 		baba_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		mama_Button=new Button("妈妈");
@@ -285,7 +287,7 @@ public class RelationshipCalculator extends JFrame implements ActionListener{
 		
 		common_JPanel=new JPanel(new GridLayout(1,4,5,3));
 		common_JPanel.setOpaque(false);
-		common_JPanel.setPreferredSize(new Dimension(340, 90));
+		common_JPanel.setPreferredSize(new Dimension(340, 56));
 		equal_Button=new Button("计算");
 		equal_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		equal_Button.setForeground(Color.RED);
@@ -304,14 +306,14 @@ public class RelationshipCalculator extends JFrame implements ActionListener{
 		common_JPanel.add(C_Button);
 		common_JPanel.add(back_Button);
 		
-		Label_5=new JLabel("关系按键");
+		Label_5=new JLabel(" \u5173\u7CFB\u6309\u952E");
 		Label_5.setOpaque(false);
-		Label_5.setFont(new Font("隶书", Font.BOLD, 22));
-		Label_5.setPreferredSize(new Dimension(360, 40));
+		Label_5.setFont(new Font("隶书", Font.BOLD, 23));
+		Label_5.setPreferredSize(new Dimension(360, 65));
 		
 		key_JPanel=new JPanel(new FlowLayout());
 		key_JPanel.setOpaque(false);
-		key_JPanel.setPreferredSize(new Dimension(360, 135));
+		key_JPanel.setPreferredSize(new Dimension(370, 135));
 		key_JPanel.add(Label_5,BorderLayout.NORTH);
 		key_JPanel.add(relation_JPanel,BorderLayout.CENTER);
 		
@@ -319,34 +321,34 @@ public class RelationshipCalculator extends JFrame implements ActionListener{
 		JPanel.setOpaque(false);
 		JPanel.setBackground(Color.LIGHT_GRAY);
 		JPanel.setForeground(Color.LIGHT_GRAY);
-		JPanel.setPreferredSize(new Dimension(360, 10));
+		JPanel.setPreferredSize(new Dimension(360, 40));
 		key_JPanel.add(JPanel);
 		key_JPanel.add(common_JPanel,BorderLayout.SOUTH);
 		
 		input_JPanel=new JPanel(new FlowLayout());
 		input_JPanel.setOpaque(false);
-		input_JPanel.setPreferredSize(new Dimension(390, 200));
-		Label_3=new JLabel("关系：");
+		input_JPanel.setPreferredSize(new Dimension(390, 150));
+		Label_3=new JLabel("  \u5173\u7CFB\uFF1A");
 		Label_3.setOpaque(false);
-		Label_3.setFont(new Font("隶书", Font.BOLD, 20));
-		Label_3.setPreferredSize(new Dimension(380, 20));
-		input_TextField=new TextArea();
+		Label_3.setFont(new Font("隶书", Font.BOLD, 22));
+		Label_3.setPreferredSize(new Dimension(380, 38));
+		input_TextField=new JTextArea();
 		input_TextField.setFont(new Font("隶书", Font.BOLD, 22));
-		input_TextField.setText("我");
-		input_TextField.setPreferredSize(new Dimension(375, 140));
+		input_TextField.setText("\u6211");
+		input_TextField.setPreferredSize(new Dimension(345, 98));
 		input_JPanel.add(Label_3,BorderLayout.NORTH);
 		input_JPanel.add(input_TextField,BorderLayout.SOUTH);
 		
 		output_JPanel=new JPanel(new FlowLayout());
 		output_JPanel.setOpaque(false);
-		output_JPanel.setPreferredSize(new Dimension(390, 120));
-		Label_4=new JLabel("结果：");
+		output_JPanel.setPreferredSize(new Dimension(390, 150));
+		Label_4=new JLabel("  \u7ED3\u679C\uFF1A");
 		Label_4.setOpaque(false);
-		Label_4.setFont(new Font("隶书", Font.BOLD, 20));
-		Label_4.setPreferredSize(new Dimension(380, 20));
-		output_TextField=new TextField();
+		Label_4.setFont(new Font("隶书", Font.BOLD, 22));
+		Label_4.setPreferredSize(new Dimension(380, 38));
+		output_TextField=new JTextField();
 		output_TextField.setFont(new Font("隶书", Font.BOLD, 22));
-		output_TextField.setPreferredSize(new Dimension(375, 80));
+		output_TextField.setPreferredSize(new Dimension(345, 90));
 		output_JPanel.add(Label_4,BorderLayout.NORTH);
 		output_JPanel.add(output_TextField,BorderLayout.SOUTH);
 		
