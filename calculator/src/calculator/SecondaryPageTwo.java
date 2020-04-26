@@ -175,7 +175,7 @@ public class SecondaryPageTwo extends JFrame implements ActionListener {
 		    public void actionPerformed(ActionEvent e) {
 			  dispose();
 			  UnitConversionPage newWindow=new UnitConversionPage();
-			  newWindow.cal();
+			  newWindow.setVisible(true);
 		    }
 	    });
 		btnNewButton_3.setOpaque(false);

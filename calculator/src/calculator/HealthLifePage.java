@@ -36,7 +36,7 @@ public class HealthLifePage extends WindowAdapter implements ActionListener {
 	private JLabel label;
 	
 	public void cal() {
-		cal_Frame = new Frame("\u5065\u5EB7\u751F\u6D3B\u8BA1\u7B97\u5668");
+		cal_Frame = new Frame("½¡¿µ¼ÆËãÆ÷");
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setType(Type.UTILITY);
 		cal_Frame.setForeground(Color.BLACK);

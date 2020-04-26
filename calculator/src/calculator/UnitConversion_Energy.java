@@ -211,7 +211,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
 				UnitConversionPage newWindow=new UnitConversionPage();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 

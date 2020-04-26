@@ -148,7 +148,7 @@ public class UnitConversion_Tempetature extends WindowAdapter implements ActionL
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
 				UnitConversionPage newWindow=new UnitConversionPage();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 
