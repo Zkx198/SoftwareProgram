@@ -1,15 +1,21 @@
 package calculator;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
 public class MainPage extends JFrame {
 
@@ -37,13 +43,35 @@ public class MainPage extends JFrame {
 	public MainPage() {
 		setTitle("甜筒红茶");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 420, 480);
+		setBounds(100, 100, 780, 480);
 		JPanel contentPane = new JPanel();
-		
-        contentPane.setLayout(new GridLayout(2,1,3,3));
+        contentPane.setLayout(new BorderLayout(3, 3));
         setContentPane(contentPane);
+        
+        ImageIcon img = new ImageIcon("./src/image/mainpage.jpg");
+		JLabel imgL=new JLabel(img);
+		imgL.setBounds(0, 0, 780, 480);
+        this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
+        Container contain = this.getContentPane();
+		((JPanel) contain).setOpaque(false);
+		JPanel north = new JPanel();
+        JPanel west = new JPanel();
+        JPanel east = new JPanel();
+        north.setOpaque(false);
+        west.setOpaque(false);
+        east.setOpaque(false);
+      //  contain.add(east, BorderLayout.EAST);
+		contain.add(north, BorderLayout.NORTH);
+		contain.add(west, BorderLayout.EAST);
+		north.setPreferredSize(new Dimension(750, 140));
+		west.setPreferredSize(new Dimension(250, 150));
 		
+        
 		JButton btnNewButton = new JButton("科学计算器");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(new Color(255, 175, 175));
+		btnNewButton.setFont(new Font("隶书", Font.BOLD, 28));
+		btnNewButton.setOpaque(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -51,9 +79,13 @@ public class MainPage extends JFrame {
 				newWindow.setVisible(true);
 			}
 		});
-		contentPane.add(btnNewButton);
+		west.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("生活计算器");
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBackground(Color.PINK);
+		btnNewButton_1.setFont(new Font("隶书", Font.BOLD, 28));
+		btnNewButton_1.setOpaque(false);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -61,7 +93,10 @@ public class MainPage extends JFrame {
 				newWindow1.setVisible(true);
 			}
 		});
-		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("                                  ");
+		west.add(lblNewLabel);
+		west.add(btnNewButton_1);
 	}
 	
 

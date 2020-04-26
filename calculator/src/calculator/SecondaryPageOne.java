@@ -77,7 +77,7 @@ public class SecondaryPageOne extends JFrame implements ActionListener {
 		getContentPane().add(north_Panel, BorderLayout.NORTH);
 		getContentPane().add(south_Panel, BorderLayout.SOUTH);
 		getContentPane().add(center_Panel, BorderLayout.CENTER);*/
-		north_Panel.setPreferredSize(new Dimension(750, 65));
+		north_Panel.setPreferredSize(new Dimension(750, 58));
 		
 		in1_Panel = new JPanel();
 		in1_Panel.setOpaque(false);
@@ -100,7 +100,7 @@ public class SecondaryPageOne extends JFrame implements ActionListener {
 		titleLabel.setForeground(new Color(255, 255, 255));
 		titleLabel.setFont(new Font("隶书", Font.BOLD, 29));
 		north_Panel.add(titleLabel);
-		south_Panel.setPreferredSize(new Dimension(750, 42));
+		south_Panel.setPreferredSize(new Dimension(750, 38));
 		
 		southLabel = new JLabel("\u6B64\u79D1\u5B66\u8BA1\u7B97\u5668\u4EC5\u4E3A\u8F6F\u4EF6\u5DE5\u7A0B\u5B9E\u8DF5\u8BFE\u7A0B\u53CC\u4EBA\u9879\u76EE\u4F5C\u4E1A\u6240\u505A\uFF0C\u7248\u6743\u4EE5\u53CA\u89E3\u91CA\u6743\u5F52\u751C\u7B52\u5C0F\u7EC4\u6240\u6709\u3002");
 		southLabel.setForeground(new Color(255, 255, 255));
@@ -115,12 +115,6 @@ public class SecondaryPageOne extends JFrame implements ActionListener {
 		east_Panel.add(in5_Panel);
 		east_Panel.add(in6_Panel);
 		center_Panel.setPreferredSize(new Dimension(510, 400));
-		
-		JLabel lblNewLabel_3 = new JLabel("\u672C\u79D1\u5B66\u8BA1\u7B97\u5668\u53EF\u5B9E\u73B0\uFF1A");
-		lblNewLabel_3.setForeground(SystemColor.control);
-		lblNewLabel_3.setBackground(Color.WHITE);
-		lblNewLabel_3.setFont(new Font("隶书", Font.PLAIN, 19));
-		center_Panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("\u57FA\u7840\u8BA1\u7B97\u5668\uFF1A                             ");
 		lblNewLabel_4.setForeground(SystemColor.control);
@@ -172,7 +166,23 @@ public class SecondaryPageOne extends JFrame implements ActionListener {
 		label.setFont(new Font("隶书", Font.PLAIN, 19));
 		center_Panel.add(label);
 		
+		JButton button = new JButton("       \u8FD4\u56DE       ");
+		button.setOpaque(false);
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("隶书", Font.BOLD, 18));
+		button.setBackground(Color.ORANGE);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainPage newWindow1=new MainPage();
+				newWindow1.setVisible(true);
+			}
+		});
 		
+		JLabel lblNewLabel_1 = new JLabel("                                                                                                                                                                                              ");
+		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 5));
+		center_Panel.add(lblNewLabel_1);
+		center_Panel.add(button);
 		
 		JButton btnNewButton = new JButton("基础计算");
 		btnNewButton.setBackground(new Color(25, 25, 112));
