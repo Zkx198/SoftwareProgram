@@ -122,7 +122,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Space newWindow=new UnitConversion_Space();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 		in1_JPanel.add(cvs2);
@@ -184,7 +184,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Pressure newWindow=new UnitConversion_Pressure();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		in4_JPanel.add(cvs5);
@@ -299,7 +299,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Energy newWindow=new UnitConversion_Energy();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		in6_JPanel.add(cvs7);
@@ -314,7 +314,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Power newWindow=new UnitConversion_Power();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		in7_JPanel.add(cvs8);

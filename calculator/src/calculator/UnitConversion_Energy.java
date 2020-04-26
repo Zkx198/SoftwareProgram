@@ -2,22 +2,33 @@ package calculator;
 
 //  李涢瑶 2017111147
 import java.awt.*;
-import javax.swing.JComboBox;
+
 import javax.swing.*;
 
 import java.awt.event.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import java.awt.Window.Type;
 import java.awt.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
-public class UnitConversion_Energy extends WindowAdapter implements ActionListener {
-	private Frame cal_Frame;
-	private Panel explain_Panel, input_Panel, result_Panel, in1_Panel, in2_Panel, in3_Panel, in4_Panel, in5_Panel,
+public class UnitConversion_Energy extends JFrame implements ActionListener {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UnitConversion_Energy frame = new UnitConversion_Energy();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	private JPanel explain_Panel, input_Panel, result_Panel, in1_Panel, in2_Panel, in3_Panel, in4_Panel, in5_Panel,
 			in6_Panel, in7_Panel, in8_Panel;
 	private double result0, result1, result2, result3, result4, result5, result6, result7 = 0.0;
 	private JLabel explain_Label;
@@ -31,33 +42,40 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 	private JLabel blank10;
 	private JLabel blank9;
 
-	public void cal() {
-		cal_Frame = new Frame("\u80FD\u91CF\u5355\u4F4D\u6362\u7B97\u5668");
-		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		cal_Frame.setType(Type.UTILITY);
-		cal_Frame.setForeground(new Color(0, 0, 0));
-		cal_Frame.setSize(780, 480);
-		cal_Frame.setLocation(200, 200);
-		cal_Frame.setBackground(Color.LIGHT_GRAY);
-		cal_Frame.setResizable(true);
-		cal_Frame.setLayout(new BorderLayout(3, 3));
+	public UnitConversion_Energy() {
+		setTitle("\u70ED\u91CF\u5355\u4F4D\u6362\u7B97\u5668");
+		setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		setType(Type.UTILITY);
+		setForeground(new Color(0, 0, 0));
+		setSize(780, 480);
+		setLocation(200, 200);
+		setBackground(Color.LIGHT_GRAY);
+		setResizable(true);
+		getContentPane().setLayout(new BorderLayout(3, 3));
 
-		explain_Panel = new Panel();
-		explain_Panel.setPreferredSize(new Dimension(770, 40));
-		cal_Frame.add(explain_Panel, BorderLayout.NORTH);
+		ImageIcon img = new ImageIcon("./src/image/123.jpg");
+		JLabel imgL = new JLabel(img);
+		imgL.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
+		Container contain = this.getContentPane();
+		((JPanel) contain).setOpaque(false);
+
+		explain_Panel = new JPanel();
+		explain_Panel.setPreferredSize(new Dimension(770, 31));
+		getContentPane().add(explain_Panel, BorderLayout.NORTH);
 
 		explain_Label = new JLabel(
 				"\u4F7F\u7528\u8BF4\u660E\uFF1A\u8BF7\u5728\u5BF9\u5E94\u5355\u4F4D\u4E4B\u524D\u7684\u8F93\u5165\u6846\u5185\u586B\u5199\u6570\u5B57\u5E76\u70B9\u51FB\u8BE5\u8F93\u5165\u6846\u540E\u7684\u6309\u94AE\u8FDB\u884C\u6362\u7B97\uFF0C\u70B9\u51FBCE\u91CD\u6765\u3002");
 		explain_Label.setFont(new Font("隶书", Font.PLAIN, 17));
 		explain_Panel.add(explain_Label);
-		input_Panel = new Panel(new GridLayout(4, 2, 5, 5));
+		input_Panel = new JPanel(new GridLayout(4, 2, 5, 5));
 		input_Panel.setPreferredSize(new Dimension(770, 230));
-		cal_Frame.add(input_Panel, BorderLayout.CENTER);
-		result_Panel = new Panel();
-		result_Panel.setPreferredSize(new Dimension(770, 65));
-		cal_Frame.add(result_Panel, BorderLayout.SOUTH);
+		getContentPane().add(input_Panel, BorderLayout.CENTER);
+		result_Panel = new JPanel();
+		result_Panel.setPreferredSize(new Dimension(770, 69));
+		getContentPane().add(result_Panel, BorderLayout.SOUTH);
 
-		in1_Panel = new Panel();
+		in1_Panel = new JPanel();
 		input_Panel.add(in1_Panel);
 		Label1 = new JLabel("        焦耳（J）       ");
 		Label1.setFont(new Font("隶书", Font.BOLD, 24));
@@ -74,7 +92,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		conversion1.addActionListener(this);
 		in1_Panel.add(conversion1);
 
-		in2_Panel = new Panel();
+		in2_Panel = new JPanel();
 		input_Panel.add(in2_Panel);
 		Label2 = new JLabel("       公斤*米        ");
 		Label2.setFont(new Font("隶书", Font.BOLD, 24));
@@ -91,7 +109,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		conversion2.addActionListener(this);
 		in2_Panel.add(conversion2);
 
-		in3_Panel = new Panel();
+		in3_Panel = new JPanel();
 		input_Panel.add(in3_Panel);
 		Label3 = new JLabel("       米制马力*时       ");
 		Label3.setFont(new Font("隶书", Font.BOLD, 24));
@@ -108,7 +126,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		in3_Panel.add(conversion3);
 		conversion3.addActionListener(this);
 
-		in4_Panel = new Panel();
+		in4_Panel = new JPanel();
 		input_Panel.add(in4_Panel);
 		Label4 = new JLabel("       英制马力*时       ");
 		Label4.setFont(new Font("隶书", Font.BOLD, 24));
@@ -125,7 +143,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		conversion4.addActionListener(this);
 		in4_Panel.add(conversion4);
 
-		in5_Panel = new Panel();
+		in5_Panel = new JPanel();
 		input_Panel.add(in5_Panel);
 		Label5 = new JLabel("       千瓦*时       ");
 		Label5.setFont(new Font("隶书", Font.BOLD, 24));
@@ -142,7 +160,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		in5_Panel.add(conversion5);
 		conversion5.addActionListener(this);
 
-		in6_Panel = new Panel();
+		in6_Panel = new JPanel();
 		input_Panel.add(in6_Panel);
 		Label6 = new JLabel("         千卡（kCal）        ");
 		Label6.setFont(new Font("隶书", Font.BOLD, 24));
@@ -159,7 +177,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		conversion6.addActionListener(this);
 		in6_Panel.add(conversion6);
 
-		in7_Panel = new Panel();
+		in7_Panel = new JPanel();
 		input_Panel.add(in7_Panel);
 		Label7 = new JLabel("       英热单位       ");
 		Label7.setFont(new Font("隶书", Font.BOLD, 24));
@@ -176,7 +194,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		conversion7.addActionListener(this);
 		in7_Panel.add(conversion7);
 
-		in8_Panel = new Panel();
+		in8_Panel = new JPanel();
 		input_Panel.add(in8_Panel);
 		Label8 = new JLabel("       英尺*磅       ");
 		Label8.setFont(new Font("隶书", Font.BOLD, 24));
@@ -209,18 +227,30 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		back_Button.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cal_Frame.setVisible(false);
-				UnitConversionPage newWindow=new UnitConversionPage();
+				dispose();
+				UnitConversionPage newWindow = new UnitConversionPage();
 				newWindow.setVisible(true);
 			}
-		});		
+		});
 
 		blank10 = new JLabel("             ");
 		result_Panel.add(blank10);
 		result_Panel.add(back_Button);
 
-		cal_Frame.setVisible(true);
-		cal_Frame.addWindowListener(this);
+		explain_Panel.setOpaque(false);
+		input_Panel.setOpaque(false);
+		result_Panel.setOpaque(false);
+		in1_Panel.setOpaque(false);
+		in2_Panel.setOpaque(false);
+		in3_Panel.setOpaque(false);
+		in4_Panel.setOpaque(false);
+		in5_Panel.setOpaque(false);
+
+		in6_Panel.setOpaque(false);
+		in7_Panel.setOpaque(false);
+		in8_Panel.setOpaque(false);
+
+		setVisible(true);
 
 	}
 
@@ -306,7 +336,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField8.setText(Double.toString(result7));
 		}
 		// "千瓦*时>"
-		if (e.getActionCommand() =="   千瓦*时>    ") {
+		if (e.getActionCommand() == "   千瓦*时>    ") {
 			double result = Double.parseDouble(textField5.getText());
 			this.result0 = result * 3599712.0230382;
 			this.result1 = result * 367170.62629849;
@@ -365,7 +395,7 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 			this.textField7.setText(Double.toString(result6));
 			this.textField8.setText(Double.toString(result7));
 		}
-		//"英尺*磅>"
+		// "英尺*磅>"
 		if (e.getActionCommand() == "   英尺*磅>   ") {
 			double result = Double.parseDouble(textField8.getText());
 			this.result0 = result * 1.35574837;
@@ -413,9 +443,4 @@ public class UnitConversion_Energy extends WindowAdapter implements ActionListen
 		System.exit(0);
 	}
 
-	public static void main(String[] args) {
-		UnitConversion_Energy new_cal = new UnitConversion_Energy();
-		new_cal.cal();
-
-	}
 }

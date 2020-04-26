@@ -3,22 +3,32 @@ package calculator;
 
 //  李涢瑶 2017111147
 import java.awt.*;
-import javax.swing.JComboBox;
+
 import javax.swing.*;
 
 import java.awt.event.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import java.awt.Window.Type;
 import java.awt.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
-public class UnitConversion_Space extends WindowAdapter implements ActionListener {
-	private Frame cal_Frame;
-	private Panel explain_Panel, input_Panel, result_Panel, in1_Panel, in2_Panel, in3_Panel, in4_Panel, in5_Panel,
+public class UnitConversion_Space extends JFrame implements ActionListener {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UnitConversion_Space frame = new UnitConversion_Space();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	private JPanel explain_Panel, input_Panel, result_Panel, in1_Panel, in2_Panel, in3_Panel, in4_Panel, in5_Panel,
 			in6_Panel, in7_Panel, in8_Panel, in9_Panel, in10_Panel;
 	private double result0, result1, result2, result3, result4, result5, result6, result7,result8, result9;
 	private JLabel explain_Label;
@@ -32,34 +42,41 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 	private JLabel blank11;
 	private JLabel lblNewLabel;
 
-	public void cal() {
-		cal_Frame = new Frame("\u9762\u79EF\u5355\u4F4D\u6362\u7B97\u5668");
-		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		cal_Frame.setType(Type.UTILITY);
-		cal_Frame.setForeground(new Color(0, 0, 0));
-		cal_Frame.setSize(780, 480);
-		cal_Frame.setLocation(200, 200);
-		cal_Frame.setBackground(Color.LIGHT_GRAY);
-		cal_Frame.setResizable(true);
-		cal_Frame.setLayout(new BorderLayout(3, 0));
+	public UnitConversion_Space() {
+		setTitle("\u9762\u79EF\u5355\u4F4D\u6362\u7B97\u5668");
+		setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		setType(Type.UTILITY);
+		setForeground(new Color(0, 0, 0));
+		setSize(780, 480);
+		setLocation(200, 200);
+		setBackground(Color.LIGHT_GRAY);
+		setResizable(true);
+		setLayout(new BorderLayout(3, 0));
 
-		explain_Panel = new Panel();
+		ImageIcon img = new ImageIcon("./src/image/123.jpg");
+		JLabel imgL = new JLabel(img);
+		imgL.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
+		Container contain = this.getContentPane();
+		((JPanel) contain).setOpaque(false);
+		
+		explain_Panel = new JPanel();
 		explain_Panel.setFont(new Font("Dialog", Font.PLAIN, 11));
 		explain_Panel.setPreferredSize(new Dimension(770, 23));
-		cal_Frame.add(explain_Panel, BorderLayout.NORTH);
+		add(explain_Panel, BorderLayout.NORTH);
 
 		explain_Label = new JLabel(
 				"\u4F7F\u7528\u8BF4\u660E\uFF1A\u8BF7\u5728\u5BF9\u5E94\u5355\u4F4D\u4E4B\u524D\u7684\u8F93\u5165\u6846\u5185\u586B\u5199\u6570\u5B57\u5E76\u70B9\u51FB\u8BE5\u8F93\u5165\u6846\u540E\u7684\u6309\u94AE\u8FDB\u884C\u6362\u7B97\uFF0C\u70B9\u51FBCE\u91CD\u6765\u3002");
 		explain_Label.setFont(new Font("隶书", Font.PLAIN, 16));
 		explain_Panel.add(explain_Label);
-		input_Panel = new Panel(new GridLayout(5, 2, 5, 2));
+		input_Panel = new JPanel(new GridLayout(5, 2, 5, 2));
 		input_Panel.setPreferredSize(new Dimension(770, 245));
-		cal_Frame.add(input_Panel, BorderLayout.CENTER);
-		result_Panel = new Panel();
+		add(input_Panel, BorderLayout.CENTER);
+		result_Panel = new JPanel();
 		result_Panel.setPreferredSize(new Dimension(770, 53));
-		cal_Frame.add(result_Panel, BorderLayout.SOUTH);
+		add(result_Panel, BorderLayout.SOUTH);
 
-		in1_Panel = new Panel();
+		in1_Panel = new JPanel();
 		input_Panel.add(in1_Panel);
 		Label1 = new JLabel("        \u5E73\u65B9\u516C\u91CC\uFF08km2\uFF09       ");
 		Label1.setFont(new Font("隶书", Font.BOLD, 21));
@@ -76,7 +93,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion1.addActionListener(this);
 		in1_Panel.add(conversion1);
 
-		in2_Panel = new Panel();
+		in2_Panel = new JPanel();
 		input_Panel.add(in2_Panel);
 		Label2 = new JLabel("        \u516C\u9877\uFF08ha\uFF09       ");
 		Label2.setFont(new Font("隶书", Font.BOLD, 21));
@@ -93,7 +110,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion2.addActionListener(this);
 		in2_Panel.add(conversion2);
 
-		in3_Panel = new Panel();
+		in3_Panel = new JPanel();
 		input_Panel.add(in3_Panel);
 		Label3 = new JLabel("       \u5E73\u65B9\u7C73\uFF08m2\uFF09     ");
 		Label3.setFont(new Font("隶书", Font.BOLD, 21));
@@ -110,7 +127,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		in3_Panel.add(conversion3);
 		conversion3.addActionListener(this);
 
-		in4_Panel = new Panel();
+		in4_Panel = new JPanel();
 		input_Panel.add(in4_Panel);
 		Label4 = new JLabel("         \u5E73\u65B9\u7AFF\uFF08sq rd\uFF09       ");
 		Label4.setFont(new Font("隶书", Font.BOLD, 21));
@@ -127,7 +144,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion4.addActionListener(this);
 		in4_Panel.add(conversion4);
 
-		in5_Panel = new Panel();
+		in5_Panel = new JPanel();
 		input_Panel.add(in5_Panel);
 		Label5 = new JLabel("       \u5E02 \u4EA9      ");
 		Label5.setFont(new Font("隶书", Font.BOLD, 21));
@@ -144,7 +161,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		in5_Panel.add(conversion5);
 		conversion5.addActionListener(this);
 
-		in6_Panel = new Panel();
+		in6_Panel = new JPanel();
 		input_Panel.add(in6_Panel);
 		Label6 = new JLabel("           \u5E73\u65B9\u82F1\u91CC\uFF08sq mi\uFF09        ");
 		Label6.setFont(new Font("隶书", Font.BOLD, 21));
@@ -161,7 +178,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion6.addActionListener(this);
 		in6_Panel.add(conversion6);
 
-		in7_Panel = new Panel();
+		in7_Panel = new JPanel();
 		input_Panel.add(in7_Panel);
 		Label7 = new JLabel("        \u82F1 \u4EA9       ");
 		Label7.setFont(new Font("隶书", Font.BOLD, 21));
@@ -178,7 +195,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion7.addActionListener(this);
 		in7_Panel.add(conversion7);
 
-		in8_Panel = new Panel();
+		in8_Panel = new JPanel();
 		input_Panel.add(in8_Panel);
 		Label8 = new JLabel("          \u5E73\u65B9\u82F1\u5C3A\uFF08sq ft\uFF09       ");
 		Label8.setFont(new Font("隶书", Font.BOLD, 21));
@@ -195,7 +212,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion8.addActionListener(this);
 		in8_Panel.add(conversion8);
 		
-		in9_Panel = new Panel();
+		in9_Panel = new JPanel();
 		input_Panel.add(in9_Panel);
 		Label9 = new JLabel("          \u5E73\u65B9\u7801 (sq yd)       ");
 		Label9.setFont(new Font("隶书", Font.BOLD, 21));
@@ -212,7 +229,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		conversion9.addActionListener(this);
 		in9_Panel.add(conversion9);
 		
-		in10_Panel = new Panel();
+		in10_Panel = new JPanel();
 		input_Panel.add(in10_Panel);
 		Label10 = new JLabel("          \u5E73\u65B9\u82F1\u5BF8\uFF08sq in\uFF09       ");
 		Label10.setFont(new Font("隶书", Font.BOLD, 21));
@@ -244,7 +261,7 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		back_Button.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cal_Frame.setVisible(false);
+				dispose();
 				UnitConversionPage newWindow=new UnitConversionPage();
 				newWindow.setVisible(true);
 			}
@@ -254,8 +271,21 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		result_Panel.add(blank11);
 		result_Panel.add(back_Button);
 
-		cal_Frame.setVisible(true);
-		cal_Frame.addWindowListener(this);
+		explain_Panel.setOpaque(false);
+		input_Panel.setOpaque(false);
+		result_Panel.setOpaque(false);
+		in1_Panel.setOpaque(false);
+		in2_Panel.setOpaque(false);
+		in3_Panel.setOpaque(false);
+		in4_Panel.setOpaque(false);
+		in5_Panel.setOpaque(false);
+
+		in6_Panel.setOpaque(false);
+		in7_Panel.setOpaque(false);
+		in8_Panel.setOpaque(false);
+		in9_Panel.setOpaque(false);
+		in10_Panel.setOpaque(false);
+		setVisible(true);
 
 	}
 
@@ -533,9 +563,5 @@ public class UnitConversion_Space extends WindowAdapter implements ActionListene
 		System.exit(0);
 	}
 
-	public static void main(String[] args) {
-		UnitConversion_Space new_cal = new UnitConversion_Space();
-		new_cal.cal();
-
-	}
+	
 }
