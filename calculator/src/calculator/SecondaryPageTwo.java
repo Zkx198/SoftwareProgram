@@ -189,7 +189,7 @@ public class SecondaryPageTwo extends JFrame implements ActionListener {
 		    public void actionPerformed(ActionEvent e) {
 			  dispose();
 			  HealthLifePage newWindow=new HealthLifePage();
-				newWindow.cal();
+				newWindow.setVisible(true);;
 		    }
 	    });
 		btnNewButton_4.setOpaque(false);

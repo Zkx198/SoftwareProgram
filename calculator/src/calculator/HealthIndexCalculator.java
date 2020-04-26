@@ -194,7 +194,7 @@ public class HealthIndexCalculator extends JFrame implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			dispose();
 			HealthLifePage newWindow=new HealthLifePage();
-			newWindow.cal();
+			newWindow.setVisible(true);
 		}
 	});		
 		next_Button =new Button("  \u5361\u8DEF\u91CC\u8BA1\u7B97  ");

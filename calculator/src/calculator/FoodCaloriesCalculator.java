@@ -374,7 +374,7 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 			public void actionPerformed(ActionEvent e) {
 				cal_Frame.setVisible(false);
 				HealthLifePage newWindow=new HealthLifePage();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 		result2_Panel.add(back_Button);
