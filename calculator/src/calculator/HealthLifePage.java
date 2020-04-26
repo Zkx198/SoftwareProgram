@@ -135,7 +135,7 @@ public class HealthLifePage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				FoodCaloriesCalculator newWindow = new FoodCaloriesCalculator();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		in2_Panel.add(food_Button);

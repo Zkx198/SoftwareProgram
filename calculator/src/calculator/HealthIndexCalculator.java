@@ -55,7 +55,7 @@ public class HealthIndexCalculator extends JFrame implements ActionListener {
 		setResizable(true);
 		getContentPane().setLayout(new BorderLayout(3, 0));
 		
-		ImageIcon img = new ImageIcon("./src/image/health3.jfif");
+		ImageIcon img = new ImageIcon("./src/image/123.jpg");
 		JLabel imgL=new JLabel(img);
 		imgL.setBounds(0, 0, this.getWidth(),this.getHeight());
         this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));

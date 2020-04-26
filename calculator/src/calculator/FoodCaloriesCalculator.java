@@ -2,32 +2,42 @@ package calculator;
 
 //  李涢瑶 2017111147
 import java.awt.*;
-import javax.swing.JComboBox;
+
 import javax.swing.*;
 
 import java.awt.event.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import java.awt.Window.Type;
 import java.awt.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
-public class FoodCaloriesCalculator extends WindowAdapter implements ActionListener {
-	private Frame cal_Frame;
-	private Panel explain_Panel, input_Panel, result_Panel, in1_Panel, in2_Panel, in3_Panel, in4_Panel, in5_Panel,
+public class FoodCaloriesCalculator extends JFrame implements ActionListener {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FoodCaloriesCalculator frame = new FoodCaloriesCalculator();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	private JPanel explain_Panel, input_Panel, result_Panel, in1_Panel, in2_Panel, in3_Panel, in4_Panel, in5_Panel,
 			in6_Panel, in7_Panel;
-	private Panel result1_Panel, result2_Panel, result3_Panel;
+	private JPanel result1_Panel, result2_Panel, result3_Panel;
 	private double total_result = 0.0;
 	private String choose_result = " ";
 	private JLabel explain_Label, class7_Label;
 	private JLabel choose_Label;
-	private TextArea textArea;
-	private Button cal_Button;
-	private Button ce_Button;
-	private Button back_Button;
+	private JTextArea textArea;
+	private JButton cal_Button;
+	private JButton ce_Button;
+	private JButton back_Button;
 	private JLabel cal_Label_1;
 	private JTextField textField;
 	private JLabel class1_Label_2;
@@ -36,38 +46,49 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 	private JLabel class6_Label;
 	private JLabel class3_Label_2;
 	private JLabel class4_Label_2;
-	private Panel in8_Panel;
+	private JPanel in8_Panel;
 	private JLabel class8_Label;
 	private JComboBox cmb8, cmb1, cmb2, cmb3, cmb4, cmb5, cmb6, cmb7;
-	private Button add8;
+	private JButton add8;
 
-	public void cal() {
-		cal_Frame = new Frame("\u98DF\u7269\u70ED\u91CF\u8BA1\u7B97\u5668");
-		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		cal_Frame.setType(Type.UTILITY);
-		cal_Frame.setForeground(Color.BLACK);
-		cal_Frame.setSize(780, 480);
-		cal_Frame.setLocation(200, 200);
-		cal_Frame.setBackground(Color.LIGHT_GRAY);
-		cal_Frame.setResizable(true);
-		cal_Frame.setLayout(new BorderLayout(3, 3));
+	public FoodCaloriesCalculator() {
+		setTitle("\u98DF\u7269\u70ED\u91CF\u8BA1\u7B97\u5668");
+		setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		setType(Type.UTILITY);
+		setForeground(Color.BLACK);
+		setSize(780, 480);
+		setLocation(200, 200);
+		setBackground(Color.LIGHT_GRAY);
+		setResizable(true);
+		getContentPane().setLayout(new BorderLayout(3, 3));
+		
+		ImageIcon img = new ImageIcon("./src/image/123.jpg");
+		JLabel imgL=new JLabel(img);
+		imgL.setBounds(0, 0, this.getWidth(),this.getHeight());
+        this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
+        Container contain = this.getContentPane();
+		((JPanel) contain).setOpaque(false);
 
-		explain_Panel = new Panel();
+		explain_Panel = new JPanel();
 		explain_Panel.setPreferredSize(new Dimension(770, 40));
-		cal_Frame.add(explain_Panel, BorderLayout.NORTH);
+		explain_Panel.setOpaque(false);
+		getContentPane().add(explain_Panel, BorderLayout.NORTH);
 
 		explain_Label = new JLabel(
 				"\u4F7F\u7528\u8BF4\u660E\uFF1A\u8BF7\u5728\u590D\u9009\u6846\u5185\u9009\u62E9\u5404\u7C7B\u98DF\u7269\uFF0C\u8BA1\u7B97\u4EE5\u6807\u660E\u5355\u4F4D\u98DF\u7269\u4E2D\u7684\u5361\u8DEF\u91CC\u542B\u91CF\u4E3A\u57FA\u51C6\u3002");
 		explain_Label.setFont(new Font("隶书", Font.PLAIN, 17));
 		explain_Panel.add(explain_Label);
-		input_Panel = new Panel(new GridLayout(2, 4, 5, 5));
+		input_Panel = new JPanel(new GridLayout(2, 4, 5, 5));
 		input_Panel.setPreferredSize(new Dimension(770, 230));
-		cal_Frame.add(input_Panel, BorderLayout.CENTER);
-		result_Panel = new Panel();
+		getContentPane().add(input_Panel, BorderLayout.CENTER);
+		result_Panel = new JPanel();
 		result_Panel.setPreferredSize(new Dimension(770, 140));
-		cal_Frame.add(result_Panel, BorderLayout.SOUTH);
+		getContentPane().add(result_Panel, BorderLayout.SOUTH);
+		input_Panel.setOpaque(false);
+		result_Panel.setOpaque(false);
 
-		in1_Panel = new Panel();
+		in1_Panel = new JPanel();
+		in1_Panel.setOpaque(false);
 		input_Panel.add(in1_Panel);
 
 		class1_Label_2 = new JLabel("\u8C37\u7C7B ");
@@ -97,7 +118,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add1.setFont(new Font("隶书", Font.BOLD, 18));
 		in1_Panel.add(add1, BorderLayout.SOUTH);
 
-		in2_Panel = new Panel();
+		in2_Panel = new JPanel();
+		in2_Panel.setOpaque(false);
 		input_Panel.add(in2_Panel);
 
 		class2_Label_2 = new JLabel("\u852C\u679C\u7C7B ");
@@ -140,7 +162,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add2.addActionListener(this);
 		in2_Panel.add(add2, BorderLayout.SOUTH);
 
-		in3_Panel = new Panel();
+		in3_Panel = new JPanel();
+		in3_Panel.setOpaque(false);
 		input_Panel.add(in3_Panel);
 
 		class3_Label_2 = new JLabel("\u8C46\u5236\u54C1 ");
@@ -171,7 +194,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add3.addActionListener(this);
 		in3_Panel.add(add3, BorderLayout.SOUTH);
 
-		in4_Panel = new Panel();
+		in4_Panel = new JPanel();
+		in4_Panel.setOpaque(false);
 		input_Panel.add(in4_Panel);
 
 		class4_Label_2 = new JLabel("\u6C34\u4EA7\u7C7B ");
@@ -216,7 +240,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add4.addActionListener(this);
 		in4_Panel.add(add4, BorderLayout.SOUTH);
 
-		in5_Panel = new Panel();
+		in5_Panel = new JPanel();
+		in5_Panel.setOpaque(false);
 		input_Panel.add(in5_Panel);
 
 		class5_Label_2 = new JLabel("\u8089\u7C7B ");
@@ -245,7 +270,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add5.addActionListener(this);
 		in5_Panel.add(add5, BorderLayout.SOUTH);
 
-		in6_Panel = new Panel();
+		in6_Panel = new JPanel();
+		in6_Panel.setOpaque(false);
 		input_Panel.add(in6_Panel);
 
 		class6_Label = new JLabel("\u86CB\u5976\u7C7B");
@@ -279,7 +305,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add6.addActionListener(this);
 		in6_Panel.add(add6, BorderLayout.SOUTH);
 
-		in7_Panel = new Panel();
+		in7_Panel = new JPanel();
+		in7_Panel.setOpaque(false);
 		input_Panel.add(in7_Panel);
 		class7_Label = new JLabel("\u996E\u54C1\u7C7B ");
 		class7_Label.setFont(new Font("隶书", Font.BOLD, 26));
@@ -306,7 +333,8 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		add7.addActionListener(this);
 		in7_Panel.add(add7, BorderLayout.SOUTH);
 
-		in8_Panel = new Panel();
+		in8_Panel = new JPanel();
+		in8_Panel.setOpaque(false);
 		input_Panel.add(in8_Panel);
 		class8_Label = new JLabel("\u5916\u5356\u65E5\u5E38");
 		class8_Label.setFont(new Font("隶书", Font.BOLD, 24));
@@ -331,58 +359,61 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		cmb8.addItem("珍珠奶茶1杯");// 460
 		in8_Panel.add(cmb8);
 
-		add8 = new Button("添加小吃");
+		add8 = new JButton("添加小吃");
 		add8.setFont(new Font("隶书", Font.BOLD, 18));
 		add8.setBackground(UIManager.getColor("Button.light"));
 		add8.addActionListener(this);
 		in8_Panel.add(add8);
 
-		result1_Panel = new Panel();
+		result1_Panel = new JPanel();
+		result1_Panel.setOpaque(false);
 		result1_Panel.setPreferredSize(new Dimension(326, 126));
 		result_Panel.add(result1_Panel, BorderLayout.WEST);
 
-		choose_Label = new JLabel("\u60A8\u9009\u62E9\u7684\u98DF\u7269\uFF1A          ");
+		choose_Label = new JLabel("\u60A8\u9009\u62E9\u7684\u98DF\u7269\uFF1A            ");
 		choose_Label.setFont(new Font("隶书", Font.PLAIN, 20));
 		result1_Panel.add(choose_Label);
 
-		textArea = new TextArea();
+		textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setFont(new Font("楷体", Font.PLAIN, 19));
 		textArea.setRows(2);
 		textArea.setColumns(27);
 		result1_Panel.add(textArea);
-		result2_Panel = new Panel();
+		result2_Panel = new JPanel();
+		result2_Panel.setOpaque(false);
 		result2_Panel.setPreferredSize(new Dimension(100, 118));
 		result_Panel.add(result2_Panel, BorderLayout.CENTER);
 
-		cal_Button = new Button("   \u8BA1\u7B97   ");
+		cal_Button = new JButton("   \u8BA1\u7B97   ");
 		cal_Button.addActionListener(this);
 		cal_Button.setBackground(UIManager.getColor("Button.light"));
 		cal_Button.setFont(new Font("隶书", Font.BOLD, 20));
 		result2_Panel.add(cal_Button);
 
-		ce_Button = new Button("   \u6E05\u7A7A   ");
+		ce_Button = new JButton("   \u6E05\u7A7A   ");
 		ce_Button.setBackground(UIManager.getColor("Button.light"));
-		ce_Button.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		ce_Button.setFont(new Font("隶书", Font.BOLD, 20));
 		ce_Button.addActionListener(this);
 		result2_Panel.add(ce_Button);
 
-		back_Button = new Button("   \u8FD4\u56DE   ");
+		back_Button = new JButton("   \u8FD4\u56DE   ");
 		back_Button.setBackground(new Color(255, 160, 122));
-		back_Button.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		back_Button.setFont(new Font("隶书", Font.BOLD, 20));
 		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cal_Frame.setVisible(false);
+				dispose();
 				HealthLifePage newWindow=new HealthLifePage();
 				newWindow.setVisible(true);
 			}
 		});		
 		result2_Panel.add(back_Button);
-		result3_Panel = new Panel();
+		result3_Panel = new JPanel();
+		result3_Panel.setOpaque(false);
 		result3_Panel.setPreferredSize(new Dimension(317, 105));
 		result_Panel.add(result3_Panel, BorderLayout.EAST);
 
-		cal_Label_1 = new JLabel("\u60A8\u7684\u70ED\u91CF\u6444\u53D6\u91CF\u4E3A\uFF1A");
+		cal_Label_1 = new JLabel("\u70ED\u91CF\u6444\u53D6\u91CF\u4E3A\uFF1A                 ");
 		cal_Label_1.setFont(new Font("隶书", Font.PLAIN, 20));
 		result3_Panel.add(cal_Label_1);
 
@@ -392,8 +423,7 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		result3_Panel.add(textField);
 		textField.setColumns(19);
 
-		cal_Frame.setVisible(true);
-		cal_Frame.addWindowListener(this);
+		setVisible(true);
 
 	}
 
@@ -895,8 +925,5 @@ public class FoodCaloriesCalculator extends WindowAdapter implements ActionListe
 		System.exit(0);
 	}
 
-	public static void main(String[] args) {
-		FoodCaloriesCalculator new_cal = new FoodCaloriesCalculator();
-		new_cal.cal();
-	}
+	
 }
