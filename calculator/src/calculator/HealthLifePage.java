@@ -150,7 +150,7 @@ public class HealthLifePage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				CaloriesConsumptionCalculator newWindow = new CaloriesConsumptionCalculator();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		sport_Button.setBackground(Color.ORANGE);
