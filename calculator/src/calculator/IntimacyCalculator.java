@@ -8,145 +8,194 @@ import java.util.Date;
 import java.awt.*;
 import java.awt.Window.Type;
 
-public class IntimacyCalculator extends WindowAdapter {
-    private Frame Intimacy_Frame;
-    private Panel left_Panel,right_Panel,input_Panel,key_Panel,name_Panel,sex_Panel,birthday_Panel;
-    private Label title_Label,name1_Label,name2_Label,sex1_Label,sex2_Label,birthday1_Label,birthday2_Label,tip_Label,result_Label;
-    private TextField name1_TextField,name2_TextField,birthday1_TextField,birthday2_TextField;
-    private TextArea result_TextArea;
-    private Button back_Button,equal_Button,C_Button;
-    private ButtonGroup sex1_Button,sex2_Button;
-    private JRadioButton female1_Radio, male1_Radio,female2_Radio, male2_Radio;
-    private Panel panel;
-    private Label lblNewLabel;
-    private int gender1=0,gender2=0;
+public class IntimacyCalculator extends JFrame implements ActionListener {
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IntimacyCalculator Frame = new IntimacyCalculator();
+					Frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	JPanel Intimacy_JPanel;
+    JPanel left_Panel,right_Panel,input_Panel,key_Panel,name_Panel,sex_Panel,birthday_Panel;
+    JLabel title_JLabel,name1_JLabel,name2_JLabel,sex1_JLabel,sex2_JLabel,birthday1_JLabel,birthday2_JLabel,tip_JLabel,result_JLabel;
+    TextField name1_TextField,name2_TextField,birthday1_TextField,birthday2_TextField;
+    TextArea result_TextArea;
+    JButton back_JButton,equal_JButton,C_JButton;
+    ButtonGroup sex1_JButton,sex2_JButton;
+    JRadioButton female1_Radio, male1_Radio,female2_Radio, male2_Radio;
+    JPanel panel;
+    JLabel lblNewJLabel;
+    int gender1=0,gender2=0;
     /**
-     * Create the frame.
+     * Create the JPanel.
      */
-    public void Intimacy() {
-    	Intimacy_Frame=new Frame("亲密度计算器");
-    	Intimacy_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-    	Intimacy_Frame.setType(Type.UTILITY);
-    	Intimacy_Frame.setForeground(SystemColor.black);
-    	Intimacy_Frame.setSize(780, 480);
-    	Intimacy_Frame.setLocationRelativeTo(null);
-    	Intimacy_Frame.setBackground(Color.LIGHT_GRAY);
-    	Intimacy_Frame.setResizable(true);
-    	Intimacy_Frame.setLayout(new BorderLayout(1,3));   
-    	
-    	left_Panel=new Panel(new FlowLayout());
-		left_Panel.setPreferredSize(new Dimension(450, 420));
-		title_Label=new Label("\u8BF7\u8F93\u5165\u9700\u8981\u6D4B\u7B97\u7684\u4E24\u4EBA\u7684\u4FE1\u606F");
-		title_Label.setFont(new Font("隶书", Font.BOLD, 22));
-		title_Label.setPreferredSize(new Dimension(420, 50));
+    public IntimacyCalculator() {
+    	setBackground(new Color(0, 0, 0));
+		setTitle("亲密度计算器");
+		setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		setType(Type.UTILITY);
+		setForeground(Color.BLACK);
+		setSize(780, 480);
+		setLocation(200, 200);
+		setResizable(true);
+		getContentPane().setLayout(new BorderLayout(3, 3));
 		
-		input_Panel=new Panel(new FlowLayout());
+		ImageIcon img = new ImageIcon("./src/image/123.jpg");
+		JLabel imgL=new JLabel(img);
+		imgL.setSize(780, 440);
+	    this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
+	    Container contain = this.getContentPane();
+		((JPanel) contain).setOpaque(false);
+    	
+    	Intimacy_JPanel=new JPanel();
+    	Intimacy_JPanel.setOpaque(false);
+    	Intimacy_JPanel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+    	Intimacy_JPanel.setForeground(SystemColor.black);
+    	Intimacy_JPanel.setSize(780, 480);
+    	Intimacy_JPanel.setBackground(Color.LIGHT_GRAY);
+    	Intimacy_JPanel.setLayout(new BorderLayout(1,3));   
+    	
+    	left_Panel=new JPanel(new FlowLayout());
+    	left_Panel.setOpaque(false);
+		left_Panel.setPreferredSize(new Dimension(450, 420));
+		title_JLabel=new JLabel("\u8BF7\u8F93\u5165\u9700\u8981\u6D4B\u7B97\u7684\u4E24\u4EBA\u7684\u4FE1\u606F");
+		title_JLabel.setOpaque(false);
+		title_JLabel.setFont(new Font("隶书", Font.BOLD, 22));
+		title_JLabel.setPreferredSize(new Dimension(420, 50));
+		
+		input_Panel=new JPanel(new FlowLayout());
+		input_Panel.setOpaque(false);
 		input_Panel.setPreferredSize(new Dimension(440, 290));
-		name1_Label=new Label("A的姓名");
-		name1_Label.setFont(new Font("隶书", Font.BOLD, 19));
+		name1_JLabel=new JLabel("A的姓名");
+		name1_JLabel.setFont(new Font("隶书", Font.BOLD, 19));
 		name1_TextField=new TextField("");
+		name1_TextField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		name1_TextField.setColumns(8);
-		sex1_Label=new Label("A的性别");
-		sex1_Label.setFont(new Font("隶书", Font.BOLD, 19));
+		sex1_JLabel=new JLabel("A的性别");
+		sex1_JLabel.setFont(new Font("隶书", Font.BOLD, 19));
 		female1_Radio= new JRadioButton("女");
-		female1_Radio.setFont(new Font("隶书", Font.BOLD, 19));
+		female1_Radio.setOpaque(false);
+		female1_Radio.setFont(new Font("隶书", Font.BOLD, 18));
 		female1_Radio.setPreferredSize(new Dimension(53, 35));
 		male1_Radio= new JRadioButton("男");
-		male1_Radio.setFont(new Font("隶书", Font.BOLD, 19));
+		male1_Radio.setOpaque(false);
+		male1_Radio.setFont(new Font("隶书", Font.BOLD, 18));
 		male1_Radio.setPreferredSize(new Dimension(53, 35));
-		sex1_Button= new ButtonGroup();
-		sex1_Button.add(female1_Radio);
-		sex1_Button.add(male1_Radio);
-		birthday1_Label=new Label("A的生日");
-		birthday1_Label.setFont(new Font("隶书", Font.BOLD, 19));
+		sex1_JButton= new ButtonGroup();
+		sex1_JButton.add(female1_Radio);
+		sex1_JButton.add(male1_Radio);
+		birthday1_JLabel=new JLabel("A的生日");
+		birthday1_JLabel.setFont(new Font("隶书", Font.BOLD, 19));
 		birthday1_TextField=new TextField("");
+		birthday1_TextField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		birthday1_TextField.setColumns(8);
-		name2_Label=new Label("B的姓名");
-		name2_Label.setFont(new Font("隶书", Font.BOLD, 19));
-		name2_Label.setFont(new Font("Dialog", Font.BOLD, 19));
+		name2_JLabel=new JLabel("B的姓名");
+		name2_JLabel.setFont(new Font("隶书", Font.BOLD, 19));
 		name2_TextField=new TextField("");
+		name2_TextField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		name2_TextField.setColumns(8);
 		female2_Radio= new JRadioButton("女");
-		female2_Radio.setFont(new Font("隶书", Font.BOLD, 19));
+		female2_Radio.setOpaque(false);
+		female2_Radio.setFont(new Font("隶书", Font.BOLD, 18));
 		female2_Radio.setPreferredSize(new Dimension(53, 35));
 		male2_Radio= new JRadioButton("男");
-		male2_Radio.setFont(new Font("隶书", Font.BOLD, 19));
+		male2_Radio.setOpaque(false);
+		male2_Radio.setFont(new Font("隶书", Font.BOLD, 18));
 		male2_Radio.setPreferredSize(new Dimension(53, 35));
-		sex2_Label=new Label("B的性别");
-		sex2_Button = new ButtonGroup();
-		sex2_Button.add(female1_Radio);
-		sex2_Button.add(male1_Radio);
-		birthday2_Label=new Label("B的生日");
-		birthday2_Label.setFont(new Font("隶书", Font.BOLD, 19));
+		sex2_JLabel=new JLabel("B的性别");
+		sex2_JLabel.setFont(new Font("隶书", Font.BOLD, 19));
+		sex2_JButton = new ButtonGroup();
+		sex2_JButton.add(female1_Radio);
+		sex2_JButton.add(male1_Radio);
+		birthday2_JLabel=new JLabel("B的生日");
+		birthday2_JLabel.setFont(new Font("隶书", Font.BOLD, 19));
 		birthday2_TextField=new TextField("");
+		birthday2_TextField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		birthday2_TextField.setColumns(8);
 		
-		name_Panel= new Panel(new FlowLayout());
+		name_Panel= new JPanel(new FlowLayout());
+		name_Panel.setOpaque(false);
 		name_Panel.setPreferredSize(new Dimension(420, 80));
-		name_Panel.add(name1_Label);
+		name_Panel.add(name1_JLabel);
 		name_Panel.add(name1_TextField);
-		name_Panel.add(name2_Label);
+		name_Panel.add(name2_JLabel);
 		name_Panel.add(name2_TextField);
 		
-		sex_Panel= new Panel(new FlowLayout());
+		sex_Panel= new JPanel(new FlowLayout());
+		sex_Panel.setOpaque(false);
 		sex_Panel.setPreferredSize(new Dimension(420, 50));
-		sex_Panel.add(sex1_Label);
+		sex_Panel.add(sex1_JLabel);
 		sex_Panel.add(female1_Radio);
 		sex_Panel.add(male1_Radio);
-		sex_Panel.add(sex2_Label);
+		sex_Panel.add(sex2_JLabel);
 		sex_Panel.add(female2_Radio);
 		sex_Panel.add(male2_Radio);
 		
-		birthday_Panel= new Panel(new FlowLayout());
+		birthday_Panel= new JPanel(new FlowLayout());
+		birthday_Panel.setOpaque(false);
 		birthday_Panel.setPreferredSize(new Dimension(420, 50));
-		birthday_Panel.add(birthday1_Label);
+		birthday_Panel.add(birthday1_JLabel);
 		birthday_Panel.add(birthday1_TextField);
-		birthday_Panel.add(birthday2_Label);
+		birthday_Panel.add(birthday2_JLabel);
 		birthday_Panel.add(birthday2_TextField);
 		
 		input_Panel.add(name_Panel,BorderLayout.NORTH);
 		input_Panel.add(sex_Panel,BorderLayout.CENTER);
 		
-		lblNewLabel = new Label("\u5E74\u6708\u65E5\u4E4B\u95F4\u8BF7\u7528-\u5206\u9694\uFF0C\u4F8B\u59822020-01-01");
-		lblNewLabel.setFont(new Font("隶书", Font.PLAIN, 20));
-		lblNewLabel.setPreferredSize(new Dimension(420, 80));
-		input_Panel.add(lblNewLabel);
+		lblNewJLabel = new JLabel("\u5E74\u6708\u65E5\u4E4B\u95F4\u8BF7\u7528-\u5206\u9694\uFF0C\u4F8B\u59822020-01-01");
+		lblNewJLabel.setFont(new Font("隶书", Font.BOLD, 20));
+		lblNewJLabel.setPreferredSize(new Dimension(420, 80));
+		input_Panel.add(lblNewJLabel);
 		input_Panel.add(birthday_Panel,BorderLayout.SOUTH);
 		
-		tip_Label=new Label("\u6CE8\uFF1A\u672C\u8BA1\u7B97\u7ED3\u679C\u89E3\u91CA\u6743\u5F52\u751C\u7B52\u7EA2\u8336\u6240\u6709\u3002");
-		tip_Label.setFont(new Font("Dialog", Font.PLAIN, 19));
-		tip_Label.setPreferredSize(new Dimension(370, 50));
+		tip_JLabel=new JLabel("\u6CE8\uFF1A\u672C\u8BA1\u7B97\u7ED3\u679C\u89E3\u91CA\u6743\u5F52\u751C\u7B52\u7EA2\u8336\u6240\u6709\u3002");
+		tip_JLabel.setForeground(new Color(0, 0, 139));
+		tip_JLabel.setFont(new Font("Dialog", Font.BOLD, 19));
+		tip_JLabel.setPreferredSize(new Dimension(370, 50));
 		
-		left_Panel.add(title_Label,BorderLayout.NORTH);
+		left_Panel.add(title_JLabel,BorderLayout.NORTH);
 		left_Panel.add(input_Panel,BorderLayout.CENTER);
-		left_Panel.add(tip_Label,BorderLayout.SOUTH);
+		left_Panel.add(tip_JLabel,BorderLayout.SOUTH);
 		
-		right_Panel=new Panel(new FlowLayout());
+		right_Panel=new JPanel(new FlowLayout());
+		right_Panel.setOpaque(false);
 		right_Panel.setPreferredSize(new Dimension(310, 420));
 		
-		result_Label=new Label("亲密度测算结果：");
-		result_Label.setFont(new Font("隶书", Font.BOLD, 22));
-		result_Label.setPreferredSize(new Dimension(200, 60));
+		result_JLabel=new JLabel("亲密度测算结果：");
+		result_JLabel.setFont(new Font("隶书", Font.BOLD, 22));
+		result_JLabel.setPreferredSize(new Dimension(200, 60));
 		result_TextArea=new TextArea();
+		result_TextArea.setFont(new Font("Dialog", Font.PLAIN, 19));
 		result_TextArea.setPreferredSize(new Dimension(280, 240));
-		key_Panel=new Panel(new GridLayout(1,4,6,12));
+		key_Panel=new JPanel(new GridLayout(1,4,6,12));
 		key_Panel.setPreferredSize(new Dimension(290, 60));
-		equal_Button=new Button("测算");
-		equal_Button.setFont(new Font("隶书", Font.BOLD, 21));
-		C_Button=new Button("清空");
-		C_Button.setFont(new Font("隶书", Font.BOLD, 21));
-		back_Button=new Button("返回");
-		back_Button.setFont(new Font("隶书", Font.BOLD, 21));
-		back_Button.setForeground(new Color(0, 0, 0));
-		back_Button.setBackground(new Color(255, 160, 122));
-		key_Panel.add(equal_Button);
-		key_Panel.add(C_Button);
-		key_Panel.add(back_Button);
+		equal_JButton=new JButton("测算");
+		equal_JButton.setBackground(Color.LIGHT_GRAY);
+		equal_JButton.setFont(new Font("宋体", Font.BOLD, 21));
+		C_JButton=new JButton("清空");
+		C_JButton.setBackground(Color.LIGHT_GRAY);
+		C_JButton.setFont(new Font("宋体", Font.BOLD, 21));
+		back_JButton=new JButton("返回");
+		back_JButton.setFont(new Font("宋体", Font.BOLD, 21));
+		back_JButton.setForeground(new Color(0, 0, 0));
+		back_JButton.setBackground(new Color(255, 160, 122));
+		key_Panel.add(equal_JButton);
+		key_Panel.add(C_JButton);
+		key_Panel.add(back_JButton);
 		
-		right_Panel.add(result_Label,BorderLayout.NORTH);
+		right_Panel.add(result_JLabel,BorderLayout.NORTH);
 		right_Panel.add(result_TextArea,BorderLayout.CENTER);
 		
-		panel = new Panel();
+		panel = new JPanel();
+		panel.setOpaque(false);
 		panel.setPreferredSize(new Dimension(60, 20));
 		right_Panel.add(panel);
 		right_Panel.add(key_Panel,BorderLayout.SOUTH);
@@ -155,14 +204,14 @@ public class IntimacyCalculator extends WindowAdapter {
 		male1_Radio.addActionListener(new Listener2());
 		female2_Radio.addActionListener(new Listener3());
 		male2_Radio.addActionListener(new Listener4());
-		equal_Button.addActionListener(new Listener_equal());
-		C_Button.addActionListener(new Listener_C());
-		back_Button.addActionListener(new Listener_back());
+		equal_JButton.addActionListener(new Listener_equal());
+		C_JButton.addActionListener(new Listener_C());
+		back_JButton.addActionListener(new Listener_back());
 		
-		Intimacy_Frame.add(left_Panel,BorderLayout.WEST);
-		Intimacy_Frame.add(right_Panel,BorderLayout.EAST);
-		Intimacy_Frame.setVisible(true);
-		Intimacy_Frame.addWindowListener(this);
+		Intimacy_JPanel.add(left_Panel,BorderLayout.WEST);
+		Intimacy_JPanel.add(right_Panel,BorderLayout.EAST);
+		contain.add(Intimacy_JPanel);
+		setVisible(true);
     };
     public void windowClosing(WindowEvent e) {
 		System.exit(0);
@@ -187,7 +236,7 @@ public class IntimacyCalculator extends WindowAdapter {
         // 未知错误
         return 0;
   }
-  public int GetStrokeCount(String Words){  
+    public int GetStrokeCount(String Words){  
 
       //去除非中文  
       char[] words = Words.toCharArray();
@@ -202,7 +251,7 @@ public class IntimacyCalculator extends WindowAdapter {
       }  
       return count;  
   } 
-  public static int GetGB2312StrokeCountM(int c1, int c2)  
+    public static int GetGB2312StrokeCountM(int c1, int c2)  
   {  
       int OffSet;  
       if (c1 < 0xB0 || c1 > 0xF7 || c2 < 0xA1 || c2 > 0xFE)  
@@ -877,16 +926,13 @@ public class IntimacyCalculator extends WindowAdapter {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			Intimacy_Frame.setVisible(false);
+			setVisible(false);
 			EmotionalLifePage newWindow=new EmotionalLifePage();
 			newWindow.setVisible(true);
 		}	
 	}
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-    	IntimacyCalculator new_rel = new IntimacyCalculator();
-		new_rel.Intimacy();
-    }
+    public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }
