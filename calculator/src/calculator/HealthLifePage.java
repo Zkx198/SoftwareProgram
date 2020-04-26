@@ -39,7 +39,7 @@ public class HealthLifePage extends JFrame implements ActionListener {
 		setResizable(true);
 		getContentPane().setLayout(new BorderLayout(3, 3));
 		
-		ImageIcon img = new ImageIcon("./src/image/dl.png");
+		ImageIcon img = new ImageIcon("./src/image/dl.jpg");
 		JLabel imgL=new JLabel(img);
 		imgL.setBounds(0, 0, 780, 480);
         this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
