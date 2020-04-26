@@ -186,7 +186,7 @@ public class EmotionalLifePage extends JFrame implements ActionListener{
 		    public void actionPerformed(ActionEvent e) {
 			  dispose();
 			  RelationshipCalculator newWindow=new RelationshipCalculator();
-			  newWindow.Relationship();
+			  newWindow.setVisible(true);
 		    }
 	    });
 		intimacy_Button.addActionListener(new ActionListener() {

@@ -3,20 +3,37 @@ package calculator;
 import java.awt.event.*;
 import java.awt.*;
 import java.awt.Window.Type;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class RelationshipCalculator extends WindowAdapter{
-
-	private Frame Relation_Frame;
-	private Panel title_Panel,input_Panel,output_Panel,key_Panel,input_output_Panel;
-	private Panel relation_Panel,common_Panel;//放置亲属关系按键和=、del、C按键
-	private TextArea input_TextField;//输入框
-	private TextField output_TextField;//输出框
-	private Label Label_1,Label_2,Label_3,Label_4,Label_5;//提示文字
-    private Button baba_Button,mama_Button,erzi_Button,nver_Button,gege_Button,didi_Button,jiejie_Button,meimei_Button,zhangfu_Button,qizi_Button;//亲属关系按键
-    private Button equal_Button,del_Button,C_Button,back_Button;//等于、删除、清空、返回按键
+public class RelationshipCalculator extends JFrame implements ActionListener{
     
-    private String[][] relationshipData = {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RelationshipCalculator JPanel = new RelationshipCalculator();
+					JPanel.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	JPanel Relation_JPanel;
+	JPanel title_JPanel,input_JPanel,output_JPanel,key_JPanel,input_output_JPanel;
+	JPanel relation_JPanel,common_JPanel;//放置亲属关系按键和=、del、C按键
+	TextArea input_TextField;//输入框
+	TextField output_TextField;//输出框
+	JLabel Label_1,Label_2,Label_3,Label_4,Label_5;//提示文字
+    Button baba_Button,mama_Button,erzi_Button,nver_Button,gege_Button,didi_Button,jiejie_Button,meimei_Button,zhangfu_Button,qizi_Button;//亲属关系按键
+    Button equal_Button,del_Button,C_Button,back_Button;//等于、删除、清空、返回按键
+    
+    String[][] relationshipData = {
     		 {"我", "爸爸", "妈妈", "哥哥", "弟弟", "姐姐", "妹妹", "儿子", "女儿", "妻子", "丈夫", "未知亲戚"},
     	     {"爸爸", "爷爷", "奶奶", "伯父", "叔叔", "姑妈", "姑妈", "我", "妹妹", "妈妈", "不存在该种关系", "未知亲戚"},
     		 {"妈妈", "外公", "外婆", "大舅", "小舅", "大姨妈", "小姨妈", "我", "妹妹", "不存在该种关系", "爸爸", "未知亲戚"},
@@ -190,32 +207,51 @@ public class RelationshipCalculator extends WindowAdapter{
     		 {"姨曾祖母", "", "", "", "", "", "", "", "", "", "", ""},
     		 {"未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚", "未知亲戚"}
     		 };
-    private JPanel panel;
+    JPanel JPanel;
 	/**
-	 * Create the frame.
+	 * Create the JPanel.
 	 */
-	public void Relationship() {
-		Relation_Frame=new Frame("亲戚关系计算器");
-		Relation_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		Relation_Frame.setType(Type.UTILITY);
-		Relation_Frame.setForeground(Color.BLACK);
-		Relation_Frame.setSize(780, 480);
-		Relation_Frame.setLocationRelativeTo(null);
-		Relation_Frame.setBackground(Color.LIGHT_GRAY);
-		Relation_Frame.setResizable(true);
-		Relation_Frame.setLayout(new BorderLayout(3,1));
+	public RelationshipCalculator() {
+		setBackground(new Color(0, 0, 0));
+		setTitle("亲戚关系计算器");
+		setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		setType(Type.UTILITY);
+		setForeground(Color.BLACK);
+		setSize(780, 480);
+		setLocation(200, 200);
+		setResizable(true);
+		getContentPane().setLayout(new BorderLayout(3, 3));
 		
-		title_Panel=new Panel(new GridLayout(2,1));
-		title_Panel.setPreferredSize(new Dimension(390, 80));
-		Label_1=new Label("\u5047\u5B9A\u6211\u7684\u6027\u522B\u4E3A:\u7537");
+		ImageIcon img = new ImageIcon("./src/image/123.jpg");
+		JLabel imgL=new JLabel(img);
+		imgL.setSize(780, 440);
+	    this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
+	    Container contain = this.getContentPane();
+		((JPanel) contain).setOpaque(false);
+		
+		Relation_JPanel=new JPanel();
+		Relation_JPanel.setOpaque(false);
+		Relation_JPanel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		Relation_JPanel.setForeground(Color.BLACK);
+		Relation_JPanel.setSize(780, 480);
+		Relation_JPanel.setBackground(Color.LIGHT_GRAY);
+		Relation_JPanel.setLayout(new BorderLayout(3,1));
+		
+		title_JPanel=new JPanel(new GridLayout(2,1));
+		title_JPanel.setOpaque(false);
+		title_JPanel.setPreferredSize(new Dimension(390, 80));
+		Label_1=new JLabel("\u5047\u5B9A\u6211\u7684\u6027\u522B\u4E3A:\u7537");
+		Label_1.setOpaque(false);
 		Label_1.setFont(new Font("隶书", Font.BOLD, 22));
-		Label_2=new Label("\u7ED3\u679C\u4E3A\u6211\u5BF9\u5BF9\u65B9\u7684\u79F0\u547C");
+		Label_2=new JLabel("\u7ED3\u679C\u4E3A\u6211\u5BF9\u5BF9\u65B9\u7684\u79F0\u547C");
+		Label_2.setOpaque(false);
 		Label_2.setFont(new Font("隶书", Font.BOLD, 22));
-	    title_Panel.add(Label_1);
-	    title_Panel.add(Label_2);
+	    title_JPanel.add(Label_1);
+	    title_JPanel.add(Label_2);
 		
-		relation_Panel=new Panel(new GridLayout(3,4,5,10));
-		relation_Panel.setPreferredSize(new Dimension(340, 250));
+		relation_JPanel=new JPanel(new GridLayout(3,4,5,10));
+		relation_JPanel.setOpaque(false);
+		relation_JPanel.setPreferredSize(new Dimension(340, 250));
 		baba_Button=new Button("爸爸");
 		baba_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		mama_Button=new Button("妈妈");
@@ -236,19 +272,20 @@ public class RelationshipCalculator extends WindowAdapter{
 		zhangfu_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		qizi_Button=new Button("妻子");
 		qizi_Button.setFont(new Font("隶书", Font.BOLD, 22));
-		relation_Panel.add(baba_Button);
-		relation_Panel.add(mama_Button);
-		relation_Panel.add(erzi_Button);
-		relation_Panel.add(nver_Button);
-		relation_Panel.add(gege_Button);
-		relation_Panel.add(didi_Button);
-		relation_Panel.add(jiejie_Button);
-		relation_Panel.add(meimei_Button);
-		relation_Panel.add(zhangfu_Button);
-		relation_Panel.add(qizi_Button);
+		relation_JPanel.add(baba_Button);
+		relation_JPanel.add(mama_Button);
+		relation_JPanel.add(erzi_Button);
+		relation_JPanel.add(nver_Button);
+		relation_JPanel.add(gege_Button);
+		relation_JPanel.add(didi_Button);
+		relation_JPanel.add(jiejie_Button);
+		relation_JPanel.add(meimei_Button);
+		relation_JPanel.add(zhangfu_Button);
+		relation_JPanel.add(qizi_Button);
 		
-		common_Panel=new Panel(new GridLayout(1,4,5,3));
-		common_Panel.setPreferredSize(new Dimension(340, 90));
+		common_JPanel=new JPanel(new GridLayout(1,4,5,3));
+		common_JPanel.setOpaque(false);
+		common_JPanel.setPreferredSize(new Dimension(340, 90));
 		equal_Button=new Button("计算");
 		equal_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		equal_Button.setForeground(Color.RED);
@@ -262,54 +299,63 @@ public class RelationshipCalculator extends WindowAdapter{
 		back_Button.setFont(new Font("隶书", Font.BOLD, 22));
 		back_Button.setForeground(new Color(0, 0, 0));
 		back_Button.setBackground(new Color(255, 160, 122));
-		common_Panel.add(equal_Button);
-		common_Panel.add(del_Button);
-		common_Panel.add(C_Button);
-		common_Panel.add(back_Button);
+		common_JPanel.add(equal_Button);
+		common_JPanel.add(del_Button);
+		common_JPanel.add(C_Button);
+		common_JPanel.add(back_Button);
 		
-		Label_5=new Label("关系按键");
+		Label_5=new JLabel("关系按键");
+		Label_5.setOpaque(false);
 		Label_5.setFont(new Font("隶书", Font.BOLD, 22));
 		Label_5.setPreferredSize(new Dimension(360, 40));
 		
-		key_Panel=new Panel(new FlowLayout());
-		key_Panel.setPreferredSize(new Dimension(360, 135));
-		key_Panel.add(Label_5,BorderLayout.NORTH);
-		key_Panel.add(relation_Panel,BorderLayout.CENTER);
+		key_JPanel=new JPanel(new FlowLayout());
+		key_JPanel.setOpaque(false);
+		key_JPanel.setPreferredSize(new Dimension(360, 135));
+		key_JPanel.add(Label_5,BorderLayout.NORTH);
+		key_JPanel.add(relation_JPanel,BorderLayout.CENTER);
 		
-		panel =  new JPanel();
-		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setForeground(Color.LIGHT_GRAY);
-		panel.setPreferredSize(new Dimension(360, 10));
-		key_Panel.add(panel);
-		key_Panel.add(common_Panel,BorderLayout.SOUTH);
+		JPanel =  new JPanel();
+		JPanel.setOpaque(false);
+		JPanel.setBackground(Color.LIGHT_GRAY);
+		JPanel.setForeground(Color.LIGHT_GRAY);
+		JPanel.setPreferredSize(new Dimension(360, 10));
+		key_JPanel.add(JPanel);
+		key_JPanel.add(common_JPanel,BorderLayout.SOUTH);
 		
-		input_Panel=new Panel(new FlowLayout());
-		input_Panel.setPreferredSize(new Dimension(390, 200));
-		Label_3=new Label("关系：");
+		input_JPanel=new JPanel(new FlowLayout());
+		input_JPanel.setOpaque(false);
+		input_JPanel.setPreferredSize(new Dimension(390, 200));
+		Label_3=new JLabel("关系：");
+		Label_3.setOpaque(false);
 		Label_3.setFont(new Font("隶书", Font.BOLD, 20));
 		Label_3.setPreferredSize(new Dimension(380, 20));
 		input_TextField=new TextArea();
 		input_TextField.setFont(new Font("隶书", Font.BOLD, 22));
 		input_TextField.setText("我");
 		input_TextField.setPreferredSize(new Dimension(375, 140));
-		input_Panel.add(Label_3,BorderLayout.NORTH);
-		input_Panel.add(input_TextField,BorderLayout.SOUTH);
+		input_JPanel.add(Label_3,BorderLayout.NORTH);
+		input_JPanel.add(input_TextField,BorderLayout.SOUTH);
 		
-		output_Panel=new Panel(new FlowLayout());
-		output_Panel.setPreferredSize(new Dimension(390, 120));
-		Label_4=new Label("结果：");
+		output_JPanel=new JPanel(new FlowLayout());
+		output_JPanel.setOpaque(false);
+		output_JPanel.setPreferredSize(new Dimension(390, 120));
+		Label_4=new JLabel("结果：");
+		Label_4.setOpaque(false);
 		Label_4.setFont(new Font("隶书", Font.BOLD, 20));
 		Label_4.setPreferredSize(new Dimension(380, 20));
 		output_TextField=new TextField();
+		output_TextField.setFont(new Font("隶书", Font.BOLD, 22));
 		output_TextField.setPreferredSize(new Dimension(375, 80));
-		output_Panel.add(Label_4,BorderLayout.NORTH);
-		output_Panel.add(output_TextField,BorderLayout.SOUTH);
+		output_JPanel.add(Label_4,BorderLayout.NORTH);
+		output_JPanel.add(output_TextField,BorderLayout.SOUTH);
 		
-		input_output_Panel=new Panel(new FlowLayout());
-		input_output_Panel.setPreferredSize(new Dimension(400, 100));
-		input_output_Panel.add(title_Panel,BorderLayout.NORTH);
-		input_output_Panel.add(input_Panel,BorderLayout.CENTER);
-		input_output_Panel.add(output_Panel,BorderLayout.SOUTH);
+		input_output_JPanel=new JPanel(new FlowLayout());
+		input_output_JPanel.setOpaque(false);
+		input_output_JPanel.setPreferredSize(new Dimension(400, 100));
+		input_output_JPanel.add(title_JPanel,BorderLayout.NORTH);
+		input_output_JPanel.add(input_JPanel,BorderLayout.CENTER);
+		input_output_JPanel.add(output_JPanel,BorderLayout.SOUTH);
 		
 		baba_Button.addActionListener(new Listener_baba());
 		mama_Button.addActionListener(new Listener_mama());
@@ -326,10 +372,11 @@ public class RelationshipCalculator extends WindowAdapter{
 	    C_Button.addActionListener(new Listener_C());
 	    back_Button.addActionListener(new Listener_back());
 		
-		Relation_Frame.add(input_output_Panel,BorderLayout.WEST);
-		Relation_Frame.add(key_Panel,BorderLayout.EAST);
-		Relation_Frame.setVisible(true);
-		Relation_Frame.addWindowListener(this);
+		Relation_JPanel.add(input_output_JPanel,BorderLayout.WEST);
+		Relation_JPanel.add(key_JPanel,BorderLayout.EAST);
+		
+		contain.add(Relation_JPanel);
+		setVisible(true);
 	}
 	public boolean isExist(String value, String[][] array,int Length)
 	{
@@ -555,7 +602,7 @@ public class RelationshipCalculator extends WindowAdapter{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			Relation_Frame.setVisible(false);
+			setVisible(false);
 			EmotionalLifePage newWindow=new EmotionalLifePage();
 			newWindow.setVisible(true);
 		}	
@@ -563,11 +610,8 @@ public class RelationshipCalculator extends WindowAdapter{
 	public void windowClosing(WindowEvent e) {
 		System.exit(0);
 	}
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		RelationshipCalculator new_rel = new RelationshipCalculator();
-		new_rel.Relationship();
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
