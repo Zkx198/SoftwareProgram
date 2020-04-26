@@ -48,7 +48,7 @@ public class MainPage extends JFrame {
         contentPane.setLayout(new BorderLayout(3, 3));
         setContentPane(contentPane);
         
-        ImageIcon img = new ImageIcon("./src/image/mainpage.jpg");
+        ImageIcon img = new ImageIcon("./src/image/mainpage.png");
 		JLabel imgL=new JLabel(img);
 		imgL.setBounds(0, 0, 780, 480);
         this.getLayeredPane().add(imgL, new Integer(Integer.MIN_VALUE));
