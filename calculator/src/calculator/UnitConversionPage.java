@@ -1,6 +1,6 @@
 package calculator;
 //  李涢瑶 2017111147
-// 张凯鑫 2017111478 添加背景，修改页面
+//  张凯鑫 2017111478 
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -107,7 +107,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Length newWindow=new UnitConversion_Length();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});		
 		in0_JPanel.add(cvs1);
@@ -137,7 +137,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Volume newWindow=new UnitConversion_Volume();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});	
 		in2_JPanel.add(cvs3);
@@ -150,7 +150,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Quality newWindow=new UnitConversion_Quality();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		cvs4.setBackground(UIManager.getColor("JButton.background"));
@@ -170,7 +170,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				UnitConversion_Tempetature newWindow=new UnitConversion_Tempetature();
-				newWindow.cal();
+				newWindow.setVisible(true);
 			}
 		});
 		in5_JPanel.add(cvs6);
