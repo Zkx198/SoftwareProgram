@@ -6,6 +6,11 @@ import javax.swing.*;
 import java.awt.event.*;
 public class UnitConversionPage extends JFrame implements ActionListener {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,7 +43,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 		((JPanel) contain).setOpaque(false);
 		JPanel cal_Frame;
 		JPanel in0_JPanel, in1_JPanel,in2_JPanel,in3_JPanel,in4_JPanel,in5_JPanel,in6_JPanel,in7_JPanel, input_JPanel, intergration_JPanel, result1_JPanel, result2_JPanel;
-		ButtonGroup btg;
+		//ButtonGroup btg;
 		JButton cvs1;
 		JButton cvs4;
 		JButton cvs3;
@@ -334,7 +339,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 		result2_JPanel.add(back);
 		cal_Frame.add(input_JPanel,BorderLayout.EAST);
 		cal_Frame.add(intergration_JPanel,BorderLayout.WEST);
-		btg = new ButtonGroup();
+	//	btg = new ButtonGroup();
 		
 		title_Label = new JLabel("   \u5EA6\u91CF\u8861\u8F6C\u6362\u5668                       ");
 		title_Label.setForeground(Color.WHITE);

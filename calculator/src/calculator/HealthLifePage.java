@@ -5,10 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.awt.Window.Type;
-import java.awt.*;
 
 
 public class HealthLifePage extends JFrame implements ActionListener {

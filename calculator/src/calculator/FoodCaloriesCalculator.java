@@ -6,15 +6,13 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.awt.Window.Type;
-import java.awt.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
 
 public class FoodCaloriesCalculator extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,7 +46,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 	private JLabel class4_Label_2;
 	private JPanel in8_Panel;
 	private JLabel class8_Label;
-	private JComboBox cmb8, cmb1, cmb2, cmb3, cmb4, cmb5, cmb6, cmb7;
+	private JComboBox<String> cmb8, cmb1, cmb2, cmb3, cmb4, cmb5, cmb6, cmb7;
 	private Button button;
 
 	public FoodCaloriesCalculator() {
@@ -95,7 +93,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class1_Label_2.setForeground(new Color(0, 0, 0));
 		class1_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in1_Panel.add(class1_Label_2);
-		cmb1 = new JComboBox();
+		cmb1 = new JComboBox<String>();
 		cmb1.addActionListener(this);
 		cmb1.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb1.addItem("--请选择--");
@@ -125,7 +123,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class2_Label_2 = new JLabel("\u852C\u679C\u7C7B ");
 		class2_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in2_Panel.add(class2_Label_2);
-		cmb2 = new JComboBox();
+		cmb2 = new JComboBox<String>();
 		cmb2.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb2.addItem("--请选择--");
 		cmb2.addItem("茄子90克");// 25大卡
@@ -169,7 +167,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class3_Label_2 = new JLabel("\u8C46\u5236\u54C1 ");
 		class3_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in3_Panel.add(class3_Label_2);
-		cmb3 = new JComboBox();
+		cmb3 = new JComboBox<String>();
 		cmb3.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb3.addItem("--请选择--");
 		cmb3.addItem("黑豆100克");// 381
@@ -201,7 +199,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class4_Label_2 = new JLabel("\u6C34\u4EA7\u7C7B ");
 		class4_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in4_Panel.add(class4_Label_2);
-		cmb4 = new JComboBox();
+		cmb4 = new JComboBox<String>();
 		cmb4.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb4.addItem("--请选择--");
 		cmb4.addItem("桂鱼61克");// 117
@@ -247,7 +245,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class5_Label_2 = new JLabel("\u8089\u7C7B ");
 		class5_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in5_Panel.add(class5_Label_2);
-		cmb5 = new JComboBox();
+		cmb5 = new JComboBox<String>();
 		cmb5.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb5.addItem("--请选择--");
 		cmb5.addItem("猪肉100克");// 336大卡
@@ -277,7 +275,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class6_Label = new JLabel("\u86CB\u5976\u7C7B");
 		class6_Label.setFont(new Font("隶书", Font.BOLD, 24));
 		in6_Panel.add(class6_Label);
-		cmb6 = new JComboBox();
+		cmb6 = new JComboBox<String>();
 		cmb6.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb6.addItem("--请选择--");
 		cmb6.addItem("牛乳100克");// 54大卡
@@ -311,7 +309,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class7_Label = new JLabel("\u996E\u54C1\u7C7B ");
 		class7_Label.setFont(new Font("隶书", Font.BOLD, 26));
 		in7_Panel.add(class7_Label, BorderLayout.NORTH);
-		cmb7 = new JComboBox();
+		cmb7 = new JComboBox<String>();
 		cmb7.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb7.addItem("--请选择--");
 		cmb7.addItem("啤酒1杯");// 80大卡
@@ -339,7 +337,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		class8_Label = new JLabel("\u5916\u5356\u65E5\u5E38");
 		class8_Label.setFont(new Font("隶书", Font.BOLD, 24));
 		in8_Panel.add(class8_Label);
-		cmb8 = new JComboBox();
+		cmb8 = new JComboBox<String>();
 		cmb8.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb8.addItem("--请选择--");
 		cmb8.addItem("鲜肉包1个");// 200大卡

@@ -2,9 +2,6 @@ package calculator;
 // Àî›éÑþ2017111147
 import java.awt.*;
 import java.awt.event.*;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JRadioButton;
 
 import calculator.SecondaryPageOne;

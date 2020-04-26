@@ -3,14 +3,10 @@ package calculator;
 import java.awt.*;
 
 import java.awt.event.*;
-import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JButton;
 import java.awt.Window.Type;
 
 import javax.swing.JLabel;
-import java.util.ArrayList;
 
 public class PluralComputing extends WindowAdapter implements ActionListener {
 	private Frame plu_Frame;
@@ -21,8 +17,8 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 	private Button plus_Button, minus_Button, multi_Button, div_Button, equal_Button, dot_Button, i_Button, negative_Button, back_Button;
 	private Button Del_Button, C_Button;
 	
-	private ArrayList plural=new ArrayList();
-	private ArrayList symbol=new ArrayList();	
+	private ArrayList<String> plural=new ArrayList<String>();
+	private ArrayList<String> symbol=new ArrayList<String>();	
 	Font fontOfNumber = new Font("华文行楷", Font.PLAIN, 26);
 	Font fontOfOutput = new Font("华文行楷", Font.PLAIN, 32);
 	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);

@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JButton;
 import java.awt.Window.Type;
 import java.awt.BorderLayout;
@@ -685,7 +684,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 	}
 
 	public static synchronized BigInteger bigNumberFactorial(int num) {// 利用BigInteger类计算阶乘
-		ArrayList list = new ArrayList();// 创建集合数组
+		ArrayList<BigInteger> list = new ArrayList<BigInteger>();// 创建集合数组
 		list.add(BigInteger.valueOf(1));// 往数组里添加一个数值
 		for (int i = list.size(); i <= num; i++) {
 			BigInteger lastfact = (BigInteger) list.get(i - 1);// 获得第一个元素

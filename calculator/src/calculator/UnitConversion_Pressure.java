@@ -7,15 +7,13 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.awt.Window.Type;
-import java.awt.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
 
 public class UnitConversion_Pressure extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

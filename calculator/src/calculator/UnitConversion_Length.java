@@ -3,10 +3,14 @@ package calculator;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.Window.Type;
 
 public class UnitConversion_Length extends JFrame implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

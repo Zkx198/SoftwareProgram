@@ -6,15 +6,14 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.awt.Window.Type;
-import java.awt.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
+
 
 public class CaloriesConsumptionCalculator extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -43,7 +42,7 @@ public class CaloriesConsumptionCalculator extends JFrame implements ActionListe
 	private TextArea textField;
 	private JLabel class1_Label_2;
 	private JLabel class2_Label_2;
-	private JComboBox cmb1, cmb3;
+	private JComboBox<String> cmb1, cmb3;
 	private JLabel weight_Label;
 	private JLabel blank1;
 	private JTextField weight_textField;
@@ -115,7 +114,7 @@ public class CaloriesConsumptionCalculator extends JFrame implements ActionListe
 		class1_Label_2 = new JLabel("\u65E5\u5E38\u6D3B\u52A8     ");
 		class1_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in1_Panel.add(class1_Label_2);
-		cmb1 = new JComboBox();
+		cmb1 = new JComboBox<String>();
 		cmb1.addActionListener(this);
 		cmb1.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb1.addItem("----------请选择----------");
@@ -166,7 +165,7 @@ public class CaloriesConsumptionCalculator extends JFrame implements ActionListe
 		class2_Label_2 = new JLabel("\u4F53\u80B2\u6D3B\u52A8     ");
 		class2_Label_2.setFont(new Font("隶书", Font.BOLD, 24));
 		in3_Panel.add(class2_Label_2);
-		cmb3 = new JComboBox();
+		cmb3 = new JComboBox<String>();
 		cmb3.setFont(new Font("隶书", Font.PLAIN, 20));
 		cmb3.addItem("----------请选择----------");
 		cmb3.addItem("以5分钟400米在操场上跑步/400米");

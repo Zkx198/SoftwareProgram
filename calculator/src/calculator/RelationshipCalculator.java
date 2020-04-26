@@ -2,17 +2,19 @@ package calculator;
 //ÕÅ¿­öÎ 2017111478
 import java.awt.event.*;
 import java.awt.*;
-import java.awt.Window.Type;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class RelationshipCalculator extends JFrame implements ActionListener{
     
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

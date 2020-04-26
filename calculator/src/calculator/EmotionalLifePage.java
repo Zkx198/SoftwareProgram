@@ -1,20 +1,20 @@
 package calculator;
 //张凯鑫 2017111478
 import java.awt.*;
-import java.awt.Window.Type;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.UIManager;
 public class EmotionalLifePage extends JFrame implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,10 +30,14 @@ public class EmotionalLifePage extends JFrame implements ActionListener{
 	
 	public EmotionalLifePage() {
 		setBackground(new Color(0, 0, 0));
-		JPanel input_Panel,in0_Panel,in1_Panel,in2_Panel,in3_Panel,in4_Panel,in5_Panel,intergration_Panel,result1_Panel,result2_Panel;
-		JLabel label_0,label_1,labei_2,label_3,label_4,label_5,blank2_Label,blank3_Label,lblNewLabel_4,lblNewLabel_5,lblNewLabel_3,
+		JPanel input_Panel,in0_Panel,in1_Panel,in2_Panel,in3_Panel,intergration_Panel,result1_Panel,result2_Panel;
+		JLabel label_0,label_3,label_4,blank2_Label,blank3_Label,lblNewLabel_4,lblNewLabel_3,
 		       lblNewLabel_2,lblNewLabel_1,illustration1_Label,illustration2_Label,illustration3_Label,illustration4_Label,illustration5_Label,
 		       label,lblX,label_2;
+		/*JPanel input_Panel,in0_Panel,in1_Panel,in2_Panel,in3_Panel,in4_Panel,in5_Panel,intergration_Panel,result1_Panel,result2_Panel;
+		JLabel label_0,label_1,labei_2,label_3,label_4,label_5,blank2_Label,blank3_Label,lblNewLabel_4,lblNewLabel_5,lblNewLabel_3,
+		       lblNewLabel_2,lblNewLabel_1,illustration1_Label,illustration2_Label,illustration3_Label,illustration4_Label,illustration5_Label,
+		       label,lblX,label_2;*/
 		JButton relation_Button,intimacy_Button,back_button;
 		setTitle("情感计算器");
 		setFont(new Font("Times New Roman", Font.PLAIN, 20));

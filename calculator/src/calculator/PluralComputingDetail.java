@@ -9,7 +9,8 @@ public class PluralComputingDetail{
 
     }
     public PluralComputingDetail(String str){
-        int  x ;String y;
+        int  x ;
+        //String y;
         String real = null, unreal = null;
         if(str.contains("i"))
         {
