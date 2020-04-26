@@ -58,7 +58,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		
 		label = new JLabel("\u590D\u6570\u5185\u7684\u6B63\u8D1F\u53F7\u8BF7\u6309+/-\u6309\u952E\uFF0C\u6309\u4E00\u6B21\u4E3A-\uFF0C\u4E24\u6B21\u4E3A+");
 		label.setForeground(Color.WHITE);
-		label.setFont(new Font("等线", Font.BOLD, 16));
+		label.setFont(new Font("楷体", Font.PLAIN, 16));
 		label.setPreferredSize(new Dimension(380, 35));
 		displayOutput_Panel_input.add(label);
 
@@ -66,7 +66,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		display_Textfield_input.setBackground(Color.DARK_GRAY);
 		display_Textfield_input.setPreferredSize(new Dimension(380, 40));
 		display_Textfield_input.setText("请输入复数,如1+1i");
-		display_Textfield_input.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 31));
+		display_Textfield_input.setFont(new Font("楷体", Font.BOLD | Font.ITALIC, 31));
 		displayOutput_Panel_input.add(display_Textfield_input);
 		plu_Frame.add(displayOutput_Panel_input, BorderLayout.NORTH);
 		plu_Frame.add(intergration_Panel, BorderLayout.SOUTH);
@@ -144,8 +144,8 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		equal_Button.setFont(fontOfKey);
 		dot_Button.setFont(fontOfKey);
 		negative_Button.setFont(fontOfKey);
-		i_Button.setFont(fontOfKey);
-		back_Button.setFont(fontOfKey);
+		i_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 19));
+		back_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 		i_Button.addActionListener(new Listener10());
 		dot_Button.addActionListener(new Listener11());
 		negative_Button.addActionListener(new Listener12());	
