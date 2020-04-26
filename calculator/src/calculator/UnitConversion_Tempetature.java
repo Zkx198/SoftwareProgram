@@ -40,7 +40,7 @@ public class UnitConversion_Tempetature extends JFrame implements ActionListener
 		setType(Type.UTILITY);
 		setForeground(Color.BLACK);
 		setSize(780, 480);
-		setLocation(200, 200);
+		setLocation(800, 200);
 		setResizable(true);
 		getContentPane().setLayout(new BorderLayout(3, 3));
 		

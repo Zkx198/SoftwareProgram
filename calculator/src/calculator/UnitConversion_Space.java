@@ -48,7 +48,7 @@ public class UnitConversion_Space extends JFrame implements ActionListener {
 		setType(Type.UTILITY);
 		setForeground(new Color(0, 0, 0));
 		setSize(780, 480);
-		setLocation(200, 200);
+		setLocation(800, 200);
 		setBackground(Color.LIGHT_GRAY);
 		setResizable(true);
 		setLayout(new BorderLayout(3, 0));

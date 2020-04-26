@@ -46,7 +46,7 @@ public class InequalitiesCalculator extends WindowAdapter implements ActionListe
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setForeground(new Color(0, 0, 0));
 		cal_Frame.setSize(420, 480);
-		cal_Frame.setLocation(200, 200);
+		cal_Frame.setLocation(800, 200);
 		cal_Frame.setBackground(Color.LIGHT_GRAY);
 		cal_Frame.setResizable(true);
 		cal_Frame.setLayout(new BorderLayout(5, 0));

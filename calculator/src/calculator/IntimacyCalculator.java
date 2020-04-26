@@ -44,7 +44,7 @@ public class IntimacyCalculator extends JFrame implements ActionListener {
 		setType(Type.UTILITY);
 		setForeground(Color.BLACK);
 		setSize(780, 480);
-		setLocation(200, 200);
+		setLocation(800, 200);
 		setResizable(true);
 		getContentPane().setLayout(new BorderLayout(3, 3));
 		
@@ -156,9 +156,10 @@ public class IntimacyCalculator extends JFrame implements ActionListener {
 		input_Panel.add(lblNewJLabel);
 		input_Panel.add(birthday_Panel,BorderLayout.SOUTH);
 		
-		tip_JLabel=new JLabel("\u6CE8\uFF1A\u672C\u8BA1\u7B97\u7ED3\u679C\u89E3\u91CA\u6743\u5F52\u751C\u7B52\u7EA2\u8336\u6240\u6709\u3002");
-		tip_JLabel.setForeground(new Color(0, 0, 139));
-		tip_JLabel.setFont(new Font("Dialog", Font.BOLD, 19));
+		tip_JLabel=new JLabel("  \u6CE8\uFF1A\u672C\u8BA1\u7B97\u7ED3\u679C\u89E3\u91CA\u6743\u5F52\u751C\u7B52\u7EA2\u8336\u6240\u6709\u3002");
+		tip_JLabel.setBackground(Color.DARK_GRAY);
+		tip_JLabel.setForeground(Color.WHITE);
+		tip_JLabel.setFont(new Font("¡• È", Font.BOLD | Font.ITALIC, 18));
 		tip_JLabel.setPreferredSize(new Dimension(370, 50));
 		
 		left_Panel.add(title_JLabel,BorderLayout.NORTH);
@@ -176,6 +177,7 @@ public class IntimacyCalculator extends JFrame implements ActionListener {
 		result_TextArea.setFont(new Font("Dialog", Font.PLAIN, 19));
 		result_TextArea.setPreferredSize(new Dimension(280, 240));
 		key_Panel=new JPanel(new GridLayout(1,4,6,12));
+		key_Panel.setOpaque(false);
 		key_Panel.setPreferredSize(new Dimension(290, 60));
 		equal_JButton=new JButton("≤‚À„");
 		equal_JButton.setBackground(Color.LIGHT_GRAY);

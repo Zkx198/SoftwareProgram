@@ -29,7 +29,7 @@ public class HexadecimalConversion {
 		Hex_frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Hex_frame.setForeground(Color.GRAY);
 		Hex_frame.setSize(420, 480);
-		Hex_frame.setLocation(200, 200);
+		Hex_frame.setLocation(800, 200);
 		Hex_frame.setBackground(Color.BLACK);
 		Hex_frame.setResizable(true);
 		Hex_frame.getContentPane().setLayout(new BorderLayout(3, 9));

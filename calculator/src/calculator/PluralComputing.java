@@ -39,7 +39,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		plu_Frame.setType(Type.UTILITY);
 		plu_Frame.setForeground(Color.WHITE);
 		plu_Frame.setSize(420, 480);
-		plu_Frame.setLocation(200, 200);
+		plu_Frame.setLocation(800, 200);
 		plu_Frame.setBackground(Color.BLACK);
 		plu_Frame.setResizable(true);
 		plu_Frame.setLayout(new BorderLayout(3, 1));

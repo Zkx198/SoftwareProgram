@@ -44,6 +44,7 @@ public class MainPage extends JFrame {
 		setTitle("ÌðÍ²ºì²è");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 780, 480);
+		setLocation(800, 200);
 		JPanel contentPane = new JPanel();
         contentPane.setLayout(new BorderLayout(3, 3));
         setContentPane(contentPane);
@@ -57,13 +58,22 @@ public class MainPage extends JFrame {
 		JPanel north = new JPanel();
         JPanel west = new JPanel();
         JPanel east = new JPanel();
+        JPanel south = new JPanel();
+        south.setOpaque(false);
         north.setOpaque(false);
         west.setOpaque(false);
         east.setOpaque(false);
       //  contain.add(east, BorderLayout.EAST);
 		contain.add(north, BorderLayout.NORTH);
+		contain.add(south, BorderLayout.SOUTH);
 		contain.add(west, BorderLayout.EAST);
-		north.setPreferredSize(new Dimension(750, 140));
+		north.setPreferredSize(new Dimension(750, 130));
+		south.setPreferredSize(new Dimension(750, 45));
+		
+		JLabel lblNewLabel_1 = new JLabel("                        \u672C\u8BA1\u7B97\u5668\u4EC5\u4E3A\u8F6F\u4EF6\u5DE5\u7A0B\u5B9E\u8DF5\u8BFE\u7A0B\u4F5C\u4E1A\u6240\u505A\uFF0C\u7248\u6743\u4EE5\u53CA\u89E3\u91CA\u6743\u5F52\u751C\u7B52\u5C0F\u7EC4\u6240\u6709\u3002");
+		lblNewLabel_1.setForeground(Color.LIGHT_GRAY);
+		lblNewLabel_1.setFont(new Font("Á¥Êé", Font.BOLD | Font.ITALIC, 15));
+		south.add(lblNewLabel_1);
 		west.setPreferredSize(new Dimension(250, 150));
 		
         
