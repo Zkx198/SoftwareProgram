@@ -339,7 +339,6 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 		result2_JPanel.add(back);
 		cal_Frame.add(input_JPanel,BorderLayout.EAST);
 		cal_Frame.add(intergration_JPanel,BorderLayout.WEST);
-	//	btg = new ButtonGroup();
 		
 		title_Label = new JLabel("   \u5EA6\u91CF\u8861\u8F6C\u6362\u5668                       ");
 		title_Label.setForeground(Color.WHITE);
