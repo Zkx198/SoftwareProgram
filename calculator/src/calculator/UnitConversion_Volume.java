@@ -279,7 +279,7 @@ public class UnitConversion_Volume extends JFrame implements ActionListener {
 			this.textField8.setText(Double.toString(result7));
 		}
 		// ¹«Ê¯
-		if (e.getActionCommand() == "        \u516C\u77F3(hl)        ") {
+		if (e.getActionCommand() == "     \u516C\u77F3>     ") {
 			double result = Double.parseDouble(textField2.getText());
 			this.result0 = result / 10;
 			this.result1 = result * 1;
@@ -319,7 +319,7 @@ public class UnitConversion_Volume extends JFrame implements ActionListener {
 			this.textField8.setText(Double.toString(result7));
 		}
 		//·ÖÉý
-		if (e.getActionCommand() == " \u78C5\u529B/\u82F1\u5C3A2>") {
+		if (e.getActionCommand() == "     \u5206\u5347>     ") {
 			double result = Double.parseDouble(textField4.getText());
 			this.result0 = result / 10000;
 			this.result1 = result / 1000;
