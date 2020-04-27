@@ -3,10 +3,14 @@ package calculator;
 import java.awt.*;
 
 import java.awt.event.*;
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
 import java.awt.Window.Type;
 
 import javax.swing.JLabel;
+import java.util.ArrayList;
 
 public class PluralComputing extends WindowAdapter implements ActionListener {
 	private Frame plu_Frame;
@@ -17,8 +21,8 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 	private Button plus_Button, minus_Button, multi_Button, div_Button, equal_Button, dot_Button, i_Button, negative_Button, back_Button;
 	private Button Del_Button, C_Button;
 	
-	private ArrayList<String> plural=new ArrayList<String>();
-	private ArrayList<String> symbol=new ArrayList<String>();	
+	private ArrayList plural=new ArrayList();
+	private ArrayList symbol=new ArrayList();	
 	Font fontOfNumber = new Font("华文行楷", Font.PLAIN, 26);
 	Font fontOfOutput = new Font("华文行楷", Font.PLAIN, 32);
 	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 18);
@@ -35,7 +39,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		plu_Frame.setType(Type.UTILITY);
 		plu_Frame.setForeground(Color.WHITE);
 		plu_Frame.setSize(420, 480);
-		plu_Frame.setLocation(800, 200);
+		plu_Frame.setLocationRelativeTo(null);
 		plu_Frame.setBackground(Color.BLACK);
 		plu_Frame.setResizable(true);
 		plu_Frame.setLayout(new BorderLayout(3, 1));
@@ -305,7 +309,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			String str = display_Textfield_input.getText();
-			if(str.endsWith("数"))
+			if(str.endsWith("i"))
 			{
 				display_Textfield_input.setText("7");
 			}
@@ -335,8 +339,7 @@ public class PluralComputing extends WindowAdapter implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			String str = display_Textfield_input.getText();
-			String str1=str.substring(0,str.length()-1);
-			if(str1=="i")
+			if(str.endsWith("i"))
 			{
 				display_Textfield_input.setText("9");
 			}

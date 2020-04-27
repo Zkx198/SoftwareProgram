@@ -37,7 +37,7 @@ public class EquationCalculator extends WindowAdapter implements ActionListener 
 		cal_Frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cal_Frame.setForeground(new Color(0, 0, 0));
 		cal_Frame.setSize(420, 480);
-		cal_Frame.setLocation(800, 200);
+		cal_Frame.setLocationRelativeTo(null);
 		cal_Frame.setBackground(new Color(0, 0, 0));
 		cal_Frame.setResizable(true);
 		cal_Frame.setLayout(new BorderLayout(5, 3));

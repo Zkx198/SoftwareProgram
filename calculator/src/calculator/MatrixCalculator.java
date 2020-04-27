@@ -54,7 +54,7 @@ public class MatrixCalculator extends WindowAdapter {
 		Matr_Frame.setSize(420, 480);
 		Matr_Frame.setBackground(Color.BLACK);
 		Matr_Frame.setResizable(true);
-		Matr_Frame.setLocation(800, 200);
+		Matr_Frame.setLocationRelativeTo(null);
 		Matr_Frame.setLayout(new BorderLayout(3,1));
 		
 		display_Panel= new Panel(new FlowLayout());

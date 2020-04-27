@@ -46,7 +46,7 @@ public class MainPage extends JFrame {
 		setTitle("ÌðÍ²ºì²è");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 780, 480);
-		setLocation(800, 200);
+		setLocationRelativeTo(null);
 		JPanel contentPane = new JPanel();
         contentPane.setLayout(new BorderLayout(3, 3));
         setContentPane(contentPane);

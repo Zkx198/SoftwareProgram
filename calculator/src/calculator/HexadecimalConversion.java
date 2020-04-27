@@ -9,7 +9,7 @@ public class HexadecimalConversion {
 	private Panel input_output_Panel,Hex_Panel, key_Panel, word_Panel,i_o_H_Panel;
 	private Button number1_Button, number2_Button, number3_Button, number4_Button, number5_Button, number6_Button, 
 	               number7_Button, number8_Button, number9_Button, number0_Button, numberA_Button, numberB_Button, 
-	               numberC_Button, numberD_Button, numberE_Button;
+	               numberC_Button, numberD_Button, numberE_Button,numberF_Button;
     private Button in_Binary_Button, out_Binary_Button,in_Octal_Button, out_Octal_Button,
                    in_Decimalism_Button, out_Decimalism_Button, in_Hexadecimal_Button, out_Hexadecimal_Button;
     private Button Del_Button, C_Button, Back_Button;
@@ -20,6 +20,7 @@ public class HexadecimalConversion {
 	Font fontOfNumber = new Font("华文行楷", Font.PLAIN, 30);
 	Font fontOfWord = new Font("隶书", Font.PLAIN, 20);
 	Font fontOfKey = new Font("Times New Roman", Font.ITALIC, 24);
+	private JLabel label;
 	
 	public  HexadecimalConversion(){
 		Hex_frame=new JFrame("进制转换计算器");
@@ -29,7 +30,7 @@ public class HexadecimalConversion {
 		Hex_frame.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		Hex_frame.setForeground(Color.GRAY);
 		Hex_frame.setSize(420, 480);
-		Hex_frame.setLocation(800, 200);
+		Hex_frame.setLocationRelativeTo(null);
 		Hex_frame.setBackground(Color.BLACK);
 		Hex_frame.setResizable(true);
 		Hex_frame.getContentPane().setLayout(new BorderLayout(3, 9));
@@ -43,8 +44,8 @@ public class HexadecimalConversion {
 		Hex_Panel.setPreferredSize(new Dimension(380, 80));
 		i_o_H_Panel=new Panel(new GridLayout(2,1,2,8));
 		i_o_H_Panel.setPreferredSize(new Dimension(295, 178));
-		key_Panel=new Panel(new GridLayout(3,5,6,7));
-		key_Panel.setPreferredSize(new Dimension(385, 230));
+		key_Panel=new Panel(new GridLayout(4,5,6,7));
+		key_Panel.setPreferredSize(new Dimension(385, 240));
 		
 		input_1 =new JLabel(" \u8F93\u5165");
 		input_1.setForeground(Color.WHITE);
@@ -140,12 +141,8 @@ public class HexadecimalConversion {
 		numberD_Button.setBackground(Color.DARK_GRAY);
 		numberE_Button = new Button("E");
 		numberE_Button.setBackground(Color.DARK_GRAY);
-		Del_Button = new Button("DEL");
-		Del_Button.setBackground(new Color(0, 51, 102));
-		Del_Button.setForeground(Color.WHITE);
-		C_Button = new Button("C");
-		C_Button.setBackground(new Color(0, 51, 102));
-		C_Button.setForeground(Color.WHITE);
+		numberF_Button = new Button("F");
+		numberF_Button.setBackground(Color.DARK_GRAY);
 		Back_Button = new Button("Back");
 		Back_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
 		Back_Button.setForeground(Color.WHITE);
@@ -165,26 +162,38 @@ public class HexadecimalConversion {
 		numberC_Button.setFont(fontOfKey);
 		numberD_Button.setFont(fontOfKey);
 		numberE_Button.setFont(fontOfKey);
-		Del_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
-		C_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 23));
+		numberF_Button.setFont(fontOfKey);
 		
 		key_Panel.add(number0_Button);
 		key_Panel.add(number1_Button);
 		key_Panel.add(number2_Button);
 		key_Panel.add(number3_Button);
-		key_Panel.add(number4_Button);
+		Del_Button = new Button("DEL");
+		Del_Button.setBackground(new Color(0, 51, 102));
+		Del_Button.setForeground(Color.WHITE);
+		Del_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
 		key_Panel.add(Del_Button);
+		Del_Button.addActionListener(new Listener24());
+		key_Panel.add(number4_Button);
 		key_Panel.add(number5_Button);
 		key_Panel.add(number6_Button);
 		key_Panel.add(number7_Button);
+		C_Button = new Button("C");
+		C_Button.setBackground(new Color(0, 51, 102));
+		C_Button.setForeground(Color.WHITE);
+		C_Button.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 23));
+		key_Panel.add(C_Button);
+		C_Button.addActionListener(new Listener25());
 		key_Panel.add(number8_Button);
 		key_Panel.add(number9_Button);
-		key_Panel.add(C_Button);
 		key_Panel.add(numberA_Button);
 		key_Panel.add(numberB_Button);
+		label = new JLabel("");
+		key_Panel.add(label);
 		key_Panel.add(numberC_Button);
 		key_Panel.add(numberD_Button);
 		key_Panel.add(numberE_Button);
+		key_Panel.add(numberF_Button);
 		key_Panel.add(Back_Button);
 		
 		in_Binary_Button.addActionListener(new Listener1());
@@ -210,8 +219,7 @@ public class HexadecimalConversion {
 		numberC_Button.addActionListener(new Listener21());
 		numberD_Button.addActionListener(new Listener22());
 		numberE_Button.addActionListener(new Listener23());
-		Del_Button.addActionListener(new Listener24());
-		C_Button.addActionListener(new Listener25());
+		numberF_Button.addActionListener(new Listener26());
 		Back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Hex_frame.setVisible(false);
@@ -745,6 +753,15 @@ public class HexadecimalConversion {
 			display_Textfield_output.setText("");
 			temp=0;
 			
+		}
+		
+	}
+	class Listener26 implements ActionListener{
+		 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			display_Textfield_input.setText(display_Textfield_input.getText()+"E");
 		}
 		
 	}

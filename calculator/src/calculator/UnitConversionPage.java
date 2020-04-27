@@ -31,7 +31,7 @@ public class UnitConversionPage extends JFrame implements ActionListener {
 		setType(Type.UTILITY);
 		setForeground(Color.BLACK);
 		setSize(780, 480);
-		setLocation(800, 200);
+		setLocationRelativeTo(null);
 		setResizable(true);
 		getContentPane().setLayout(new BorderLayout(3, 3));
 		

@@ -60,7 +60,7 @@ public class CaloriesConsumptionCalculator extends JFrame implements ActionListe
 		setType(Type.UTILITY);
 		setForeground(Color.BLACK);
 		setSize(780, 480);
-		setLocation(800, 200);
+		setLocationRelativeTo(null);
 		setBackground(Color.LIGHT_GRAY);
 		setResizable(true);
 		setLayout(new BorderLayout(3, 3));

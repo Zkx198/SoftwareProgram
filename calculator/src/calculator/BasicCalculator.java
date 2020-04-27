@@ -41,7 +41,7 @@ public class BasicCalculator extends WindowAdapter implements ActionListener {
 		cal_Frame.setType(Type.UTILITY);
 		cal_Frame.setForeground(new Color(0, 0, 0));
 		cal_Frame.setSize(420, 480);
-		cal_Frame.setLocation(800, 200);
+		cal_Frame.setLocationRelativeTo(null);
 		cal_Frame.setBackground(Color.BLACK);
 		cal_Frame.setResizable(true);
 		cal_Frame.setLayout(new BorderLayout(3, 4));
