@@ -357,10 +357,11 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 		cmb8.addItem("珍珠奶茶1杯");// 460
 		in8_Panel.add(cmb8);
 		
-		button = new Button("\u6DFB\u52A0\u5C0F\u5403");
+		button = new Button("添加小吃");
+		button.addActionListener(this);
 		button.setActionCommand("\u6DFB\u52A0\u5C0F\u5403");
 		button.setFont(new Font("隶书", Font.BOLD, 18));
-		button.setBackground(SystemColor.controlHighlight);
+		button.setBackground(UIManager.getColor("Button.light"));
 		in8_Panel.add(button);
 
 		result1_Panel = new JPanel();
@@ -852,7 +853,7 @@ public class FoodCaloriesCalculator extends JFrame implements ActionListener {
 			}
 		}
 		//"添加小吃"
-		if (e.getActionCommand() == "\u6DFB\u52A0\u5C0F\u5403") {
+		if (e.getActionCommand() == "添加小吃") {
 			int choose_index = cmb8.getSelectedIndex() + 1;
 			String choose8 = (String) cmb8.getSelectedItem().toString();
 			this.choose_result = this.choose_result + "+" + choose8;
