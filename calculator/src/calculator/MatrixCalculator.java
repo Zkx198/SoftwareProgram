@@ -381,7 +381,7 @@ public class MatrixCalculator extends WindowAdapter {
 					}
 					output_string=output_string+"\n";
 				}
-				display_output_TextField.setText(output_string);
+				display_output_TextField.setText("A的逆矩阵为\n"+output_string);
 			}
 		}	
 	}				
@@ -411,7 +411,7 @@ public class MatrixCalculator extends WindowAdapter {
 				}
 				output_string=output_string+"\n";
 			}
-			display_output_TextField.setText(output_string);
+			display_output_TextField.setText("A的转置为\n"+output_string);
 		}
 	}
 	public void Determinant()
@@ -547,7 +547,6 @@ public class MatrixCalculator extends WindowAdapter {
 							}
 							break;
 						}
-						//jtf.setText("    A的秩R(A)="+String.valueOf(i));
 					}
 				}
 				output_string = "";
@@ -562,7 +561,7 @@ public class MatrixCalculator extends WindowAdapter {
 					}
 					output_string=output_string+"\n";
 				}
-				display_output_TextField.setText(output_string);
+				display_output_TextField.setText("A的伴随矩阵为\n"+output_string);
 			}
 		}	
  	}
@@ -694,7 +693,7 @@ public class MatrixCalculator extends WindowAdapter {
 			}
 			output_string=output_string+"\n";
 		}
-		display_output_TextField.setText(output_string);
+		display_output_TextField.setText("和为\n"+output_string);
 	}
  	public void Mins()
  	{
@@ -715,7 +714,7 @@ public class MatrixCalculator extends WindowAdapter {
 			}
 			output_string=output_string+"\n";
 		}
-		display_output_TextField.setText(output_string);
+		display_output_TextField.setText("差为\n"+output_string);
  	}
  	public void Multiply()
  	{
@@ -743,7 +742,7 @@ public class MatrixCalculator extends WindowAdapter {
 			}
 			output_string=output_string+"\n";
 		}
-		display_output_TextField.setText(output_string);
+		display_output_TextField.setText("乘积为\n"+output_string);
  	}
  	public void fracktion(double num)
 	{
@@ -878,6 +877,7 @@ public class MatrixCalculator extends WindowAdapter {
 				for(int j=0;j<10;j++)
 					bridge[i][j]=0;
 			a=b=0;
+			input_TextField.setText("");
 		}	
 	}
 	class Listener_del implements ActionListener{		 
@@ -921,6 +921,7 @@ public class MatrixCalculator extends WindowAdapter {
 				ToMatrix(input_TextField.getText().trim());
 				Inverse();
 			}
+			input_TextField.setText("");
 			for(int i=0;i<5;i++)
 				for(int j=0;j<5;j++)
 					matrix_A[i][j]=matrix_B[i][j]=matrix_result[i][j]=0;
@@ -937,6 +938,7 @@ public class MatrixCalculator extends WindowAdapter {
 			// TODO Auto-generated method stub
 			ToMatrix(input_TextField.getText().trim());
 			Transpose();
+			input_TextField.setText("");
 			for(int i=0;i<5;i++)
 				for(int j=0;j<5;j++)
 					matrix_A[i][j]=matrix_B[i][j]=matrix_result[i][j]=0;
@@ -961,6 +963,7 @@ public class MatrixCalculator extends WindowAdapter {
 				ToMatrix(input_TextField.getText().trim());
 				Determinant();
 			}
+			input_TextField.setText("");
 			for(int i=0;i<5;i++)
 				for(int j=0;j<5;j++)
 					matrix_A[i][j]=matrix_B[i][j]=matrix_result[i][j]=0;
@@ -985,6 +988,7 @@ public class MatrixCalculator extends WindowAdapter {
 				ToMatrix(input_TextField.getText().trim());
 				Adjoint();
 			}
+			input_TextField.setText("");
 			for(int i=0;i<5;i++)
 				for(int j=0;j<5;j++)
 					matrix_A[i][j]=matrix_B[i][j]=matrix_result[i][j]=0;
@@ -1002,6 +1006,7 @@ public class MatrixCalculator extends WindowAdapter {
 			matrix_A[i][i]=1;
 			ToMatrix(input_TextField.getText().trim());
 			Rank();
+			input_TextField.setText("");
 			for(int i=0;i<5;i++)
 				for(int j=0;j<5;j++)
 					matrix_A[i][j]=matrix_B[i][j]=matrix_result[i][j]=0;
@@ -1024,6 +1029,7 @@ public class MatrixCalculator extends WindowAdapter {
 				ToMatrix(input_TextField.getText().trim());
 				Trace();
 			}
+			input_TextField.setText("");
 			for(int i=0;i<5;i++)
 				for(int j=0;j<5;j++)
 					matrix_A[i][j]=matrix_B[i][j]=matrix_result[i][j]=0;
@@ -1040,6 +1046,7 @@ public class MatrixCalculator extends WindowAdapter {
 			ToMatrix(input_TextField.getText().trim());
 			input_TextField.setText("");
 			symbol=1;
+			input_TextField.setText("");
 		}	
 	}
 	class Listener_mins implements ActionListener{		 
