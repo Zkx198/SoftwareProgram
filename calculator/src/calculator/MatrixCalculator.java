@@ -59,12 +59,13 @@ public class MatrixCalculator extends WindowAdapter {
 		
 		display_Panel= new Panel(new FlowLayout());
 		display_Panel.setPreferredSize(new Dimension(70, 120));
-		display_input_TextField=new TextArea("请选择矩阵阶数\n并在下方输入矩阵，\n用逗号分隔开");
+		display_input_TextField=new TextArea("\u8BF7\u9009\u62E9\u77E9\u9635\u9636\u6570\r\n\u5E76\u5728\u4E0B\u65B9\u8F93\u5165\u77E9\u9635\uFF0C\r\n\u7528\u9017\u53F7\u5206\u9694\u5F00\r\n\u518D\u6B21\u8BA1\u7B97\u9700\u91CD\u65B0\u8F93\u5165");
 		display_input_TextField.setFont(new Font("楷体", Font.PLAIN, 18));
 		display_input_TextField.setPreferredSize(new Dimension(187, 112));
 		display_input_TextField.setBackground(Color.GRAY);
 		display_input_TextField.setEditable(false);
 		display_output_TextField=new TextArea("结果");
+		display_output_TextField.setFont(new Font("楷体", Font.PLAIN, 18));
 		display_output_TextField.setPreferredSize(new Dimension(187, 112));
 		display_output_TextField.setBackground(Color.GRAY);
 		display_output_TextField.setEditable(false);
